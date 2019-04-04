@@ -1,0 +1,82 @@
+// +--------+
+// | NAVBAR |
+// +--------+
+
+.navbar {
+  box-shadow: inherit;
+  transition: all .6s ease;
+}
+
+.navbar-scroll {
+  box-shadow: 0 10px 30px 0 rgba(25,45,100,.08);
+  background-color: $color-white;
+}
+
+// +--------+
+// | COMMUN |
+// +--------+
+
+.section {
+  padding: 110px 15px;
+}
+
+.overlay-hp {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .5;
+  background: $color-secondary;
+}
+
+.border-b {
+  border: none;
+
+  &:before {
+    content : "";
+    position: absolute;
+    left    : 0;
+    height  : 1px;
+    width   : 30%;
+    border-bottom: 2px solid $color-info;
+  }
+}
+
+// +-----------+
+// | HOME-PAGE |
+// +-----------+
+
+.circle-offre {
+  border-radius: 50%;
+  @include size(260px);
+  padding: 15px;
+
+  .number {
+    text-shadow: inherit;
+    font-size: 40px !important;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .circle-offre {
+    @include size(220px);
+    padding: 10px;
+
+    i {
+      font-size: 50px;
+    }
+
+    .number {
+      font-size: 30px !important;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .circle-offre {
+    @include size(200px);
+  }
+}
+
+

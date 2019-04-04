@@ -1,0 +1,86 @@
+// +------+
+// | TYPO |
+// +------+
+
+h1, h2, h3, h4, h5, h6{
+  font-family: $font-title !important;
+  letter-spacing: 1px;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+// HP
+
+.f-h4 {
+  @extend h4;
+}
+
+.f-h5 {
+  @extend h5;
+}
+
+// font-size
+
+@include media-breakpoint-up(xs) { html {font-size: 14px !important;} }
+@include media-breakpoint-up(sm) { html {font-size: 14px !important;} }
+@include media-breakpoint-up(md) { html {font-size: 15px !important;} }
+@include media-breakpoint-up(lg) { html {font-size: 16px !important;} }
+@include media-breakpoint-up(xl) { html {font-size: 16px !important;} }
+
+// display-4
+
+@include media-breakpoint-up(xs) { .display-4 {font-size: 2.2rem !important;  } }
+@include media-breakpoint-up(sm) { .display-4 {font-size: 2.2rem !important;  } }
+@include media-breakpoint-up(md) { .display-4 {font-size: 2.5rem !important;  } }
+@include media-breakpoint-up(lg) { .display-4 {font-size: 3.5rem !important;  } }
+@include media-breakpoint-up(xl) { .display-4 {font-size: 3.5rem !important;  } }
+
+// h1
+
+@include media-breakpoint-up(xs) { h1 {font-size: 1.8rem !important;  } }
+@include media-breakpoint-up(sm) { h1 {font-size: 1.8rem !important;  } }
+@include media-breakpoint-up(md) { h1 {font-size: 2.2rem !important;  } }
+@include media-breakpoint-up(lg) { h1 {font-size: 2.5rem !important;  } }
+@include media-breakpoint-up(xl) { h1 {font-size: 2.5rem !important;  } }
+
+// h2
+
+@include media-breakpoint-up(xs) { h2 {font-size: 1.6rem !important;  } }
+@include media-breakpoint-up(sm) { h2 {font-size: 1.6rem !important;  } }
+@include media-breakpoint-up(md) { h2 {font-size: 1.8rem !important;  } }
+@include media-breakpoint-up(lg) { h2 {font-size: 2rem !important;  } }
+@include media-breakpoint-up(xl) { h2 {font-size: 2rem !important;  } }
+
+// h3
+
+@include media-breakpoint-up(xs) { h3 {font-size: 1.45rem !important;  } }
+@include media-breakpoint-up(sm) { h3 {font-size: 1.45rem !important;  } }
+@include media-breakpoint-up(md) { h3 {font-size: 1.55rem !important;  } }
+@include media-breakpoint-up(lg) { h3 {font-size: 1.75rem !important;  } }
+@include media-breakpoint-up(xl) { h3 {font-size: 1.75rem !important;  } }
+
+// h4
+
+@include media-breakpoint-up(xs) { h4 {font-size: 1.2rem !important;  } }
+@include media-breakpoint-up(sm) { h4 {font-size: 1.2rem !important;  } }
+@include media-breakpoint-up(md) { h4 {font-size: 1.3rem !important;  } }
+@include media-breakpoint-up(lg) { h4 {font-size: 1.5rem !important;  } }
+@include media-breakpoint-up(xl) { h4 {font-size: 1.5rem !important;  } }
+
+// h5
+
+@include media-breakpoint-up(xs) { h5 {font-size: 1.1rem !important;  } }
+@include media-breakpoint-up(sm) { h5 {font-size: 1.1rem !important;  } }
+@include media-breakpoint-up(md) { h5 {font-size: 1.15rem !important;  } }
+@include media-breakpoint-up(lg) { h5 {font-size: 1.25rem !important;  } }
+@include media-breakpoint-up(xl) { h5 {font-size: 1.25rem !important;  } }
+
+// number
+
+@include media-breakpoint-up(xs) { .number {font-size: 40px !important;} }
+@include media-breakpoint-up(sm) { .number {font-size: 40px !important;} }
+@include media-breakpoint-up(md) { .number {font-size: 50px !important;} }
+@include media-breakpoint-up(lg) { .number {font-size: 60px !important;} }
+@include media-breakpoint-up(xl) { .number {font-size: 60px !important;} }

@@ -1,0 +1,49 @@
+// +----------------+
+// |  MODAL SIDEBAR |
+// +----------------+
+
+// Modal Panel: Right
+$header-nav-height: 66px;
+$modal-height: calc(100vh - #{$header-nav-height});
+
+.modal-sidebar.modal {
+  .modal-lg {
+    width: 50%;
+  }
+
+  min-height:100vh;
+  &.modal-right-pane {
+    .modal-dialog {
+      min-height: $modal-height;
+    }
+
+    &.show .modal-dialog {
+      transform: translate(0, 0);
+    }
+
+    .modal-content {
+      min-height:100vh;
+    }
+  }
+
+  .modal-body {
+    overflow-y: auto;
+  }
+
+  &.modal-right-pane {
+    .modal-dialog {
+      transform: translate(100%, 0);
+      margin: 0 0 0 auto;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    .modal-lg {
+      width: 80%;
+    }
+  }
+}
+
+.modal-content {
+  animation: pulse .4s ease-in-out;
+}

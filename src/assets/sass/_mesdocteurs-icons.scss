@@ -1,0 +1,309 @@
+/* ICONES GENERALES */
+
+//$mesdocteurs-icons: "../../../assets/fonts" !default;
+//$md-version: "1.0.0" !default;
+
+@font-face {
+  font-family: 'mesdocteurs-icons';
+  src: url('#{$mesdocteurs-icons}/mesdocteurs-icons.eot?v=#{$md-version}');
+  src: url('#{$mesdocteurs-icons}/mesdocteurs-icons.eot?#iefix&v=#{$md-version}') format('embedded-opentype'),
+  url('#{$mesdocteurs-icons}/mesdocteurs-icons.woff?v=#{$md-version}') format('woff'),
+  url('#{$mesdocteurs-icons}/mesdocteurs-icons.ttf?v=#{$md-version}') format('truetype'),
+  url('#{$mesdocteurs-icons}/mesdocteurs-icons.svg?v=#{$md-version}#fontawesomeregular') format('svg');
+  //  src: url('#{$fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'mesdocteurs-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+  content: "\e907";
+}
+.icon-sound:before {
+  content: "\e900";
+}
+.icon-add:before {
+  content: "\e600";
+}
+.icon-bell:before {
+  content: "\e601";
+}
+.icon-book:before {
+  content: "\e602";
+}
+.icon-clock:before {
+  content: "\e603";
+}
+.icon-credit-card:before {
+  content: "\e604";
+}
+.icon-credit:before {
+  content: "\e605";
+}
+.icon-delete:before {
+  content: "\e606";
+}
+.icon-email:before {
+  content: "\e607";
+}
+.icon-eye:before {
+  content: "\e608";
+}
+.icon-file:before {
+  content: "\e609";
+}
+.icon-help:before {
+  content: "\e60a";
+}
+.icon-home:before {
+  content: "\e60b";
+}
+.icon-informations:before {
+  content: "\e60c";
+}
+.icon-list:before {
+  content: "\e60d";
+}
+.icon-lock:before {
+  content: "\e60e";
+}
+.icon-offer-eco:before {
+  content: "\e60f";
+}
+.icon-offer-standard:before {
+  content: "\e610";
+}
+.icon-picture:before {
+  content: "\e611";
+}
+.icon-sign-out:before {
+  content: "\e612";
+}
+.icon-star:before {
+  content: "\e613";
+}
+.icon-stats:before {
+  content: "\e614";
+}
+.icon-talk:before {
+  content: "\e615";
+}
+.icon-clip:before {
+  content: "\e616";
+}
+.icon-user:before {
+  content: "\e617";
+}
+.icon-warning:before {
+  content: "\e618";
+}
+.icon-calendar:before {
+  content: "\e619";
+}
+.icon-clock-2:before {
+  content: "\e61a";
+}
+.icon-diplome:before {
+  content: "\e61b";
+}
+.icon-user-doe:before {
+  content: "\e61c";
+}
+.icon-offer-15:before {
+  content: "\e61d";
+}
+.icon-doctors:before {
+  content: "\e61e";
+}
+.icon-directions:before {
+  content: "\e61f";
+}
+.icon-star-full:before {
+  content: "\e620";
+}
+.icon-offer-24:before {
+  content: "\e901";
+}
+.icon-md-specialist:before {
+  content: "\e902";
+}
+.icon-audio:before {
+  content: "\e903";
+}
+.icon-rules:before {
+  content: "\e904";
+}
+.icon-visio-off:before {
+  content: "\e905";
+}
+.icon-visio:before {
+  content: "\e906";
+}
+
+/* ICONES SPECIALITES */
+
+//$wcp-icones: "../../../assets/fonts" !default;
+//$wcp-version: "1.0.0" !default;
+
+@font-face {
+  font-family: 'wcp-icones-2';
+  src: url('#{$mesdocteurs-icons}/wcp-icones-2.eot?v=#{$md-version}');
+  src: url('#{$mesdocteurs-icons}/wcp-icones-2.eot?#iefix&v=#{$md-version}') format('embedded-opentype'),
+  url('#{$mesdocteurs-icons}/wcp-icones-2.woff?v=#{$md-version}') format('woff'),
+  url('#{$mesdocteurs-icons}/wcp-icones-2.ttf?v=#{$md-version}') format('truetype'),
+  url('#{$mesdocteurs-icons}/wcp-icones-2.svg?v=#{$md-version}#fontawesomeregular') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-2-"], [class*=" icon-2-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'wcp-icones-2' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-2-specialiste:before {
+  content: "\e903";
+}
+.icon-2-pediatrie-usage:before {
+  content: "\e905";
+}
+.icon-2-vaccination-usage:before {
+  content: "\e90a";
+}
+.icon-2-diabetique-usage:before {
+  content: "\e90b";
+}
+.icon-2-gynecologie-usage:before {
+  content: "\e90c";
+}
+.icon-2-dermatologie-usage:before {
+  content: "\e90d";
+}
+.icon-2-addiction:before {
+  content: "\e600";
+}
+.icon-2-allergologie:before {
+  content: "\e601";
+}
+.icon-2-cancerologie:before {
+  content: "\e602";
+}
+.icon-2-cardiologie:before {
+  content: "\e603";
+}
+.icon-2-dentaire:before {
+  content: "\e604";
+}
+.icon-2-dermatologie:before {
+  content: "\e605";
+}
+.icon-2-endocrinologie:before {
+  content: "\e606";
+}
+.icon-2-gastro:before {
+  content: "\e607";
+}
+.icon-2-grossesse:before {
+  content: "\e608";
+}
+.icon-2-homeopathie:before {
+  content: "\e609";
+}
+.icon-2-immunologie:before {
+  content: "\e60a";
+}
+.icon-2-neurologie:before {
+  content: "\e60b";
+}
+.icon-2-nutrition:before {
+  content: "\e60c";
+}
+.icon-2-orthopedie:before {
+  content: "\e60d";
+}
+.icon-2-pediatrie:before {
+  content: "\e60e";
+}
+.icon-2-pharmacologie:before {
+  content: "\e60f";
+}
+.icon-2-psychiatrie:before {
+  content: "\e610";
+}
+.icon-2-psychologie:before {
+  content: "\e611";
+}
+.icon-2-rhumatologie:before {
+  content: "\e612";
+}
+.icon-2-sexualite:before {
+  content: "\e613";
+}
+.icon-2-sommeil:before {
+  content: "\e614";
+}
+.icon-2-immunologie-2:before {
+  content: "\e615";
+}
+.icon-2-ophtalmologie:before {
+  content: "\e616";
+}
+.icon-2-ORL:before {
+  content: "\e617";
+}
+.icon-2-others:before {
+  content: "\e618";
+}
+.icon-2-medecine-generale:before {
+  content: "\e900";
+}
+.icon-2-cancerologie-2:before {
+  content: "\e901";
+}
+.icon-2-biologie-medicale:before {
+  content: "\e902";
+}
+.icon-2-chirurgie-esthetique:before {
+  content: "\e904";
+}
+.icon-2-geriatrie:before {
+  content: "\e906";
+}
+.icon-2-medecine-sport:before {
+  content: "\e907";
+}
+.icon-2-stomatologie:before {
+  content: "\e908";
+}
+.icon-2-radiologie:before {
+  content: "\e909";
+}
+.icon-2-urologie:before {
+  content: "\e910";
+}
+

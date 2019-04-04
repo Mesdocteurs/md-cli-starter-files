@@ -1,0 +1,101 @@
+// +---------+
+// |  TABLE  |
+// +---------+
+
+.thead-default th {
+  background-color: $color-blue-normal;
+  color: $color-white;
+}
+
+.table td {
+  border-bottom: 1px solid $color-blue-normal;
+}
+
+.table-btn {
+  @include box_shadow(1);
+
+  &:hover {
+    @include box_shadow(2);
+    animation: pulse .4s forwards;
+    opacity: 0.8;
+  }
+}
+
+// +---------------+
+// |  TABLE admin  |
+// +---------------+
+
+.ngx-datatable.material {
+  background: #FFF;
+  box-shadow: none;
+  border: 1px solid $color-grey-normal;
+
+  .datatable-icon-right:before, .datatable-icon-down:before {
+    font-size: 30px;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+    .dropdown {
+      position: absolute;
+      z-index : 999; //some high value
+    }
+
+    .dropdown-item {
+      font-size: 14px;
+
+      &:hover {
+        background-color: $color-primary;
+      }
+    }
+
+    .dropdown-menu {
+      padding: 0;
+      margin: 0;
+    }
+
+  .datatable-row-group {
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+}
+
+.ngx-datatable.material .datatable-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background-color: $color-secondary;
+
+  .datatable-header-cell div {
+    color: $color-white;
+  }
+}
+
+.ngx-datatable.material .datatable-footer .datatable-pager li.active a {
+  background-color: $color-yellow-light !important;
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+  color:  $color-blue-normal !important;
+}
+
+.ngx-datatable .datatable-body .datatable-body-row ,.datatable-row-detail {
+  border-bottom: 1px solid $color-grey-light;
+}
+
+.ngx-datatable.material .datatable-body .datatable-row-detail {
+  background-color: $color-grey-lighter;
+}
+
+.ngx-datatable.material .datatable-footer {
+  border-top: none !important;
+}
+
+.datatable-body-row:hover, .datatable-row-group:hover {
+  background-color:  white !important;
+  color: $color-secondary !important;
+}
+
+

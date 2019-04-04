@@ -1,0 +1,286 @@
+// +--------+
+// | GLOBAL |
+// +--------+
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  font-family: $font-content;
+  padding: 0; margin: 0;
+}
+
+// hr & border
+
+hr {
+  border: none !important;
+  margin-top: -1px !important;
+  height: 1px !important;
+  background-image: linear-gradient(90deg, transparent, $color-grey-normal, transparent) !important;
+}
+
+.hr-2 {
+  @extend .hr-2;
+  background-image: linear-gradient(90deg, transparent, $color-white, transparent) !important;
+}
+
+.hr-3 {
+  @extend .hr-2;
+  background-image: linear-gradient(90deg, transparent, $color-grey-normal, transparent) !important;
+}
+
+.hr-4 {
+  @extend .hr-2;
+  background-image: linear-gradient(90deg, transparent, $color-white, transparent) !important;
+}
+
+.border-grey {
+  border: 1px solid $color-grey-light !important;
+}
+
+.border-b {
+  border-bottom: 1px solid $color-grey-lighter;
+}
+
+.border-t {
+  border-top: 1px solid $color-grey-lighter;
+}
+
+.cut-text {
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+// list style none
+
+ul {
+  list-style-type: none;
+}
+
+// footer bottom fixed
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.mh-vh-100 {
+  min-height: 100vh;
+}
+
+.text-muted-w {
+  color: $color-white !important;
+  font-size: 10px;
+}
+
+// logo
+
+.logo-nav {
+  width: 140px;
+}
+@include media-breakpoint-down(sm) {
+  .logo-nav {width: 120px;}
+}
+
+// +----------+
+// | BASELINE |
+// +----------+
+
+.baseline {
+  font-family: $font-content !important;
+  font-size: 11px !important;
+  font-weight: 700;
+  color: #B9BDBE;
+  margin-left: 60px;
+  margin-top: -8px;
+}
+
+@include media-breakpoint-up(sm) {
+  #logo-hp img {margin: 10px auto; max-height: 30px; } }
+
+@include media-breakpoint-down(sm) {
+  .baseline {display: none; }
+  #logo-hp {height: 50px;} }
+
+// +--------+
+// | SHADOW |
+// +--------+
+
+.s-1 {
+  @include box_shadow(1);
+}
+.s-2 {
+  @include box_shadow(2);
+}
+.s-3 {
+  @include box_shadow(3);
+}
+.s-4 {
+  @include box_shadow(4);
+}
+.s-5 {
+  @include box_shadow(5);
+}
+
+.s-nav {
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+}
+
+// +------------+
+// | IMG UPLOAD |
+// +------------+
+
+.image-upload {
+  img {
+    width: 80px;
+  }
+}
+
+// +------------+
+// | ROUND INFO |
+// +------------+
+
+.round-info {
+  @include size(60px);
+  top: 20px; right: 20px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+// +---------+
+// | TOOLTIP |
+// +---------+
+
+.tooltip-inner {
+  @include box_shadow (1);
+  background-color: theme-color("secondary");
+  margin-bottom: 10px;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow, .tooltip.bs-tooltip-top .arrow {
+  margin-bottom: 10px;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before, .tooltip.bs-tooltip-top .arrow::before {
+  border-top-color: theme-color("secondary");
+}
+
+// +-----------------+
+// | HP INFO SERVICE |
+// +-----------------+
+
+//.info-s {
+//
+//  i {
+//    color: theme-color-level(primary, -5);
+//  }
+//
+//  i,p {
+//    transition: all .3s ease-out;
+//  }
+//
+//  &:hover {
+//    i {
+//      transform: translate(0, -5px);
+//      color: theme-color("primary");
+//    }
+//    p.text-muted {
+//      transform: translate(0, +5px);
+//      color: $color-blue-normal !important;
+//    }
+//  }
+//
+//  .hvrcenter:before {
+//    height: 1px;
+//  }
+//}
+
+// +----------------+
+// |  POLICE SHADOW |
+// +----------------+
+
+.number {
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.42);
+}
+
+// +---------------------+
+// |  ICON CIRCLE RATING |
+// +---------------------+
+
+.rating-congrat {
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  background: theme-color("primary");
+  text-align: center;
+
+  i {
+    color: $color-white;
+    line-height: 80px;
+  }
+}
+
+// +------------------+
+// | OVERLAY - LOADER |
+// +------------------+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+  opacity: 0.7;
+}
+
+.overlay-content {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+// electrocardiogramme (loader)
+
+.beat-loader{
+  stroke: $color-info;
+  stroke-dasharray: 175;
+  stroke-dashoffset: 350%;
+  animation: draw 1.4s linear;
+  animation-iteration-count: infinite;
+}
+
+// animation electrocardiogramme (loader)
+
+@keyframes draw {
+  to{
+    stroke-dashoffset: 0;
+  }
+}
+
+// Tronquer le text à 2 lignes
+
+.text-overflow {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}
+
+// pointer class
+
+.pointer {
+  cursor: pointer;
+}

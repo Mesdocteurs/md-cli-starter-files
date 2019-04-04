@@ -1,0 +1,107 @@
+.dropdown-menu {
+  background-color: theme-color-level(secondary, -2);
+  @include box_shadow(3);
+  border: none;
+
+  .dropdown-item {
+    color: $color-white;
+  }
+
+  .btn-light {
+    color: $color-grey-lighter;
+    border-radius: 50%;
+  }
+
+  .bg-light {
+    background-color: theme-color-level(secondary, -2) !important;
+  }
+
+  .btn-link {
+    font-weight: 200 !important;
+    color: $color-white;
+  }
+
+  .bg-primary {
+    @include box_shadow(2);
+    color: $color-blue-normal!important;
+  }
+
+  .text-info {
+    color: $color-white !important;
+  }
+
+  .text-muted {
+    color: $color-white !important;
+  }
+
+  .btn-light:hover {
+    color: $color-blue-light;
+    background-color: $color-primary !important;
+    border-color: $color-white !important;
+  }
+
+
+  .btn.btn-link,
+  .navbar .navbar-nav>a.btn.btn-link {
+    color: $color-grey-lighter !important;
+  }
+
+  //.btn.btn-link:hover {
+  //  background-color: transparent;
+  //  color: theme-color-level(primary, -8) !important;
+  //  text-decoration: none;
+  //  box-shadow: none;
+  //}
+
+  .btn.btn-link:focus,
+  .btn.btn-link:active {
+    color: $color-blue-normal !important;
+  }
+
+  .btn-link {
+    border: 0;
+    padding: 0.5rem 0.7rem;
+    background-color: transparent;
+  }
+}
+
+.datepicker {
+  padding: 8px 6px;
+  border-radius: 4px;
+  direction: ltr;
+  transform: translate3d(0, -40px, 0);
+  transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1) 0s, opacity 0.3s ease 0s, height 0s linear 0.35s;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  visibility: hidden;
+  display: block;
+  width: 254px;
+  max-width: 254px;
+}
+
+//.datepicker.datepicker-primary table tr td.active.active div, .datepicker.datepicker-primary table tr td.active:hover.active div {
+//  background-color: $color-white;
+//}
+
+.ngb-dp-header[_ngcontent-c7] {
+  background-color:  $color-blue-normal!important;
+}
+
+//.datepicker.datepicker-primary th, .datepicker.datepicker-primary .day div, .datepicker.datepicker-primary table tr td span {
+//  color: #FFFFFF;
+//}
+
+.datepicker .day div,
+.datepicker th {
+  transition: all 300ms ease 0s;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 2.2;
+  border-radius: 50%;
+  font-weight: 300;
+  font-size: 14px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}

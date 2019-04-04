@@ -1,0 +1,49 @@
+// +-------------+
+// |  ACCORDION  |
+// +-------------+
+
+.doctor-accordion {
+
+  .card-header {
+    &:hover {
+      background-color: $color-grey-lighter;
+    }
+  }
+
+  .card-body {
+    border-bottom: 1px solid $color-grey-lighter;
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .card .active {
+    .fa-chevron-down {
+      transition: .3s transform ease-in-out;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+// +---------------+
+// |  TABLE DOCTOR |
+// +---------------+
+
+.tab-doctor {
+  .nav-tabs .nav-item.show .nav-link {
+    background-color: $color-secondary;
+  }
+
+  .nav-tabs .nav-item {
+    text-transform: uppercase;
+
+    a {
+      color: $color-text-grey;
+    }
+  }
+
+  .nav-tabs .nav-link.active {
+    background-color: $color-secondary;
+    color: $color-white;
+    font-weight: 700;
+  }
+}

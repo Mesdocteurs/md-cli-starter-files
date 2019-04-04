@@ -1,0 +1,49 @@
+// // bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// // animations
+@import '~animate.css/animate.min.css';
+
+// // mixins
+@import "../../assets/sass/mixins/mixins";
+
+// // Global
+@import "global";
+
+// // icons
+@import '~font-awesome/scss/font-awesome';
+@import './mesdocteurs-icons';
+
+// // autres
+@import '~nouislider/distribute/nouislider.min.css';
+@import '~angular2-lightbox/lightbox.css';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+// @import '~angular2-busy/build/style/busy.css';
+
+
+// // Components
+@import "../../assets/sass/components/fonts";
+@import "../../assets/sass/components/background";
+@import "../../assets/sass/components/menu";
+@import "../../assets/sass/components/footer";
+@import "../../assets/sass/components/anim";
+@import "../../assets/sass/components/buttons";
+@import "../../assets/sass/components/card";
+@import "../../assets/sass/components/form";
+@import "../../assets/sass/components/nouislider-custom";
+@import "../../assets/sass/components/table";
+@import "../../assets/sass/components/chat";
+@import "../../assets/sass/components/visio";
+@import "../../assets/sass/components/pagination";
+@import "../../assets/sass/components/datepicker";
+@import "../../assets/sass/components/breakpoints";
+@import "../../assets/sass/components/profil";
+@import "../../assets/sass/components/404";
+@import "../../assets/sass/components/modal";
+@import "../../assets/sass/components/speciality";
+@import "../../assets/sass/components/doctor";
+
+@import '~angular-star-rating/assets/scss/star-rating';

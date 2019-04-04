@@ -1,0 +1,96 @@
+// +--------------------+
+// | MESDOCTEURS POLICE |
+// +--------------------+
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+
+$font-title: 'Quicksand', sans-serif;
+$font-content: 'Open Sans', sans-serif;
+
+// +-------------------+
+// | FONTAWESOME ICONS |
+// +-------------------+
+
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+
+// +-------------------+
+// | MESDOCTEURS ICONS |
+// +-------------------+
+
+$md-version: "1.0.0" !default;
+
+// +--------------+
+// | COLORS THEME |
+// +--------------+
+
+$color-primary: #FDC53B;
+$color-secondary: #263444;
+$color-info: #00bfb6;
+$color-success: #27AF61;
+$color-warning: #F4712C;
+$color-danger: #E65348;
+
+// +--------+
+// | COLORS |
+// +--------+
+
+$color-yellow-light: #FDD062;
+$color-yellow-normal: #FDCB4F;
+$color-red-light: #E8665C;
+$color-red-dark: #E34033;
+$color-blue-light: #515C69;
+$color-blue-normal: #3C4957;
+$color-grey-lighter: #E8EDEE;
+$color-grey-light: #D0D5D6;
+$color-grey-normal: #CBCBCB;
+$color-grey-dark: #B9BDBE;
+$color-blue: 	#0099cc;
+$color-text-grey: #A5A9AA; // grey darker
+$color-text-blue: $color-blue-light; // blue light
+$color-text-red: $color-danger; // red
+$color-white: #FFF;
+
+// +--------------+
+// | CLASS COLORS |
+// +--------------+
+
+$bg-card-sevice-dark: $color-secondary;
+$bg-card-sevice-light: $color-blue-light;
+
+// +--------------------+
+// | STAR RATING COLORS |
+// +--------------------+
+
+$color-negative-rating: $color-warning;
+$color-ok-rating: $color-primary;
+$color-positive-rating: $color-success;
+$color-default-rating: $color-primary;
+
+// +----------------+
+// | CATEGORY COLOR |
+// +----------------+
+
+$category-color-names: "pink" "pink-2" "yellow" "red" "orange" "blue" "brown" "green" "orange-2" "violet" "green-2" "orange-3" "black" "brown-2" "red-2" "violet-2" "grey" "blue-2" "grey-2" "blue-3" "allianz" "blue-3" "green-3" "violet-3" "brown-3" "red-3" "orange-3" "pink-3";
+$category-color-values: #FF7BAC #FF69B4 #F0C300 #E8665C #F39C13 #29ABE2 #C69C6D #19BB9C #D35300 #9B59B6 #16B84E #F39C13 #1A1A1A #A67C52 #ED1C24 #8E44AE #808080 #34495D #333333 #0000FF #17549c #14BBCB #78F015 #A26FE3 #6E3200 #6E0F00 #FF7100 #E00083;
+@each $current-name in $category-color-names {
+  $i: index($category-color-names, $current-name);
+  $_color: nth($category-color-values, $i);
+
+  .category-color-#{$current-name} {
+    background: $_color !important;
+
+    &:hover {
+      background: tint($_color, 15%);
+    }
+  }
+
+  .category-color-#{$current-name}-sm {
+    @extend .category-color-#{$current-name};
+
+  }
+
+  .category-color-#{$current-name}-only {
+    background: $_color !important;
+  }
+}

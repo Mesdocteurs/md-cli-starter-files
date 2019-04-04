@@ -1,0 +1,76 @@
+// +------------+
+// | PAGINATION |
+// +------------+
+
+.pagination {
+  justify-content: center;
+  margin: 20px 0 20px 0;
+  .page-item .page-link{
+    border: 0;
+    border-radius: 30px !important;
+    transition: all .3s;
+    padding: 0px 11px;
+    margin: 0 3px;
+    min-width: 30px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: $color-secondary;
+    cursor: pointer;
+    font-size: $font-size-base;
+    text-transform: uppercase;
+    background: transparent;
+
+    &:hover,
+    &:focus{
+      color: $color-secondary;
+      background-color: $gray-300;
+      border: none;
+    }
+  }
+
+  .arrow-margin-left,
+  .arrow-margin-right{
+    position: absolute;
+  }
+
+  .arrow-margin-right{
+    right: 0;
+  }
+
+  .arrow-margin-left{
+    left: 0;
+  }
+
+  .page-item.active > .page-link{
+    color: $gray-300;
+    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+
+    &,
+    &:focus,
+    &:hover{
+      background-color: theme-color("secondary");
+      border-color: theme-color("secondary");
+      color: $color-white;
+    }
+  }
+
+  .page-item.disabled > .page-link{
+    opacity: .5;
+    background-color: rgba(255,255,255, .2);
+    color: $color-white;
+  }
+
+// pagination color primary
+
+  &.pagination-primary {
+    .page-item.active > .page-link{
+      &,
+      &:focus,
+      &:hover{
+        background-color: theme-color("primary");
+        border-color: theme-color("primary");
+      }
+    }
+  }
+}

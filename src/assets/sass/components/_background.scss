@@ -1,0 +1,124 @@
+// +------------+
+// | BACKGROUND |
+// +------------+
+
+.bg-grey-lighter {
+  background-color:  $color-grey-lighter !important;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient($color-white, $color-primary);
+}
+
+.bg-chatbot-blur {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+/* --  background video  -- */
+
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -100;
+
+  .text-muted {
+    color: $color-text-grey !important;
+  }
+
+  video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+  }
+}
+
+.video-filter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(38, 52, 68, .4);
+}
+
+/* --  background tint color  -- */
+
+.tint {
+  z-index: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(60, 73, 87, .3), theme-color-level("tint-profile"));
+  transition: all .3s linear;
+}
+
+/* --  background partner (ajout image ds scss component)  -- */
+
+.bg-img-1 {
+  background-blend-mode: multiply;
+  background: rgba(0, 0, 0, 0.4);
+  background-size: cover;
+}
+
+/* --  background image section  -- */
+
+.bg-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+//.bg-img .overlay {
+//  position: absolute;
+//  left: 0;
+//  top: 0;
+//  right: 0;
+//  bottom: 0;
+//  opacity: .7;
+//  background: $color-info;
+//}
+
+// background sign in image
+
+//.bg-body {
+//  @include size(100%, 100%);
+//  background-size: 100%;
+//  top: 0; bottom: 0; left: 0; right: 0;
+//  margin:0;
+//  padding:0;
+//  position: fixed;
+//
+//  &:before {
+//    @include size(100%, 100%);
+//    background: url('https://www.mesdocteurs.com/shared/assets/img/homepage/background-top.jpg') no-repeat center center fixed;
+//    background-size: cover;
+//    content: '';
+//    position: fixed;
+//    filter: blur(4px) contrast(170%);
+//  }
+//}
+
+

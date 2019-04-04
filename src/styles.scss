@@ -1,0 +1,13 @@
+//@import 'assets/sass/import';
+//@import 'assets/sass/mesdocteurs-icons';
+
+// // variables
+@import "assets/sass/variables";
+$fa-font-path : '../node_modules/font-awesome/fonts';
+$mesdocteurs-icons: 'assets/fonts' !default;
+
+// // custom
+@import "assets/sass/custom";
+
+// // base
+@import "assets/sass/import";

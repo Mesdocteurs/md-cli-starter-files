@@ -1,0 +1,41 @@
+// +-------------+
+// | PAGE PROFIL |
+// +-------------+
+
+.card-profile {
+  overflow: hidden;
+
+  .card-body {
+    z-index: 100;
+  }
+
+  .card-img-profile {
+    max-width: 150px;
+    border-radius: 50%;
+    margin-top: -95px;
+    margin-bottom: 35px;
+    border: 5px solid $color-white;
+  }
+
+  .card-title {
+    padding-bottom: 15px;
+    &:not(:last-child){
+      border-bottom: 1px solid $color-grey-lighter;
+    }
+  }
+
+  small {
+    display: block;
+    font-size: 15px;
+    margin-top: .4em;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .card-profile {
+    .card-img-profile {
+      max-width: 90px;
+      margin-top: -45px;
+    }
+  }
+}

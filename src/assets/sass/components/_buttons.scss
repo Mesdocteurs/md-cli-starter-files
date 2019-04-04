@@ -1,0 +1,159 @@
+// +------------+
+// | BTN GLOBAL |
+// +------------+
+
+.btn {
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .4s ease-in, cubic-bezier(0.4, 0.0, 0.2, 1), background-color .35s ease-in-out;
+}
+
+.btn-round{
+  @include border-radius(25px);
+}
+
+// +-----+
+// | BTN |
+// +-----+
+
+.btn-primary {
+  color: $color-white !important;
+}
+
+.btn-outline-secondary {
+  color: $color-secondary !important;
+}
+
+.btn-outline-secondary:focus {
+  color: $color-secondary !important;
+}
+
+.btn-outline-secondary:hover {
+  color: $color-white !important;
+}
+
+.btn-wrap-text {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+}
+
+// +----------+
+// | BTN BACK |
+// +----------+
+
+.btn-back {
+  a {
+    color: $color-grey-dark !important;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover i {
+      animation: slideOutLeft .6s infinite;
+      color: $color-primary;
+    }
+
+    &:hover strong {
+      color: $color-primary;
+    }
+  }
+}
+
+.btn-go {
+  @extend .btn-back;
+  &:hover i {
+    animation: slideOutRight .6s infinite !important;
+  }
+}
+
+// +------------+
+// | BTN CIRCLE |
+// +------------+
+
+.btn-circle {
+  @include size(35px);
+  padding: 6px 0;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.4;
+  &:hover {
+    animation: rubberBand 1s infinite;
+    @include box_shadow(3);
+  }
+}
+
+.btn-circle-lg {
+  @extend .btn-circle;
+  @include size(50px);
+}
+
+// +---------------------+
+// | BTN RESPONSIVE ICON |
+// +---------------------+
+
+.btn-responsive {
+  @extend .btn-round;
+
+  &::before {
+    margin-right: 5px;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .btn-responsive {
+    @include size(35px);
+    padding: 6px 0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    &:hover {
+      animation: rubberBand 1s infinite;
+      @include box_shadow(3);
+    }
+
+    &::before {
+      display: none;
+      margin-right: 0;
+    }
+  }
+}
+
+.medecin {
+  &::before {
+    content: 'Je suis medecin';
+  }
+}
+
+.question {
+  &::before {
+    content: 'Je pose ma question';
+  }
+}
+
+.connexion {
+  &::before {
+    content: 'Je me connecte';
+  }
+}
+
+.contacter {
+  &::before {
+    content: 'Contacter un medecin';
+  }
+}
+
+.contactez-nous {
+  &::before {
+    content: 'Contactez-nous';
+  }
+}
+
+.historique {
+  &::before {
+    content: 'Questions répondues';
+  }
+}
+
+

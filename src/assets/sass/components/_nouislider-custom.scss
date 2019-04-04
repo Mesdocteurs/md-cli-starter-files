@@ -1,0 +1,35 @@
+// +-------------------+
+// | CUSTOM NOUISLIDER |
+// +-------------------+
+
+.noUi-horizontal .noUi-handle {
+  @include size(34px);
+  @include border-radius(50%);
+  top: -12px;
+  background: theme-color("primary");
+  box-shadow: none;
+
+  &:after, &:before {
+    top: 8px;
+  }
+}
+
+.noUi-horizontal .noUi-tooltip {
+  @include box_shadow(2);
+  transform: translate(-50%,0);
+  left: -75%;
+  bottom: 0;
+}
+
+.noUi-tooltip {
+  border: 1px solid $color-grey-dark;
+  color: theme-color("secondary");
+  padding: 3px 5px;
+  font-weight: 600;
+}
+
+.noUi-horizontal {
+  height: 12px;
+}
+
+

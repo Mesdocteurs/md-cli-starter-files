@@ -1,0 +1,233 @@
+// +---------------+
+// | MENU CUSTOMER |
+// +---------------+
+
+.navbar {
+  padding: 0 1rem;
+  transition: all 0.3s;
+
+  .navbar-collapse {
+    line-height: 50px;
+    min-height: 60px;
+  }
+
+  .dropdown-item {
+    font-size: 0.8rem;
+  }
+
+  li {
+
+    a {
+      font-family: $font-title;
+      font-weight: 500;
+    }
+
+    .nav-link {
+      color: theme-color("secondary") !important;
+      padding-left: .6rem !important;
+      padding-right: .6rem !important;
+      transition: all .3s ease-in-out;
+      font-size: 0.8rem;
+      cursor: pointer;
+
+      &:hover {
+        color: theme-color("primary") !important;
+
+        i {
+          color: theme-color("primary");
+        }
+      }
+
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.active-nav-item {
+  background-image: linear-gradient($color-white 0%, $color-grey-lighter 100%);
+}
+
+// +----------------+
+// | ANIM HAMBURGER |
+// +----------------+
+
+.top-bar, .bottom-bar, .middle-bar {
+  width:35px;
+  height: 3px;
+  display: block;
+  transition: all 0.4s;
+  border-radius: 3px;
+  margin-top: 6px;
+  &:nth-child(1) {
+    margin-top: 3px;
+  }
+}
+
+.navbar-toggler.collapsed {
+  transition: all .6s;
+  background-color: $color-white;
+  box-shadow: none;
+
+  .top-bar, .bottom-bar, .middle-bar {
+    background-color: theme-color("secondary");
+  }
+
+  &:hover {
+    .top-bar, .bottom-bar {
+      background-color: theme-color("primary");
+    }
+    .top-bar {
+      top: 3px;
+    }
+    .bottom-bar {
+      bottom: 3px;
+    }
+  }
+}
+
+.navbar-toggler {
+  width: 50px;
+  height: 50px;
+  border: none;
+
+  .top-bar, .bottom-bar, .middle-bar {
+    background-color: theme-color("secondary");
+    @include box_shadow(2);
+  }
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(40deg);
+  transform-origin: 20% 100%;
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+  transform: rotate(-40deg);
+  transform-origin: 10% -80%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+// +------------+
+// | MENU ADMIN |
+// +------------+
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+
+  #sidebar {
+    margin-left: -250px;
+    transition: all 0.3s;
+    z-index: 200;
+    position: absolute;
+
+    .sidebar-content {
+      position: fixed;
+      max-width: 250px;
+      height: 100%;
+      background: $color-secondary;
+      color: #fff;
+      box-shadow: none;
+      overflow-x: scroll;
+    }
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+
+    .sidebar-content {
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.26);
+    }
+
+    .hamburger {
+      margin-left: 250px;
+      transition: all 0.3s;
+    }
+
+    .navbar-toggler {
+      background-color: $color-white;
+    }
+  }
+
+  #sidebar .sidebar-header {
+    padding: 20px;
+  }
+
+  #sidebar ul.components {
+    padding: 20px 0;
+  }
+
+  #sidebar ul li a {
+    padding: 10px;
+    font-size: .9em;
+    display: block;
+    color: $color-grey-lighter;
+  }
+
+  #sidebar ul li a:hover {
+    color: $color-primary;
+    background: $color-blue-normal;
+  }
+
+  #sidebar ul li.active>a,
+  a[aria-expanded="true"] {
+    color: #fff;
+    background: $color-secondary;
+  }
+
+  a[data-toggle="collapse"] {
+    position: relative;
+  }
+
+  .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+
+  .active-nav-item {
+    background: $color-info;
+  }
+
+  .navbar-toggler {
+    background-color: transparent;
+  }
+
+  /* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+  #content {
+    width: 100%;
+    min-height: 100vh;
+  }
+}

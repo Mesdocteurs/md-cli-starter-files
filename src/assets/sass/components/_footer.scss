@@ -1,0 +1,22 @@
+.footer {
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  border-top: 1px solid $color-grey-light;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem 0;
+  z-index: 100;
+
+  .nav-link {
+    color: $color-text-grey;
+    font-size: 14px;
+
+    &:hover {
+      color: theme-color("primary");
+    }
+  }
+
+  ul, ol {
+    margin-top: inherit;
+    margin-bottom: 0;
+  }
+}
