@@ -25,7 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
       version: require('package.json').version
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: 'production' === MdConfig.getEnvironmen() || 'preprod' === MdConfig.getEnvironment()
+      enabled: 'production' === MdConfig.getEnvironment() || 'preprod' === MdConfig.getEnvironment()
     }),
   ],
   providers: [
