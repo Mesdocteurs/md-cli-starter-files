@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
     MdPatientCoreModule.forRoot({
       environment: 'local',
       token: 'YOUR_TOKEN_HERE',
-      version: '1.0.0'
+      version: require('package.json').version
     })
   ],
   providers: [
