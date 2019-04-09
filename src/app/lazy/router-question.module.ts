@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 
+// MdPatientQuestionDetailResolver,
 import {MdQuestionDetailResolver} from '@md-app/md-core';
 import {
   MdPatientUiComponentsModule,
@@ -21,11 +22,17 @@ import {
   MdPatientPrescriptionsPagesModule
 } from '@md-app/md-patient-prescriptions-pages';
 
+import {
+  MdPatientDebriefingPageDetailComponent,
+  MdPatientDebriefingPagesModule
+} from '@md-app/md-patient-debriefing-pages';
+
 @NgModule({
   declarations: [],
   imports: [
     MdPatientQuestionPagesModule,
     MdPatientPrescriptionsPagesModule,
+    MdPatientDebriefingPagesModule,
     MdPatientUiComponentsModule,
     RouterModule.forChild([
       {
@@ -60,6 +67,13 @@ import {
           {
             path: ':id/mon-ordonnance',
             component: MdPatientPrescriptionsPageListComponent,
+            resolve: {
+              question: MdQuestionDetailResolver
+            }
+          },
+          {
+            path: ':id/compte-rendu',
+            component: MdPatientDebriefingPageDetailComponent,
             resolve: {
               question: MdQuestionDetailResolver
             }
