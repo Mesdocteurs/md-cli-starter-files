@@ -67,7 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
     //       }
     //     }
     //   }
-    );
+    // );
 
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(event => {
