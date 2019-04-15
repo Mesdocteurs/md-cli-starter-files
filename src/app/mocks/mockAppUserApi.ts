@@ -95,7 +95,10 @@ export class MockAppUserApi {
   }
 
   public isPartner(email: any = {}, customHeaders?: Function): Observable<any> {
-    return of(environment.santeclair.id);
+    return of({
+      id: 6,
+      namespace: 'santeclair'
+    });
   }
 }
 

@@ -8,11 +8,11 @@ import {
   MockProductVisioTeleconseil, MockProductVisioTeleconseilFree,
   MockProductIrcemCall
 } from './mockProduct';
-import {environment} from '../../environments/environment';
+// import {environment} from '../../environments/environment';
 import {Partner} from '@md-app/md-core';
 
 export const MockPartnerMesDocteurs: Partner = new Partner({
-  id: environment.mesDocteurs.id,
+  id: 13, // environment.mesDocteurs.id,
   namespace: 'mesdocteurs',
   url: 'https://www.mesdocteurs.com',
   name: 'Mes Docteurs',
@@ -25,7 +25,7 @@ export const MockPartnerMesDocteurs: Partner = new Partner({
 });
 
 export const MockPartnerSanteclair: Partner = new Partner({
-  id: environment.santeclair.id,
+  id: 6, // environment.santeclair.id,
   namespace: 'santeclair',
   isTeleconsult: 1,
   name: 'Santéclair',
@@ -42,7 +42,7 @@ export const MockPartnerSanteclair: Partner = new Partner({
 });
 
 export const MockPartnerBayer: Partner = new Partner({
-  id: environment.parlogyn.id,
+  id: 18, // environment.parlogyn.id,
   namespace: 'parlogyn',
   name: 'Parlogyn',
   products: [
@@ -54,7 +54,7 @@ export const MockPartnerBayer: Partner = new Partner({
 });
 
 export const MockPartnerMutualia: Partner = new Partner({
-  id: environment.mutualia.id,
+  id: 4,
   namespace: 'mutualia',
   isTeleconsult: 1,
   name: 'Mutualia',
@@ -66,7 +66,7 @@ export const MockPartnerMutualia: Partner = new Partner({
 });
 
 export const MockPartnerIrcem: Partner = new Partner({
-  id: environment.ircem.id,
+  id: 17,
   namespace: 'ircem',
   isTeleconsult: 1,
   name: 'IRCEM',
@@ -76,7 +76,7 @@ export const MockPartnerIrcem: Partner = new Partner({
 });
 
 export const MockPartnerBaloo: Partner = new Partner({
-  id: environment.baloo.id,
+  id: 1,
   namespace: 'baloo',
   isTeleconsult: 1,
   canRegister: 1,
@@ -93,4 +93,4 @@ export const MockPartnerBaloo: Partner = new Partner({
     MockProductTeleconsultAudio,
     MockProductTeleconsultVisio
   ]
-})
+});
