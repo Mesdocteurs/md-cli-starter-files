@@ -11,13 +11,13 @@ const routes: Routes = [
   { path: 'question', loadChildren: './lazy/router-question.module#RouterQuestionModule'},
   { path: 'contact', loadChildren: './lazy/router-contact.module#RouterContactModule'},
   { path: 'mes-coupons', loadChildren: './lazy/router-coupons.module#RouterCouponsModule'},
+  { path: 'mon-compte', loadChildren: './lazy/router-account.module#RouterAccountModule'},
+  { path: 'informations-bancaires', loadChildren: './lazy/router-bank.module#RouterBankModule'},
   {
     path: '',
     redirectTo: '/connexion',
     pathMatch: 'full'
   }
-  // { path: 'mon-compte', loadChildren: './lazy/router-account.module#RouterAccountModule'},
-  // { path: 'informations-bancaires', loadChildren: './lazy/router-bank.module#RouterBankModule'}
 ];
 
 @NgModule({
