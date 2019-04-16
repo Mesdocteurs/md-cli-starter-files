@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'mon-compte', loadChildren: './lazy/router-account.module#RouterAccountModule'},
   { path: 'informations-bancaires', loadChildren: './lazy/router-bank.module#RouterBankModule'},
   { path: 'documents-medicaux', loadChildren: './lazy/router-documents.module#RouterDocumentsModule'},
+  { path: 'aide', loadChildren: './lazy/router-contact.module#RouterContactModule'},
   {
     path: '',
     redirectTo: '/connexion',
