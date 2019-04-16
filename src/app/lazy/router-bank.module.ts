@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 import {MdPatientBankPagesModule, MdPatientBankPageDetailComponent} from '@md-app/md-patient-bank-pages';
-import {MdPatientUiFooterComponent, MdPatientUiLayoutComponent, MdPatientUiNavbarComponent} from '@md-app/md-patient-ui-components';
+import {
+  MdPatientUiComponentsModule,
+  MdPatientUiFooterComponent,
+  MdPatientUiLayoutComponent,
+  MdPatientUiNavbarComponent
+} from '@md-app/md-patient-ui-components';
 
 @NgModule({
   declarations: [],
   imports: [
     MdPatientBankPagesModule,
+    MdPatientUiComponentsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -25,8 +31,7 @@ import {MdPatientUiFooterComponent, MdPatientUiLayoutComponent, MdPatientUiNavba
           },
           {
             path: '',
-            component: MdPatientBankPageDetailComponent,
-            outlet: 'footer'
+            component: MdPatientBankPageDetailComponent
           }
         ]
       }
