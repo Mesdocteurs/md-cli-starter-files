@@ -37,15 +37,15 @@ import {
           {
             path: '',
             component: MdPatientProfilePageDetailComponent,
-            // pathMatch: 'full'
+            pathMatch: 'full'
+          },
+          {
+              path: 'modifier',
+              component: MdPatientProfilePageEditComponent,
+              pathMatch: 'full'
           }
         ]
       },
-      {
-        path: 'modifier',
-        component: MdPatientProfilePageEditComponent,
-        pathMatch: 'full'
-      }
     ])
   ],
   exports: [
