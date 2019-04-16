@@ -1,0 +1,84 @@
+version: v1.0
+name: Recette deployment
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: 'Build'
+    task:
+      env_vars:
+        - name: ENVIRONMENT
+          value: 'recette'
+      jobs:
+        - name: 'Build & cache project'
+          commands:
+#             Building the project for recette
+            - checkout
+            - npm i -g @angular/cli
+            - cache restore node-modules-$(checksum package.json)
+            - ng build --configuration=${ENVIRONMENT}
+#            Restoring the project name from cache
+            - cache restore project-name
+            - export PROJECT_NAME=`cat project-name`
+            - export PROJECT_VERSION=${PROJECT_NAME}_version_`date +%Y%m%d_%H%M%S%3N`
+#            Renaming and caching for further use
+            - mv dist/${PROJECT_NAME} dist/${PROJECT_VERSION}
+            - cache delete ${PROJECT_NAME}-${ENVIRONMENT}
+            - cache store ${PROJECT_NAME}-${ENVIRONMENT} dist/${PROJECT_VERSION}
+  - name: 'Copy files to the gateway'
+    task:
+      env_vars:
+        - name: ENVIRONMENT
+          value: 'recette'
+      secrets:
+        - name: ip
+        - name: preprod-rsa
+      jobs:
+        - name: 'Copy files'
+          commands:
+            - chmod 600 /home/semaphore/.ssh/id_rsa
+            - checkout
+            - cd ..
+#             Restore project name and built project from cache
+            - cache restore project-name
+            - export PROJECT_NAME=`cat project-name`
+            - cache restore ${PROJECT_NAME}-${ENVIRONMENT}
+#             Replace private key
+            - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
+            - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
+            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+#             Create PROJECT_VERSION var
+            - cd dist/
+            - export PROJECT_VERSION=`ls`
+#             Connection attempt to the gateway (preprod)
+            - ssh mdc@${IPADDR_PREPROD} "ls;"
+#             Copying the project to the gateway (preprod)
+            - tar zcf ${PROJECT_VERSION}.tar.gz ${PROJECT_VERSION}/
+            - scp -r ${PROJECT_VERSION}.tar.gz mdc@${IPADDR_PREPROD}:${TMP_DIR}/${PROJECT_VERSION}.tar.gz
+  - name: 'Deploy to recette'
+    task:
+      secrets:
+        - name: ip
+        - name: preprod-rsa
+      env_vars:
+        - name: ENVIRONMENT
+          value: 'recette'
+      jobs:
+        - name: 'Deploy'
+          commands:
+#             Restore project name and built project from cache
+            - cache restore project-name
+            - export PROJECT_NAME=`cat project-name`
+            - cache restore ${PROJECT_NAME}-${ENVIRONMENT}
+#             Create PROJECT_VERSION var
+            - cd dist/
+            - export PROJECT_VERSION=`ls`
+#             Replace private key
+            - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
+            - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
+            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+#             Start deploy script
+            - ssh mdc@${IPADDR_PREPROD} "cd deployment-scripts && git pull"
+            - ssh mdc@${IPADDR_PREPROD} "bash deployment-scripts/mesDocteurs/${ENVIRONMENT}/deploy.sh ${PROJECT_VERSION} ${IPADDR_RECETTE_PRIVATE}"
+            - ssh mdc@${IPADDR_PREPROD} "rm -f ${TMP_DIR}/${PROJECT_VERSION}.tar.gz"

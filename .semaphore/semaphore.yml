@@ -1,0 +1,88 @@
+version: v1.0
+name: Install & Test
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: 'Install'
+    task:
+      secrets:
+        - name: preprod-rsa
+        - name: tokens
+      jobs:
+        - name: 'Install & cache dependencies'
+          commands:
+#             Cache node_modules of the API
+            - chmod 600 /home/semaphore/.ssh/id_rsa
+            - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
+            - cd md-api
+            - cache restore node-modules-api-$(checksum package.json)
+            - npm i
+            - cache store node-modules-api-$(checksum package.json) node_modules
+            - cd ..
+#             Creating PROJECT_NAME var containing the current project
+            - checkout
+            - export PROJECT_NAME=`basename "$PWD"`
+#             Storing node_modules
+            - cache restore node-modules-$(checksum package.json)
+            - npm i
+            - cache store node-modules-$(checksum package.json) node_modules
+#             Storing the name of the project for further use
+            - echo ${PROJECT_NAME} > project-name
+            - cache store project-name project-name
+  - name: 'Lint & Unit tests'
+    task:
+      prologue:
+        commands:
+          - checkout
+          - npm i -g @angular/cli
+          - cache restore node-modules-$(checksum package.json)
+      jobs:
+        - name: 'Lint'
+          commands:
+            - ng lint
+        - name: 'Unit tests'
+          commands:
+            - ng test --watch=false --progress=false
+  - name: 'E2E tests'
+    task:
+      secrets:
+        - name: preprod-rsa
+        - name: debug-keys
+      prologue:
+        commands:
+          - chmod 600 /home/semaphore/.ssh/id_rsa
+          - cat lucas.pub >> /home/semaphore/.ssh/authorized_keys
+          - sem-service start redis
+          - sem-service start postgres
+          - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
+          - cd md-api
+          - cache restore node-modules-api-$(checksum package.json)
+          - createdb -U postgres -h 0.0.0.0 mesdocteurs
+          - node server/server.js &
+          - sleep 15
+      jobs:
+        - name: 'Integration tests'
+          commands:
+            - cd ..
+            - checkout
+            - npm i -g @angular/cli
+            - cache restore node-modules-$(checksum package.json)
+            - ng e2e
+promotions:
+  - name: '1 - Recette deployment'
+    pipeline_file: recette-deploy.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - develop
+  - name: '2 - Preprod deployment'
+    pipeline_file: preprod-deploy.yml
+    auto_promote_on:
+      - result: passed
+        branch:
+          - master
+  - name: '3 - PRODUCTION deployment'
+    pipeline_file: production-deploy.yml
