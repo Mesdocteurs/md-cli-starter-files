@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   // { path: ':id', component: TestComponent},
   // { path: '', component: TestComponent},
+  { path: 'auth', loadChildren: './lazy/router-auth.module#RouterAuthModule'},
   { path: 'connexion', loadChildren: './lazy/router-signin.module#RouterSigninModule'},
   { path: 'deconnexion', loadChildren: './lazy/router-signout.module#RouterSignoutModule'},
   { path: 'inscription', loadChildren: './lazy/router-register.module#RouterRegisterModule'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'changer-mot-de-passe', loadChildren: './lazy/router-password-change.module#RouterPasswordChangeModule'},
   { path: 'mon-compte', loadChildren: './lazy/router-account.module#RouterAccountModule'},
   { path: 'informations-bancaires', loadChildren: './lazy/router-bank.module#RouterBankModule'},
+  { path: 'documents-medicaux', loadChildren: './lazy/router-documents.module#RouterDocumentsModule'},
   {
     path: '',
     redirectTo: '/connexion',
