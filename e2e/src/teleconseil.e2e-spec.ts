@@ -244,12 +244,13 @@ describe('Patient teleconseil tests suite :', () => {
     it ('should display a card', () => {
       browser.get('/informations-bancaires');
 
-      expect(element(by.css('.card-credit')).isPresent()).toBeTruthy();
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.card-credit'))), 5000);
       expect(element(by.css('.card-credit .card-title')).getText()).toBe('CARTE DE PAIEMENT');
       expect(element(by.css('.card-credit .card-text')).getText()).toBe('004040******4956');
     });
 
     it ('should not be possible to remove a card with a question running', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('pbbh-btn'))), 5000);
       element(by.id('pbbh-btn')).click();
       browser.sleep(1000);
       expect(element(by.css('.alert-success')).getText()).toBe('Votre carte a été correctement supprimée');
@@ -544,6 +545,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set gender', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('label[for="genderM"]'))), 5000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('label[for="genderM"]'))), 5000);
       element(by.css('label[for="genderM"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
@@ -1329,6 +1331,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should display selected card', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-cardRecorded'))), 5000);
       expect(element(by.id('answer-cardRecorded')).getText()).toContain('Vous souhaitez utiliser la carte 004040******4');
     });
