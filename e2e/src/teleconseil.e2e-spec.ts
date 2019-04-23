@@ -144,17 +144,16 @@ describe('Patient teleconseil tests suite :', () => {
   });
 
   describe('Patient profil detail tests suite', () => {
-
     // beforeEach(() => {
     //   browser.get('/profil');
     //   browser.wait(browser.ExpectedConditions.urlContains('/profil'), 10000);
-    //   // browser.waitForAngularEnabled(false);
+    //
     //   browser.sleep(1000);
     // });
 
+
     it('should display a filled page with the patient information', () => {
       browser.get('/profil');
-      browser.waitForAngularEnabled(false);
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.card'))), 5000);
 
       expect(element.all(by.css('.card-title small')).get(0).getText()).toBe('Paldir José');
@@ -170,9 +169,9 @@ describe('Patient teleconseil tests suite :', () => {
       browser.wait(browser.ExpectedConditions.urlContains('/profil/modifier'), 10000);
     });
 
-    it ('enabled angular waiting', () => {
-      browser.waitForAngularEnabled(true);
-    });
+    // it ('enabled angular waiting', () => {
+    //   browser.waitForAngularEnabled(true);
+    // });
   });
   //
   // describe('Edit patient tests suite', () => {
@@ -212,14 +211,13 @@ describe('Patient teleconseil tests suite :', () => {
     describe('Remove card with not finished paiement', () => {
       it ('should display a card', () => {
         browser.get('/informations-bancaires');
-        browser.waitForAngularEnabled(false);
         expect(element(by.css('.card-credit')).isPresent()).toBeTruthy();
         expect(element(by.css('.card-credit .card-title')).getText()).toBe('CARTE DE PAIEMENT');
         expect(element(by.css('.card-credit .card-text')).getText()).toContain('004040******4');
       });
-      it ('enabled angular waiting', () => {
-        browser.waitForAngularEnabled(true);
-      });
+      // it ('enabled angular waiting', () => {
+      //   browser.waitForAngularEnabled(true);
+      // });
     });
   });
 
@@ -229,7 +227,6 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to signin with valid credentials', () => {
       browser.get('/connexion');
-      browser.waitForAngularEnabled(false);
 
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="email"]'))), 5000);
       element(by.css('[formcontrolname="email"]')).clear();
@@ -246,7 +243,6 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should display a card', () => {
       browser.get('/informations-bancaires');
-      browser.waitForAngularEnabled(false);
 
       expect(element(by.css('.card-credit')).isPresent()).toBeTruthy();
       expect(element(by.css('.card-credit .card-title')).getText()).toBe('CARTE DE PAIEMENT');
@@ -265,7 +261,6 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to signin with valid credentials', () => {
       browser.get('/connexion');
-      browser.waitForAngularEnabled(false);
 
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="email"]'))), 5000);
       element(by.css('[formcontrolname="email"]')).clear();
@@ -280,9 +275,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.wait(browser.ExpectedConditions.urlContains('/question/nouvelle'), 10000);
     });
 
+    // browser.get('/question/nouvelle');
     it ('should ask to choose an offer', () => {
-      browser.get('/question/nouvelle');
-      browser.waitForAngularEnabled(false);
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-selectOffer'))), 5000);
       expect(element(by.id('question-selectOffer')).getText()).toBe('Bonjour José, sélectionnez ci-dessous comment contacter un médecin');
     });
@@ -380,9 +374,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display height setted', () => {
-    //   expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
-    // });
+    it ('should display height setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setHeight'))), 5000);
+      expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
+    });
 
     it ('should ask for weight', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setWeight'))), 5000);
@@ -397,9 +392,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display weight setted', () => {
-    //   expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
-    // });
+    it ('should display weight setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setWeight'))), 5000);
+      expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
+    });
 
     it ('should ask for current treatments', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setCurrentTreatment'))), 5000);
@@ -475,6 +471,8 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to select card', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.custom-control-label'))), 5000);
+      expect(element(by.css('.custom-control-label')).getText()).toBe('- 004040******4957 - 0319');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -486,15 +484,13 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to confirm and send question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-confirm'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-submit'))), 5000);
       expect(element(by.id('question-confirm')).getText()).toBe('Confirmer et poser votre question ?');
       //     element(by.id('btn-submit')).click();
     });
   });
 
   describe('Should be possible to ask a chat pediatry', () => {
-    beforeEach(() => {
-    });
-
     it ('should be possible to refresh page', () => {
       browser.get('/question/nouvelle');
     });
@@ -593,9 +589,11 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display height setted', () => {
-    //   expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
-    // });
+    it ('should display height setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setHeight'))), 5000);
+      expect(element(by.id('answer-setHeight')).getText()).toBe('L\'enfant mesure 125 centimetres');
+    });
+
 
     it ('should ask for weight', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setWeight'))), 5000);
@@ -608,6 +606,11 @@ describe('Patient teleconseil tests suite :', () => {
       browser.actions().dragAndDrop(element(by.id('pqc-weight')), {x: 500, y: 0}).perform();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
+    });
+
+    it ('should display weight setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setWeight'))), 5000);
+      expect(element(by.id('answer-setWeight')).getText()).toBe('L\'enfant pèse 100 kilos');
     });
 
     it ('should ask for current treatments', () => {
@@ -667,6 +670,8 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to select card', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.custom-control-label'))), 5000);
+      expect(element(by.css('.custom-control-label')).getText()).toBe('- 004040******4957 - 0319');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -678,6 +683,7 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to confirm and send question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-confirm'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-submit'))), 5000);
       expect(element(by.id('question-confirm')).getText()).toBe('Confirmer et poser votre question ?');
       //     element(by.id('btn-submit')).click();
     });
@@ -787,9 +793,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display height setted', () => {
-    //   expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
-    // });
+    it ('should display height setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setHeight'))), 5000);
+      expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
+    });
 
     it ('should ask for weight', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setWeight'))), 5000);
@@ -804,9 +811,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display weight setted', () => {
-    //   expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
-    // });
+    it ('should display weight setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setWeight'))), 5000);
+      expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
+    });
 
     it ('should ask for current treatments', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setCurrentTreatment'))), 5000);
@@ -899,6 +907,8 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to select card', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.custom-control-label'))), 5000);
+      expect(element(by.css('.custom-control-label')).getText()).toBe('- 004040******4957 - 0319');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -910,6 +920,7 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to confirm and send question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-confirm'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-submit'))), 5000);
       expect(element(by.id('question-confirm')).getText()).toBe('Confirmer et poser votre question ?');
       //     element(by.id('btn-submit')).click();
     });
@@ -1019,9 +1030,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display height setted', () => {
-    //   expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
-    // });
+    it ('should display height setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setHeight'))), 5000);
+      expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
+    });
 
     it ('should ask for weight', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setWeight'))), 5000);
@@ -1036,9 +1048,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display weight setted', () => {
-    //   expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
-    // });
+    it ('should display weight setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setWeight'))), 5000);
+      expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
+    });
 
     it ('should ask for current treatments', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setCurrentTreatment'))), 5000);
@@ -1114,6 +1127,8 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to select card', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.custom-control-label'))), 5000);
+      expect(element(by.css('.custom-control-label')).getText()).toBe('- 004040******4957 - 0319');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -1125,6 +1140,7 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to confirm and send question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-confirm'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-submit'))), 5000);
       expect(element(by.id('question-confirm')).getText()).toBe('Confirmer et poser votre question ?');
       //     element(by.id('btn-submit')).click();
     });
@@ -1203,9 +1219,10 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
-    // it ('should display height setted', () => {
-    //   expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
-    // });
+    it ('should display height setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setHeight'))), 5000);
+      expect(element(by.id('answer-setHeight')).getText()).toBe('Vous mesurez 125 centimetres');
+    });
 
     it ('should ask for weight', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setWeight'))), 5000);
@@ -1218,6 +1235,11 @@ describe('Patient teleconseil tests suite :', () => {
       browser.actions().dragAndDrop(element(by.id('pqc-weight')), {x: 500, y: 0}).perform();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
+    });
+
+    it ('should display weight setted', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setWeight'))), 5000);
+      expect(element(by.id('answer-setWeight')).getText()).toBe('Vous pesez 100 kilos');
     });
 
     it ('should ask for current treatments', () => {
@@ -1284,18 +1306,26 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set profession', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('profession'))), 5000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
 
     it ('should be possible to select card', () => {
-      browser.sleep(1000);
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.custom-control-label'))), 5000);
+      expect(element(by.css('.custom-control-label')).getText()).toBe('- 004040******4957 - 0319');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
 
+    it ('should display selected card', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-cardRecorded'))), 5000);
+      expect(element(by.id('answer-cardRecorded')).getText()).toContain('Vous souhaitez utiliser la carte 004040******4');
+    });
+
     it ('should ask to confirm and send question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-confirm'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-submit'))), 5000);
       expect(element(by.id('question-confirm')).getText()).toBe('Confirmer et poser votre question ?');
       //     element(by.id('btn-submit')).click();
     });
@@ -1339,6 +1369,7 @@ describe('Patient teleconseil tests suite :', () => {
       browser.actions().dragAndDrop(element(by.id('pqc-weight')), {x: 500, y: 0}).perform();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
+      browser.sleep(2000);
     });
 
     it ('should be possible to set current treatment', () => {
