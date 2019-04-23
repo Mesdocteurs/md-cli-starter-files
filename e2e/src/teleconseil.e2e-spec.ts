@@ -346,6 +346,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set a date of birth', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
@@ -560,6 +561,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set a date of birth', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="2018"]'))), 5000);
@@ -765,6 +767,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set a date of birth', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
@@ -1002,6 +1005,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to set a date of birth', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
@@ -1194,7 +1198,13 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
     });
 
+    it ('should ask for date of birth', () => {
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setDateOfBirth'))), 5000);
+      expect(element(by.id('question-setDateOfBirth')).getText()).toBe('Quelle est votre date de naissance ?');
+    });
+
     it ('should be possible to set a date of birth', () => {
+      browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
