@@ -37,6 +37,7 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.css('small.text-danger')).getText()).toBe('Le mot de passe doit contenir 8 caractères, au moins une majuscule et un chiffre');
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeTruthy();
 
+      element(by.css('[type="email"]')).clear();
       element(by.css('[type="email"]')).sendKeys('dev+jp' + randomNumber + '@mesdocteurs.com');
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeTruthy();
 
@@ -52,7 +53,7 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
     });
 
-    it('should be possible to ubmit a form with valid data', () => {
+    it('should be possible to submit a form with valid data', () => {
       browser.get('/inscription');
       browser.sleep(2000); // load consents
 
@@ -66,7 +67,7 @@ describe('Patient teleconseil tests suite :', () => {
 
       element(by.css('[type="submit"]')).click();
 
-      browser.wait(browser.ExpectedConditions.urlContains('/patient/question/nouvelle'), 10000);
+      browser.wait(browser.ExpectedConditions.urlContains('/question/nouvelle'), 10000);
     });
   });
 
@@ -78,8 +79,8 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.id('logo')).getAttribute('src')).toContain('assets/images/logos/logo-square.png');
     });
 
-    it ('should not be possible to submit an invalid form', () => {
-      expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeTruthy();
+    it ('should be possible to go to the next step', () => {
+      expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
     });
 
     it ('should display a link password forgotten', () => {
@@ -120,46 +121,42 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
       element(by.css('[type="submit"]')).click();
 
-      browser.wait(browser.ExpectedConditions.urlContains('/patient/question/nouvelle'), 10000);
+      browser.wait(browser.ExpectedConditions.urlContains('/question/nouvelle'), 10000);
+
     });
-  });
 
-  describe('Patient profil tests suite', () => {
-
-    // beforeEach(() => {
-    //   browser.get('/patient/mon-profil');
-    //   browser.waitForAngularEnabled(false);
-    //   browser.wait(browser.ExpectedConditions.visibilityOf(element.all(by.css('.card')).get(0)), 5000);
-    // });
-    it('should display only 1 card (no pharmacy without teleconsult)', () => {
-      browser.get('/patient/mon-profil');
+    it ('should display 2 consentments to accept', () => {
       browser.waitForAngularEnabled(false);
-      browser.wait(browser.ExpectedConditions.visibilityOf(element.all(by.css('.card')).get(0)), 5000);
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('h1.display-4'))), 5000);
+      expect(element(by.css('h1.display-4')).getText()).toBe('Conditions d\'utilisation');
+      expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeTruthy();
+      browser.wait(browser.ExpectedConditions
+        .elementToBeClickable(element.all(by.css('.form-check-label')).get(0)), 5000);
+      element.all(by.css('.form-check-label')).get(0).click();
+      browser.wait(browser.ExpectedConditions
+        .elementToBeClickable(element.all(by.css('.form-check-label')).get(1)), 5000);
+      element.all(by.css('.form-check-label')).get(1).click();
+      expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
 
-      expect(element.all(by.css('.card')).count()).toBe(1);
-    });
-
-    it('should be able to go to the detail page', () => {
-      // expect(element(by.css('[routerlink="/patient/mon-profil/detail"]')).isPresent()).toBeTruthy();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[routerlink="/patient/mon-profil/detail"]'))), 5000);
-      element(by.css('[routerlink="/patient/mon-profil/detail"]')).click();
-
-      // browser.wait(browser.ExpectedConditions.urlContains('/patient/mon-profil/detail'), 10000);
-    });
-    it ('enabled angular waiting', () => {
-      browser.waitForAngularEnabled(true);
+      element(by.css('[type="submit"]')).click();
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-selectOffer'))), 5000);
     });
   });
 
   describe('Patient profil detail tests suite', () => {
 
-    beforeEach(() => {
-      browser.get('/patient/mon-profil/detail');
-      browser.waitForAngularEnabled(false);
-      browser.sleep(1000);
-    });
+    // beforeEach(() => {
+    //   browser.get('/profil');
+    //   browser.wait(browser.ExpectedConditions.urlContains('/profil'), 10000);
+    //   // browser.waitForAngularEnabled(false);
+    //   browser.sleep(1000);
+    // });
 
     it('should display a filled page with the patient information', () => {
+      browser.get('/profil');
+      browser.waitForAngularEnabled(false);
+      browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('.card'))), 5000);
+
       expect(element.all(by.css('.card-title small')).get(0).getText()).toBe('Paldir José');
       expect(element.all(by.css('.card-title small')).get(1).getText()).toBe('dev+jp@mesdocteurs.com');
       expect(element.all(by.css('.card-title small')).get(2).getText()).toBe('18 rue de l\'amour 13090 Aix en Provence');
@@ -167,10 +164,10 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it('should be able to go to the edit page from the details page', () => {
-      expect(element(by.css('[routerlink="/patient/mon-profil/modifier"]')).isPresent()).toBeTruthy();
-      element(by.css('[routerlink="/patient/mon-profil/modifier"]')).click();
+      expect(element(by.css('[routerlink="/profil/modifier"]')).isPresent()).toBeTruthy();
+      element(by.css('[routerlink="/profil/modifier"]')).click();
 
-      browser.wait(browser.ExpectedConditions.urlContains('/patient/mon-profil/modifier'), 10000);
+      browser.wait(browser.ExpectedConditions.urlContains('/profil/modifier'), 10000);
     });
 
     it ('enabled angular waiting', () => {
@@ -181,7 +178,7 @@ describe('Patient teleconseil tests suite :', () => {
   // describe('Edit patient tests suite', () => {
   //
   //   beforeEach(() => {
-  //     browser.get('/patient/mon-profil/modifier');
+  //     browser.get('/profil/modifier');
   //     browser.sleep(1000);
   //   });
   //
@@ -203,7 +200,7 @@ describe('Patient teleconseil tests suite :', () => {
   //     element(by.css('[type="submit"]')).click();
   //     browser.sleep(1000);
   //
-  //     browser.get('/patient/mon-profil/detail');
+  //     browser.get('/profil');
   //     browser.sleep(1000);
   //     expect(element.all(by.css('.card-title small')).get(0).getText()).toBe('Bové José');
   //
@@ -214,7 +211,7 @@ describe('Patient teleconseil tests suite :', () => {
 
     describe('Remove card with not finished paiement', () => {
       it ('should display a card', () => {
-        browser.get('/patient/informations-bancaires');
+        browser.get('/informations-bancaires');
         browser.waitForAngularEnabled(false);
         expect(element(by.css('.card-credit')).isPresent()).toBeTruthy();
         expect(element(by.css('.card-credit .card-title')).getText()).toBe('CARTE DE PAIEMENT');
@@ -235,6 +232,7 @@ describe('Patient teleconseil tests suite :', () => {
       browser.waitForAngularEnabled(false);
 
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="email"]'))), 5000);
+      element(by.css('[formcontrolname="email"]')).clear();
       element(by.css('[formcontrolname="email"]')).sendKeys('dev+luiz@mesdocteurs.com');
       element(by.css('[type="submit"]')).click();
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="password"]'))), 5000);
@@ -243,11 +241,11 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
       element(by.css('[type="submit"]')).click();
 
-      browser.wait(browser.ExpectedConditions.urlContains('/patient/question/nouvelle'), 10000);
+      browser.wait(browser.ExpectedConditions.urlContains('/question/nouvelle'), 10000);
     });
 
     it ('should display a card', () => {
-      browser.get('/patient/informations-bancaires');
+      browser.get('/informations-bancaires');
       browser.waitForAngularEnabled(false);
 
       expect(element(by.css('.card-credit')).isPresent()).toBeTruthy();
@@ -270,6 +268,7 @@ describe('Patient teleconseil tests suite :', () => {
       browser.waitForAngularEnabled(false);
 
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="email"]'))), 5000);
+      element(by.css('[formcontrolname="email"]')).clear();
       element(by.css('[formcontrolname="email"]')).sendKeys('dev+jp@mesdocteurs.com');
       element(by.css('[type="submit"]')).click();
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[type="password"]'))), 5000);
@@ -278,11 +277,11 @@ describe('Patient teleconseil tests suite :', () => {
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeFalsy();
       element(by.css('[type="submit"]')).click();
 
-      browser.wait(browser.ExpectedConditions.urlContains('/patient/question/nouvelle'), 10000);
+      browser.wait(browser.ExpectedConditions.urlContains('/question/nouvelle'), 10000);
     });
 
     it ('should ask to choose an offer', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
       browser.waitForAngularEnabled(false);
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-selectOffer'))), 5000);
       expect(element(by.id('question-selectOffer')).getText()).toBe('Bonjour José, sélectionnez ci-dessous comment contacter un médecin');
@@ -497,7 +496,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should be possible to refresh page', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
     });
 
     it ('should be possible to select a chat', () => {
@@ -687,7 +686,7 @@ describe('Patient teleconseil tests suite :', () => {
   describe('Should be possible to ask a question medecine générale as a woman over 15', () => {
 
     it ('should be possible to refresh page', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
     });
 
     it ('should ask to choose an offer', () => {
@@ -919,7 +918,7 @@ describe('Patient teleconseil tests suite :', () => {
   describe('Should be possible to ask a question medecine générale as a woman under 15', () => {
 
     it ('should be possible to refresh page', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
     });
 
     it ('should ask to choose an offer', () => {
@@ -1134,7 +1133,7 @@ describe('Patient teleconseil tests suite :', () => {
   describe('Should be possible to ask a question gynecologie', () => {
 
     it ('should be possible to refresh page', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
     });
 
     it ('should ask to choose an offer', () => {
@@ -1308,7 +1307,7 @@ describe('Patient teleconseil tests suite :', () => {
     });
 
     it ('should fill form to current treatment question', () => {
-      browser.get('/patient/question/nouvelle');
+      browser.get('/question/nouvelle');
 
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-question10'))), 5000);
       browser.executeScript('arguments[0].click();', element(by.id('btn-question10')));
