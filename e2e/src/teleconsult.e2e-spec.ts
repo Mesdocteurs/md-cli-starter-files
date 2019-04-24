@@ -2,7 +2,7 @@ import { by, browser, element } from 'protractor';
 
 const randomNumber = Math.floor(Math.random() * Math.floor(10000));
 
-describe('Harmonie tests suite', () => {
+describe('PARTNER_NAMESPACE tests suite', () => {
 
   describe('Connexion tests suite', () => {
 
@@ -16,7 +16,7 @@ describe('Harmonie tests suite', () => {
 
     it('should be possible to signin', () => {
       browser.waitForAngularEnabled(false);
-      browser.get('https://0.0.0.0:3001/test/harmonie');
+      browser.get('https://0.0.0.0:3001/test/PARTNER_NAMESPACE');
     });
 
     it ('should display 2 consentments to accept', () => {
@@ -42,7 +42,7 @@ describe('Harmonie tests suite', () => {
     });
 
     it ('should display a bot message', () => {
-      expect(element(by.id('question-selectOffer')).getText()).toBe('Bonjour Mauricette, sélectionnez ci-dessous comment contacter un médecin');
+      expect(element(by.id('question-selectOffer')).getText()).toContain('sélectionnez ci-dessous comment contacter un médecin');
     });
 
     it ('should display 3 offers', () => {
