@@ -34,7 +34,8 @@ describe('Patient teleconseil tests suite :', () => {
       element.all(by.css('.form-check-label')).get(0).click();
 
       // Error password message
-      expect(element(by.css('small.text-danger')).getText()).toBe('Le mot de passe doit contenir 8 caractères, au moins une majuscule et un chiffre');
+      expect(element(by.css('small.text-danger')).getText()).toBe('Le mot de passe doit contenir 8 caractères, ' +
+        'au moins une majuscule et un chiffre');
       expect(element(by.css('[type="submit"]')).getAttribute('disabled')).toBeTruthy();
 
       element(by.css('[type="email"]')).clear();
@@ -294,7 +295,9 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to select a thematique', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-specialityMedGen'))), 5000);
-      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.\nConfirmez que vous souhaitez échanger avec un médecin généraliste');
+      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont ' +
+        'parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.\n' +
+        'Confirmez que vous souhaitez échanger avec un médecin généraliste');
     });
 
     it ('should be possible to select speciality medecine generale', () => {
@@ -314,14 +317,16 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to set a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
 
     it ('should display question setted', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setQuestion'))), 5000);
-      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que ' +
+        'j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
     });
 
     it ('should ask for gender', () => {
@@ -350,7 +355,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -534,7 +540,8 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to set a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -566,7 +573,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="2018"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="2018"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="2018"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -716,7 +724,9 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to select a thematique', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-specialityMedGen'))), 5000);
-      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.\nConfirmez que vous souhaitez échanger avec un médecin généraliste');
+      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont ' +
+        'parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.\n' +
+        'Confirmez que vous souhaitez échanger avec un médecin généraliste');
     });
 
     it ('should be possible to select speciality medecine generale', () => {
@@ -736,14 +746,16 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to set a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
 
     it ('should display question setted', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setQuestion'))), 5000);
-      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que ' +
+        'j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
     });
 
     it ('should ask for gender', () => {
@@ -772,7 +784,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -954,7 +967,9 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should ask to select a thematique', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-specialityMedGen'))), 5000);
-      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.\nConfirmez que vous souhaitez échanger avec un médecin généraliste');
+      expect(element(by.id('question-specialityMedGen')).getText()).toBe('Sachez que les médecins généralistes sont ' +
+        'parfaitement à-même de prendre en charge\nla très grande majorité des problèmatiques qui se posent à vous.' +
+        '\nConfirmez que vous souhaitez échanger avec un médecin généraliste');
     });
 
     it ('should be possible to select speciality medecine generale', () => {
@@ -974,14 +989,16 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to set a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
 
     it ('should display question setted', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setQuestion'))), 5000);
-      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que ' +
+        'j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
     });
 
     it ('should ask for gender', () => {
@@ -1010,7 +1027,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="2012"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -1195,7 +1213,8 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should be possible to set a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
     });
@@ -1209,7 +1228,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.sleep(1000);
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -1357,7 +1377,8 @@ describe('Patient teleconseil tests suite :', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element.all(by.css('.spe-med-gen')).get(0)), 5000);
       browser.executeScript('arguments[0].click();', element.all(by.css('.spe-med-gen')).get(0));
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.css('[formcontrolname="questionText"]'))), 5000);
-      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[formcontrolname="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie,' +
+        ' allo maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('label[for="genderM"]'))), 5000);
@@ -1366,7 +1387,8 @@ describe('Patient teleconseil tests suite :', () => {
       element(by.id('btn-goToNext')).click();
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('[name="dateOfBirth"]'))), 5000);
       element(by.css('[name="dateOfBirth"]')).click();
-      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
+      browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.css('ngb-datepicker-navigation-select ' +
+        'select.custom-select:nth-child(2) option[value="1980"]'))), 5000);
       element(by.css('ngb-datepicker-navigation-select select.custom-select:nth-child(2) option[value="1980"]')).click();
       element(by.css('ngb-datepicker-navigation-select select:nth-child(1) option[value="12"]')).click();
       element(by.css('ngb-datepicker-month-view .ngb-dp-week:nth-child(2) .ngb-dp-day:nth-child(7)')).click();
@@ -1396,7 +1418,8 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should display treatments setted', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setCurrentTreatment'))), 5000);
-      expect(element(by.id('answer-setCurrentTreatment')).getText()).toBe('Vous suivez actuellement les traitements suivants :\nAspirine 8x jour');
+      expect(element(by.id('answer-setCurrentTreatment')).getText()).toBe('Vous suivez actuellement les traitements ' +
+        'suivants :\nAspirine 8x jour');
     });
 
     it ('should ask for allergies', () => {
@@ -1429,7 +1452,8 @@ describe('Patient teleconseil tests suite :', () => {
 
     it ('should display historic setted', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setMedicalHistory'))), 5000);
-      expect(element(by.id('answer-setMedicalHistory')).getText()).toBe('Vous indiquez les antécedents medicaux suivants :\nBras de secours dans le dos');
+      expect(element(by.id('answer-setMedicalHistory')).getText()).toBe('Vous indiquez les antécedents medicaux ' +
+        'suivants :\nBras de secours dans le dos');
     });
   });
 

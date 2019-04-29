@@ -78,11 +78,13 @@ describe('PARTNER_NAMESPACE tests suite', () => {
     it ('should be possible to write a question', () => {
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('question-setQuestion'))), 5000);
       expect(element(by.id('question-setQuestion')).getText()).toBe('Mauricette, décrivez maintenant votre symptôme');
-      element(by.css('[name="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      element(by.css('[name="questionText"]')).sendKeys('ma question que j\'ai très mal a mon bobo, aie aie, allo ' +
+        'maman bobo pourquoi tu m\'a fait je suis pas beau');
       browser.wait(browser.ExpectedConditions.elementToBeClickable(element(by.id('btn-goToNext'))), 5000);
       element(by.id('btn-goToNext')).click();
       browser.wait(browser.ExpectedConditions.visibilityOf(element(by.id('answer-setQuestion'))), 5000);
-      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
+      expect(element(by.id('answer-setQuestion')).getText()).toBe('Vous posez la question suivante : ma question que ' +
+        'j\'ai très mal a mon bobo, aie aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
     });
 
     it ('should be possible to select gender', () => {
@@ -209,7 +211,7 @@ describe('PARTNER_NAMESPACE tests suite', () => {
       expect(element(by.css('h1.display-4')).getText()).toBe('Mon profil');
     });
 
-    // @todo trop compliqué a tester (selector avec seul parent pour test libelle et selector sur small pour le test réponse), reformater le html
+    // @todo trop compliqué a tester, reformater le html
     // it('it should display firstname and lastname', () => {
     //   expect(element.all(by.css('h4.card-title')).get(0).getText()).toBe('Nom & Prénom');
     //   // expect(element.all(by.css('h4.card-title small')).get(0).getText()).toBe('');
