@@ -3,7 +3,7 @@ describe('Patient profil tests suite', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/mon-profil/detail');
+    cy.visit('/profil/detail');
   });
 
   it('should display a filled page with the patient information', () => {
@@ -14,9 +14,9 @@ describe('Patient profil tests suite', () => {
   });
 
   it('should be able to go to the edit page from the details page', () => {
-    cy.get('[routerlink="/patient/mon-profil/modifier"]').click();
+    cy.get('[routerlink="/profil/modifier"]').click();
 
-    cy.url().should('contain', '/patient/mon-profil/modifier');
+    cy.url().should('contain', '/profil/modifier');
   });
 
   it ('should display a filled form', () => {

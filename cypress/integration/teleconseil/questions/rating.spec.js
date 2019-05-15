@@ -3,7 +3,7 @@ describe('Rating more than 2', () => {
   it('should be possible to go to the page question 2', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/question/2/detail');
+    cy.visit('/question/2/detail');
   });
 
   it('Should display a rate popup', () => {
@@ -30,7 +30,7 @@ describe('Rating less than 3 with thumbs up tests suite', () => {
   it('should be possible to go to the page question 12', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/question/12/detail');
+    cy.visit('/question/12/detail');
   });
 
   it('Should display a rate popup', () => {
@@ -58,7 +58,7 @@ describe('Rating less than 3 with thumbs down tests suite', () => {
   it('should be possible to go to the page question 12', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/question/13/detail');
+    cy.visit('/question/13/detail');
   });
 
   it('Should display a rate popup', () => {

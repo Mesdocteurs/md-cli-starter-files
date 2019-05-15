@@ -5,7 +5,7 @@ describe('Card Bank page', () => {
     it('should be possible to go to the page', () => {
       cy.cookieConsent();
       cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-      cy.visit('/patient/informations-bancaires');
+      cy.visit('/informations-bancaires');
     });
 
     it('should display a card', () => {
@@ -21,7 +21,7 @@ describe('Remove card when possible (another user)', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.login('dev+luiz@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/informations-bancaires');
+    cy.visit('/informations-bancaires');
   });
 
   it('should display a card', () => {

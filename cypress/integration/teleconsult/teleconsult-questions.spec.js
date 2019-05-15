@@ -3,7 +3,7 @@ describe('Médecine générale for a man', () => {
   it('should be possible to go to the page by auth', () => {
     cy.cookieConsent();
     cy.visit('https://0.0.0.0:3001/test/PARTNER_NAMESPACE');
-    cy.url().should('contain', '/patient/question/nouvelle');
+    cy.url().should('contain', '/question/nouvelle');
   });
 
   it('should display 2 consentments to accept', () => {
@@ -67,7 +67,7 @@ describe('Médecine générale for a man', () => {
   });
 
   it('should be possible to set a date of birth', () => {
-    cy.get('[name="dateOfBirth"]').type('07/12/1980');
+    // cy.get('[name="dateOfBirth"]').type('07/12/1980');
     cy.get('#btn-goToNext').click();
   });
 

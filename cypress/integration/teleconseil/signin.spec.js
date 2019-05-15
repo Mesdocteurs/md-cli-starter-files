@@ -47,6 +47,6 @@ describe('Signin page', () => {
 
     cy.get('[type="submit"]').should('not.have.attr', 'disabled');
     cy.get('[type="submit"]').click();
-    cy.url().should('contain', '/patient/question/nouvelle');
+    cy.url().should('contain', '/question/nouvelle');
   });
 });

@@ -3,7 +3,7 @@ describe('Current treatments and medical history tests', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/question/nouvelle');
+    cy.visit('/question/nouvelle');
   });
 
   it ('should fill form to current treatment question', () => {

@@ -54,6 +54,6 @@ describe('Register page', () => {
 
     cy.get('[type="submit"]').click();
 
-    cy.url().should('contain', '/patient/question/nouvelle');
+    cy.url().should('contain', '/question/nouvelle');
   });
 });

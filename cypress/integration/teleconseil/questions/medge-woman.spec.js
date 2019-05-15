@@ -3,7 +3,7 @@ describe('Médecine générale for a woman over 15 years old', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/patient/question/nouvelle');
+    cy.visit('/question/nouvelle');
   });
 
   it('should ask to choose an offer', () => {
