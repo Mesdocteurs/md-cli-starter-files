@@ -21,13 +21,13 @@
   color: $color-white !important;
 }
 
-.btn-outline-secondary {
-  color: $color-secondary !important;
-}
+//.btn-outline-secondary {
+//  color: $color-secondary !important;
+//}
 
-.btn-outline-secondary:focus {
-  color: $color-secondary !important;
-}
+//.btn-outline-secondary:focus {
+//  color: $color-secondary !important;
+//}
 
 .btn-outline-secondary:hover {
   color: $color-white !important;
@@ -36,6 +36,30 @@
 .btn-wrap-text {
   white-space: normal !important;
   word-wrap: break-word !important;
+}
+
+// +-------------------+
+// | BTN RATING THUMBS |
+// +-------------------+
+
+.btn-rating {
+  .btn.btn-link {
+    color: $color-secondary;
+  }
+  .btn.btn-link.active, .btn.btn-link.focus, .btn.btn-link.selected{
+    color: $color-primary !important;
+  }
+
+  .btn-outline-secondary.active, .btn-outline-secondary.focus .btn-outline-secondary.selected {
+    font-weight: bold;
+    background-color: $color-primary !important;
+    border-color: $color-primary !important;
+    box-shadow: none;
+
+    small {
+      font-weight: bold;
+    }
+  }
 }
 
 // +----------+

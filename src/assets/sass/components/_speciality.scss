@@ -19,7 +19,6 @@
 
   .speciality {
     @include size(100px);
-    @include box_shadow(1);
     @include border-radius(50px);
     transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
@@ -29,7 +28,7 @@
     cursor: pointer;
 
     &:hover {
-      @include box_shadow(3);
+      @include box_shadow(2);
       animation: pulse .4s forwards;
       opacity: 0.8;
     }
@@ -91,7 +90,6 @@
   left: 0;
   margin: auto;
 }
-
 .speciality-item {
   margin-top: 90px;
   animation-delay: 1s;
@@ -99,7 +97,7 @@
 
   @for $i from 1 through 7 {
     &:nth-child(#{$i}){
-      animation-delay: $i * .1s;
+      animation-delay: $i * .2s;
     }
   }
 
@@ -107,14 +105,9 @@
     span, i, small {
       color: $color-primary;
     }
-    span {
-      border: 1px solid $color-primary;
-      border-top: 0;
-    }
   }
 
   span {
-    border: 1px solid $color-info;
     display: block;
     transition: .5s;
     cursor: pointer;
@@ -146,20 +139,14 @@
 }
 
 .speciality-item-specialiste {
+  @extend .speciality-item;
   top: -20px !important;
   left: -20px !important;
 
   span {
     height: 80px;
-    border-top: 1px solid $color-info;
+    background-color: $color-primary;
     border-radius: 75px;
-
-  }
-
-  @extend .speciality-item;
-
-  i, small {
-    color: $color-primary !important;
   }
 
   i {
@@ -173,17 +160,17 @@
 
   &:hover {
     span, i, small {
-      color: #16B84B !important;
+      color: $color-secondary !important;
+      opacity: 0.8;
     }
 
     span {
-      border: 1px solid #16B84B;
+      border: 1px solid $color-secondary;
     }
   }
 }
 
 @include media-breakpoint-up(md) {
-
   .h-menu {
     height: 450px;
     display: block !important;
@@ -203,8 +190,8 @@
   .speciality-item {
     margin-top: 0;
     @include absolute-center;
-    width: 80px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
   }
 
   @for $i from 0 through 7 - 1 {
@@ -217,6 +204,30 @@
     .speciality-item:nth-child(#{$i + 1}) {
       opacity: 1;
       transform: rotate(360deg / 7 * $i) translateX(- 40px * 2 - 80px);
+    }
+  }
+}
+
+.spe-med-gen {
+  .speciality {
+    @include size(110px);
+    @include border-radius(70px);
+
+    i {
+      line-height: 110px;}
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .spe-med-gen {
+    .speciality {
+      @include size(80px);
+      border-radius: 75px;
+
+      i {
+        font-size: 55px;
+        line-height: 80px;
+      }
     }
   }
 }

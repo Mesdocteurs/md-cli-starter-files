@@ -140,29 +140,34 @@
   }
 }
 
-// +---------------+
-// | ANIM FLOATING |
-// +---------------+
+// +-------------+
+// | AUTO WRITER |
+// +-------------+
 
-//@keyframes float {
-//  0% {
-//    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-//    transform: translatey(0px);
-//  }
-//  50% {
-//    //box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-//    transform: translatey(-30px);
-//  }
-//  100% {
-//    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-//    transform: translatey(0px);
-//  }
-//}
-//
-//.floating {
-//  transform: translatey(0px);
-//  animation: float 6s ease-in-out infinite;
-//}
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+
+@keyframes blink-caret {
+  from, to { border-color: $color-white; }
+  50% { border-color: transparent;
+  }
+}
+
+.typewriter p {
+  overflow: hidden;
+  border-right: .15em solid transparent;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .05em;
+  font-weight: 700;
+}
+
+@include media-breakpoint-up(xl) {
+  .typewriter p { animation: typing 1s steps(30, end) ,blink-caret .65s step-end 6 !important;}
+}
+
+@include media-breakpoint-down(lg) {
+  .typewriter p { white-space: normal !important;}
+}
 
 // +------------------+
 // | LOADER HOURGLASS |

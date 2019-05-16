@@ -23,9 +23,9 @@ h1, h2 {
 
 // font-size
 
-@include media-breakpoint-up(xs) { html {font-size: 14px !important;} }
-@include media-breakpoint-up(sm) { html {font-size: 14px !important;} }
-@include media-breakpoint-up(md) { html {font-size: 15px !important;} }
+@include media-breakpoint-up(xs) { html {font-size: 15px !important;} }
+@include media-breakpoint-up(sm) { html {font-size: 15px !important;} }
+@include media-breakpoint-up(md) { html {font-size: 16px !important;} }
 @include media-breakpoint-up(lg) { html {font-size: 16px !important;} }
 @include media-breakpoint-up(xl) { html {font-size: 16px !important;} }
 

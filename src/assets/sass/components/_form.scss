@@ -6,6 +6,10 @@
 
 textarea {
   min-height: 65px;
+
+  &::placeholder {
+    font-size: 14px;
+  }
 }
 
 input:-webkit-autofill {

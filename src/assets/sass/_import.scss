@@ -15,7 +15,7 @@
 @import './mesdocteurs-icons';
 
 // // autres
-//@import '~nouislider/distribute/nouislider.min.css';
+@import '~nouislider/distribute/nouislider.min.css';
 @import '~angular2-lightbox/lightbox.css';
 @import '~@swimlane/ngx-datatable/release/index.css';
 @import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
@@ -33,17 +33,15 @@
 @import "../../assets/sass/components/buttons";
 @import "../../assets/sass/components/card";
 @import "../../assets/sass/components/form";
-@import "../../assets/sass/components/nouislider-custom";
 @import "../../assets/sass/components/table";
-@import "../../assets/sass/components/chat";
+@import "../../assets/sass/components/chatbot";
 @import "../../assets/sass/components/visio-chat";
+@import "../../assets/sass/components/profil";
+@import "../../assets/sass/components/modal";
+@import "../../assets/sass/components/speciality";
 @import "../../assets/sass/components/pagination";
 @import "../../assets/sass/components/datepicker";
 @import "../../assets/sass/components/breakpoints";
-@import "../../assets/sass/components/profil";
 @import "../../assets/sass/components/404";
-@import "../../assets/sass/components/modal";
-@import "../../assets/sass/components/speciality";
-@import "../../assets/sass/components/doctor";
-
-//@import '~angular-star-rating/assets/scss/star-rating';
+@import "../../assets/sass/components/nouislider-custom";
+@import '~angular-star-rating/assets/scss/star-rating';

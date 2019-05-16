@@ -56,6 +56,10 @@ hr {
   text-overflow: ellipsis;
 }
 
+.not-overflow {
+  overflow: inherit !important;
+}
+
 // list style none
 
 ul {
@@ -77,6 +81,10 @@ ul {
 .text-muted-w {
   color: $color-white !important;
   font-size: 10px;
+}
+
+.text-grey {
+  color: $color-text-grey !important;
 }
 
 // logo

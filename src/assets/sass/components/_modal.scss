@@ -2,6 +2,14 @@
 // |  MODAL SIDEBAR |
 // +----------------+
 
+.modal-backdrop {
+  background-color: $color-secondary;
+}
+
+.modal-backdrop.show {
+  opacity: 0.7;
+}
+
 // Modal Panel: Right
 $header-nav-height: 66px;
 $modal-height: calc(100vh - #{$header-nav-height});

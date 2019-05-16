@@ -27,7 +27,7 @@
       padding-left: .6rem !important;
       padding-right: .6rem !important;
       transition: all .3s ease-in-out;
-      font-size: 0.8rem;
+      font-size: 11px;
       cursor: pointer;
 
       &:hover {
@@ -126,108 +126,4 @@
 
 .navbar-toggler.collapsed .bottom-bar {
   transform: rotate(0);
-}
-// +------------+
-// | MENU ADMIN |
-// +------------+
-
-.wrapper {
-  display: flex;
-  width: 100%;
-  align-items: stretch;
-
-  #sidebar {
-    margin-left: -250px;
-    transition: all 0.3s;
-    z-index: 200;
-    position: absolute;
-
-    .sidebar-content {
-      position: fixed;
-      max-width: 250px;
-      height: 100%;
-      background: $color-secondary;
-      color: #fff;
-      box-shadow: none;
-      overflow-x: scroll;
-    }
-  }
-
-  #sidebar.active {
-    margin-left: 0;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.4);
-
-    .sidebar-content {
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.26);
-    }
-
-    .hamburger {
-      margin-left: 250px;
-      transition: all 0.3s;
-    }
-
-    .navbar-toggler {
-      background-color: $color-white;
-    }
-  }
-
-  #sidebar .sidebar-header {
-    padding: 20px;
-  }
-
-  #sidebar ul.components {
-    padding: 20px 0;
-  }
-
-  #sidebar ul li a {
-    padding: 10px;
-    font-size: .9em;
-    display: block;
-    color: $color-grey-lighter;
-  }
-
-  #sidebar ul li a:hover {
-    color: $color-primary;
-    background: $color-blue-normal;
-  }
-
-  #sidebar ul li.active>a,
-  a[aria-expanded="true"] {
-    color: #fff;
-    background: $color-secondary;
-  }
-
-  a[data-toggle="collapse"] {
-    position: relative;
-  }
-
-  .dropdown-toggle::after {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-  }
-
-  .active-nav-item {
-    background: $color-info;
-  }
-
-  .navbar-toggler {
-    background-color: transparent;
-  }
-
-  /* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-
-  #content {
-    width: 100%;
-    min-height: 100vh;
-  }
 }

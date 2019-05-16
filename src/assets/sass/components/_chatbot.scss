@@ -1,0 +1,227 @@
+// +----------+
+// | CHAT BOT |
+// +----------+
+
+// +--------+
+// | BUBBLE |
+// +--------+
+
+/* bubble chat */
+
+.bubble {
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 15px;
+  padding: 10px 15px;
+
+  p {
+    margin-bottom: inherit;
+  }
+
+  &:after {
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+@include media-breakpoint-up(sm) { .bubble {  max-width: 70%;} }
+
+/* bubble doctor */
+
+.bubble-doctor {
+  background: theme-color-level("color-doctor-bubble");
+  float: left;
+  color: $color-white;
+
+  &:after {
+    left: -25px;
+    border-left: 10px solid transparent;
+    border-right: 20px solid theme-color("color-doctor-bubble");
+  }
+
+  .text-muted {
+    color: $color-white !important;
+  }
+}
+
+/*  bubble customer  */
+
+.bubble-customer-2 {
+  background: $color-grey-lighter;
+  float: right;
+  font-size: 14px;
+}
+
+.bubble-customer {
+  background: $color-grey-lighter;
+  float: right;
+
+  &:after {
+    right: -25px;
+    border-right: 10px solid transparent;
+    border-left: 20px solid $color-grey-lighter;
+  }
+}
+
+.bubble-doctor:after, .bubble-customer:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 13px;
+}
+
+/*  thumbnail  */
+
+.thumbnail {
+  @include border-radius(50%);
+  display: inline-block;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-weight: 700;
+}
+
+@include media-breakpoint-down(md) {
+  .thumbnail {
+    width: 35px;
+    line-height: 35px;
+  }
+}
+
+.thumbnail-doctor {
+  background: theme-color("color-doctor-bubble");
+  float: left;
+  color: $color-white;
+}
+
+.thumbnail-customer {
+  background: $color-grey-lighter;
+  float: right;
+}
+
+.bubble-answer {
+  border-bottom: 1px solid theme-color("secondary");
+  padding: 0 10px;
+  z-index: 0;
+  transition: all .2s ease-in-out;
+
+  .btn {
+    transition: all .7s ease;
+  }
+
+  &:hover {
+    @include box_shadow(1);
+    border-radius: 10px;
+    background-color: theme-color("secondary");
+    z-index: 100;
+    border-bottom: 1px solid theme-color("secondary");
+    color: $color-white;
+
+    .btn {
+      animation: rubberBand .8s infinite;
+      @include box_shadow(2);
+    }
+  }
+}
+
+.bubble-warning {
+  border: 1px solid theme-color("primary");
+  box-shadow: inset 0 0 0 theme-color("primary"), 0 0 1.5em theme-color("primary");
+}
+
+// +---------------------+
+// | CHATBOT REPONSE BOX |
+// +---------------------+
+
+.chat-reply {
+  position: absolute;
+  right: 0; bottom: 0; left: 0;
+  z-index: 200;
+
+  /* radio switch */
+
+  .btn-switch {
+    .switch {
+      @include size(150px, 40px);
+      text-align: center;
+      transition: all 0.2s ease;
+      border-radius: 5px;
+    }
+    input[type=radio] {
+      display: none;
+    }
+    .switch label {
+      cursor: pointer;
+      color: $color-secondary;
+      width: 75px;
+      line-height: 40px;
+      transition: all 0.2s ease;
+      background-color: #e4e4e4;
+    }
+    label:first-of-type {
+      border-radius: 4px 0 0 4px;
+    }
+    label:last-of-type {
+      border-radius: 0 4px 4px 0;
+    }
+    label.yes {
+      left: 0;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    }
+    label.no {
+      right: 0;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+    }
+    .yes:checked ~ .switch label.yes {
+      background: $color-success;
+      color: $color-white;
+      box-shadow: none;
+    }
+    .no:checked ~ .switch label.no {
+      background: $color-danger;
+      color: $color-white;
+      box-shadow: none;
+    }
+  }
+
+  .btn-switch-1 {
+    @extend .btn-switch;
+    .yes:checked ~ .switch label.yes {
+      background: $color-success;
+      color: $color-white;
+      box-shadow: none;
+    }
+    .no:checked ~ .switch label.no {
+      background: $color-success;
+      color: $color-white;
+      box-shadow: none;
+    }
+
+    .switch label {
+      width: 85px;
+    }
+  }
+
+  textarea {
+    min-height: 80px;
+    font-size: 0.9rem;
+  }
+
+  nouislider {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  .noUi-target {
+    background: $color-grey-dark;
+  }
+}
+
+.chat-reply-1 {
+  @extend .chat-reply;
+  position: relative;
+}
+
+
