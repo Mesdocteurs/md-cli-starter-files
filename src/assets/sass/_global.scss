@@ -38,6 +38,10 @@ hr {
   background-image: linear-gradient(90deg, transparent, $color-white, transparent) !important;
 }
 
+.container-fluid {
+  padding-bottom: 70px;
+}
+
 .border-grey {
   border: 1px solid $color-grey-light !important;
 }
