@@ -3,7 +3,7 @@ describe('Patient profil tests suite', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
-    cy.visit('/profil/detail');
+    cy.visit('/profil');
   });
 
   it('should display a filled page with the patient information', () => {
