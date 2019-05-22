@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   name: 'recette',
-  domain: 'mesdocteurs.com'
+  domain: 'mesdocteurs.com',
+  partnerToken: 'YOUR_RECETTE_TOKEN_HERE'
 };
 
 /*

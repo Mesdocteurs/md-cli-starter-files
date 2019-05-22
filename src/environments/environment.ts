@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   name: 'local',
-  domain: 'localhost'
+  domain: 'localhost',
+  partnerToken: 'YOUR_LOCAL_TOKEN_HERE'
 };
 
 /*

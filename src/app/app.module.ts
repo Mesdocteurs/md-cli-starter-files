@@ -49,7 +49,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     MdCoreModule,
     MdPatientCoreModule.forRoot({
       environment: environment.name,
-      token: 'YOUR_TOKEN_HERE',
+      token: environment.partnerToken,
       version: require('package.json').version
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {

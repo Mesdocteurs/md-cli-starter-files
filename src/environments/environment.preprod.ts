@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   name: 'preprod',
-  domain: 'mesdocteurs.com'
+  domain: 'mesdocteurs.com',
+  partnerToken: 'YOUR_PREPROD_TOKEN_HERE'
 };
 
 /*
