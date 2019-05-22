@@ -4,7 +4,8 @@ describe('Current treatments and medical history tests', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/question/nouvelle');
-    cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
+    cy.wait(2000);
+    cy.url().should('contain', '/question/nouvelle');
   });
 
   it ('should fill form to current treatment question', () => {

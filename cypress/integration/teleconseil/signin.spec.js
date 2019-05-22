@@ -3,7 +3,7 @@ describe('Signin page', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.visit('/connexion');
-    cy.url({timeout: 10000}).should('contain', '/connexion');
+    cy.url().should('contain', '/connexion');
   });
 
   it('should display an empty email form', () => {
