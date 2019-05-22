@@ -7,7 +7,7 @@ import {NgcCookieConsentConfig, NgcCookieConsentModule} from 'ngx-cookieconsent'
 //
 // import {HttpclientInterceptorService} from './services/httpclient-interceptor.service';
 
-import {MdCoreModule, MdConfig, MdPartnerConfig} from '@md-app/md-core';
+import {MdCoreModule} from '@md-app/md-core';
 import {MdPatientCoreModule} from '@md-app/md-patient-core';
 
 import { AppComponent } from './app.component';
@@ -16,7 +16,7 @@ import {environment} from '../environments/environment';
 
 const cookieConfig: NgcCookieConsentConfig = {
     cookie: {
-        domain: MdPartnerConfig.getPartner().url
+        domain: environment.domain
     },
     position: 'bottom',
     theme: 'classic',

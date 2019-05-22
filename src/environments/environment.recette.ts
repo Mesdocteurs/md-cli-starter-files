@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  name: 'recette'
+  name: 'recette',
+  domain: 'mesdocteurs.com'
 };
 
 /*
