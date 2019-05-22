@@ -9,16 +9,13 @@ import {
   Router,
   RouterEvent
 } from '@angular/router';
-// import {UtilService} from './services/util.service';
-// import {environment} from '../environments/environment';
 import {
   NgcCookieConsentService,
   NgcStatusChangeEvent
 } from 'ngx-cookieconsent';
 import {Subscription} from 'rxjs';
 import {SwUpdate} from '@angular/service-worker';
-// import {PartnerConfig} from './classes/partner.config';
-import {LoopBackConfig} from '@md-app/md-core';
+import {LoopBackConfig, MdConfig} from '@md-app/md-core';
 
 @Component({
   selector: 'md-root',
@@ -41,38 +38,25 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // LoopBackConfig.setBaseURL(environment.apiUrl);
-    //
-    // const mesDocteurs: any = environment.mesDocteurs;
-    //
-    // PartnerConfig.setId(mesDocteurs.id);
-    // PartnerConfig.setImagePath(environment.commonImagePath + environment.partnerImagePath + mesDocteurs.imagePath + '/');
-    // PartnerConfig.setLogo(mesDocteurs.logo ? mesDocteurs.logo : null);
-    // PartnerConfig.setLabel(mesDocteurs.label ? mesDocteurs.label : null);
-    // PartnerConfig.setIsTeleconsult(mesDocteurs.isTeleconsult ? mesDocteurs.isTeleconsult : null);
-    // PartnerConfig.setHasCode(mesDocteurs.hasCode ? mesDocteurs.hasCode : null);
-    // PartnerConfig.setCanRegister(mesDocteurs.canRegister ? mesDocteurs.canRegister : null);
-    // PartnerConfig.setUrl(mesDocteurs.url ? mesDocteurs.url : null);
+    LoopBackConfig.setBaseURL(MdConfig.getApiUrl());
 
-    // this.router.events.subscribe(
-    //   (event: RouterEvent) => {
-    //     if (event instanceof NavigationStart) {
-    //       this._isLoader = true;
-    //     }
-    //     if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError
-    //       || GuardsCheckEnd) {
-    //       this._isLoader = false;
-    //       if (event instanceof NavigationEnd) {
-    //         window.scrollTo(0, 0);
-    //       }
-    //     }
-    //   }
-    // );
+    this.router.events.subscribe(
+      (event: RouterEvent) => {
+        if (event instanceof NavigationStart) {
+          this.isLoader = true;
+        }
+        if (event instanceof NavigationEnd || event instanceof NavigationCancel || event instanceof NavigationError
+          || GuardsCheckEnd) {
+          this.isLoader = false;
+          if (event instanceof NavigationEnd) {
+            window.scrollTo(0, 0);
+          }
+        }
+      }
+    );
 
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe(event => {
-        // console.log('current version is', event.current);
-        // console.log('available version is', event.available);
         if (confirm('Une nouvelle version est disponible, recharger ?')) {
           window.location.reload();
         }
