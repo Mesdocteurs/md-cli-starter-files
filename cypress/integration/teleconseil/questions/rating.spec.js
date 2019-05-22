@@ -17,10 +17,6 @@ describe('Rating more than 2', () => {
     cy.get('[type="submit"]').click();
   });
 
-  it('should display a comment form', () => {
-    cy.get('.modal-title').contains('Merci d\'avoir noté le service MesDocteurs !');
-  });
-
   it('should be possible to send  a message', () => {
     cy.get('[name="description"]').type('fuck off');
     cy.get('[type="submit"]').click();
