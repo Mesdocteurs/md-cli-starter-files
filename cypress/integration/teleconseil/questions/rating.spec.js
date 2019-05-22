@@ -33,6 +33,8 @@ describe('Rating less than 3 with thumbs up tests suite', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/question/12/detail');
+    cy.wait(2000);
+    cy.url().should('contain', '/question/12/detail');
   });
 
   it('Should display a rate popup', () => {
@@ -61,6 +63,8 @@ describe('Rating less than 3 with thumbs down tests suite', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/question/13/detail');
+    cy.wait(2000);
+    cy.url().should('contain', '/question/13/detail');
   });
 
   it('Should display a rate popup', () => {
