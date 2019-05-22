@@ -12,6 +12,7 @@ import {MdPatientCoreModule} from '@md-app/md-patient-core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import {environment} from '../environments/environment';
 
 const cookieConfig: NgcCookieConsentConfig = {
     cookie: {
@@ -47,12 +48,12 @@ const cookieConfig: NgcCookieConsentConfig = {
     AppRoutingModule,
     MdCoreModule,
     MdPatientCoreModule.forRoot({
-      environment: 'YOUR_ENVIRONMENT_HERE',
+      environment: environment.name,
       token: 'YOUR_TOKEN_HERE',
       version: require('package.json').version
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: 'production' === MdConfig.getEnvironment() || 'preprod' === MdConfig.getEnvironment()
+      enabled: 'production' === environment.name || 'preprod' === environment.name
     }),
     NgcCookieConsentModule.forRoot(cookieConfig)
   ],
