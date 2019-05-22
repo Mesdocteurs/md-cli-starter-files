@@ -3,6 +3,7 @@ describe('Signin page', () => {
   it('should be possible to go to the page', () => {
     cy.cookieConsent();
     cy.visit('/connexion');
+    cy.url({timeout: 10000}).should('contain', '/connexion');
   });
 
   it('should display an empty email form', () => {
@@ -47,6 +48,6 @@ describe('Signin page', () => {
 
     cy.get('[type="submit"]').should('not.have.attr', 'disabled');
     cy.get('[type="submit"]').click();
-    cy.url().should('contain', '/question/nouvelle');
+    cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
   });
 });

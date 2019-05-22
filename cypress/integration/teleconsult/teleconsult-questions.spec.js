@@ -3,7 +3,7 @@ describe('Médecine générale for a man', () => {
   it('should be possible to go to the page by auth', () => {
     cy.cookieConsent();
     cy.visit('https://0.0.0.0:3001/test/PARTNER_NAMESPACE');
-    cy.url().should('contain', '/question/nouvelle');
+    cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
   });
 
   it('should display 2 consentments to accept', () => {

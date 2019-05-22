@@ -4,6 +4,7 @@ describe('Patient profil tests suite', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/profil');
+    cy.url({timeout: 10000}).should('contain', '/profil');
   });
 
   it('should display a filled page with the patient information', () => {

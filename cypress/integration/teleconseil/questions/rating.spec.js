@@ -4,6 +4,7 @@ describe('Rating more than 2', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/question/2/detail');
+    cy.url({timeout: 10000}).should('contain', '/question/2/detail');
   });
 
   it('Should display a rate popup', () => {

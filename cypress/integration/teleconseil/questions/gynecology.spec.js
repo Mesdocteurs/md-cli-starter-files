@@ -4,6 +4,7 @@ describe('Gynecology', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
     cy.visit('/question/nouvelle');
+    cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
   });
 
   it('should ask to choose an offer', () => {
