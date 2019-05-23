@@ -53,7 +53,7 @@ const cookieConfig: NgcCookieConsentConfig = {
       version: require('package.json').version
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
-      enabled: 'production' === environment.name || 'preprod' === environment.name
+      enabled: 'production' === environment.name || 'preprod' === environment.name || 'recette' === environment.name
     }),
     NgcCookieConsentModule.forRoot(cookieConfig)
   ],
