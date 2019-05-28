@@ -1,0 +1,30 @@
+// +------------------+
+// | THEME COLOR LIFE |
+// +------------------+
+
+$color-primary: __PRIMARY_COLOR__;
+$color-secondary: __SECONDARY_COLOR__;
+
+// color default
+
+$color-info: #00857e;
+//$color-success: #27AF61;
+//$color-warning: #F4712C;
+//$color-danger: #E65348;
+
+$body-color: #111d4e;
+
+$theme-colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  success: $color-success,
+  info: $color-info,
+  warning: $color-warning,
+  danger: $color-danger,
+  //light: $gray-100,
+  //dark: $gray-600,
+  "color-doctor-bubble": $color-info,
+  "tint-profile": rgba(208, 6, 100, 0.4)
+) !default;
+
+//$badge-font-size: 65% !default;
