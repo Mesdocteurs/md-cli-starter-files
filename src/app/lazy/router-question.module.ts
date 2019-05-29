@@ -26,6 +26,8 @@ import {
   MdPatientDebriefingPageDetailComponent,
   MdPatientDebriefingPagesModule
 } from '@md-app/md-patient-debriefing-pages';
+import {MdPatientAbsencePageDetailComponent, MdPatientAbsencePagesModule} from '@md-app/md-patient-absence-pages';
+
 
 @NgModule({
   declarations: [],
@@ -34,6 +36,7 @@ import {
     MdPatientPrescriptionsPagesModule,
     MdPatientDebriefingPagesModule,
     MdPatientUiComponentsModule,
+    MdPatientAbsencePagesModule,
     RouterModule.forChild([
       {
         path: '',
@@ -74,6 +77,13 @@ import {
           {
             path: ':id/compte-rendu',
             component: MdPatientDebriefingPageDetailComponent,
+            resolve: {
+              question: MdQuestionDetailResolver
+            }
+          },
+          {
+            path: ':id/absence',
+            component: MdPatientAbsencePageDetailComponent,
             resolve: {
               question: MdQuestionDetailResolver
             }
