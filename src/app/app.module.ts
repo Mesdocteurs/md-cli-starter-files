@@ -14,29 +14,32 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {environment} from '../environments/environment';
 
+// @ts-ignore
+import {version as versionPackage} from 'package.json';
+
 const cookieConfig: NgcCookieConsentConfig = {
-    cookie: {
-        domain: environment.domain
+  cookie: {
+    domain: environment.domain
+  },
+  position: 'bottom',
+  theme: 'classic',
+  palette: {
+    popup: {
+      background: 'RGBA(38,52,68,0.8)',
+      text: '#ffffff',
     },
-    position: 'bottom',
-    theme: 'classic',
-    palette: {
-        popup: {
-            background: 'RGBA(38,52,68,0.8)',
-            text: '#ffffff',
-        },
-        button: {
-            background: '#FDC53B',
-            text: '#ffffff'
-        }
-    },
-    type: 'info',
-    content: {
-        message: 'Ce site utilise des cookies pour vous garantir la meilleure expérience sur notre site.',
-        dismiss: 'J\'accepte',
-        link: 'En savoir +',
-        href: 'https://www.mesdocteurs.com/cgu'
+    button: {
+      background: '#FDC53B',
+      text: '#ffffff'
     }
+  },
+  type: 'info',
+  content: {
+    message: 'Ce site utilise des cookies pour vous garantir la meilleure expérience sur notre site.',
+    dismiss: 'J\'accepte',
+    link: 'En savoir +',
+    href: 'https://www.mesdocteurs.com/cgu'
+  }
 };
 
 @NgModule({
@@ -50,7 +53,7 @@ const cookieConfig: NgcCookieConsentConfig = {
     MdPatientCoreModule.forRoot({
       environment: environment.name,
       token: environment.partnerToken,
-      version: require('package.json').version
+      version: versionPackage
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: 'production' === environment.name || 'preprod' === environment.name || 'recette' === environment.name
