@@ -3,11 +3,9 @@ import { NgModule } from '@angular/core';
 import {ServiceWorkerModule} from '@angular/service-worker';
 
 import {NgcCookieConsentConfig, NgcCookieConsentModule} from 'ngx-cookieconsent';
-// import {HTTP_INTERCEPTORS} from '@angular/common/http';
-//
-// import {HttpclientInterceptorService} from './services/httpclient-interceptor.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 
-import {MdCoreModule} from '@md-app/md-core';
+import {MdCoreModule, MdHttpInterceptorService} from '@md-app/md-core';
 import {MdPatientCoreModule} from '@md-app/md-patient-core';
 
 import { AppComponent } from './app.component';
@@ -61,12 +59,11 @@ const cookieConfig: NgcCookieConsentConfig = {
     NgcCookieConsentModule.forRoot(cookieConfig)
   ],
   providers: [
-    // Title,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: HttpclientInterceptorService,
-    //   multi: true,
-    // }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MdHttpInterceptorService,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })
