@@ -81,16 +81,16 @@
   color:  $color-blue-normal !important;
 }
 
-.ngx-datatable .datatable-body .datatable-body-row ,.datatable-row-detail {
-  border-bottom: 1px solid $color-grey-light;
-}
+//.ngx-datatable .datatable-body .datatable-body-row ,.datatable-row-detail {
+//  border-bottom: 1px solid $color-grey-light;
+//}
 
 .ngx-datatable.material .datatable-body .datatable-row-detail {
-  background-color: $color-grey-lighter;
+  background-color: $light;
 }
 
 .ngx-datatable.material .datatable-footer {
-  border-top: none !important;
+  border-top: 1px solid $color-grey-light;
 }
 
 .datatable-body-row:hover, .datatable-row-group:hover {
@@ -98,4 +98,14 @@
   color: $color-secondary !important;
 }
 
+//.datatable-body {
+//  overflow-x: visible !important;
+//  overflow-y: visible !important;
+//}
 
+.btn-datatable {
+  .dropdown-item {
+    font-size: 10px !important;
+    padding: 0.10rem 1.5rem;
+  }
+}

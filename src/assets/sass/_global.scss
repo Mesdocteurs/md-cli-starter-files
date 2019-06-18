@@ -239,45 +239,12 @@ ul {
   }
 }
 
-// +------------------+
-// | OVERLAY - LOADER |
-// +------------------+
-
-.overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1040;
-  background-color: #000;
-  opacity: 0.7;
-}
-
-.overlay-content {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 1;
-}
-
-// electrocardiogramme (loader)
+// +--------------------------+
+// | OVERLAY - LOADER - COLOR |
+// +--------------------------+
 
 .beat-loader{
-  stroke: $color-info;
-  stroke-dasharray: 175;
-  stroke-dashoffset: 350%;
-  animation: draw 1.4s linear;
-  animation-iteration-count: infinite;
-}
-
-// animation electrocardiogramme (loader)
-
-@keyframes draw {
-  to{
-    stroke-dashoffset: 0;
-  }
+  stroke: $color-info !important;
 }
 
 // Tronquer le text à 2 lignes
