@@ -22,7 +22,7 @@ describe('Gynecology', () => {
   });
 
   it('should be possible to select speciality other', () => {
-    cy.get('.speciality-item-specialiste').click();
+    cy.get('.icon-2-specialiste').click();
   });
 
   it('should display other speciality chosen', () => {

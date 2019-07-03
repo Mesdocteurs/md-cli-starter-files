@@ -39,6 +39,17 @@
       color: $color-white;
     }
   }
+
+  .speciality-filter {
+    @extend .speciality;
+    filter: grayscale(100%) !important;
+
+    &:hover {
+      filter: grayscale(0%) !important;
+      opacity: 1;
+    }
+  }
+
 }
 
 @include media-breakpoint-down(md) {
@@ -81,153 +92,153 @@
 // | THEMATIQUE FLOWER |
 // +-------------------+
 
-@mixin absolute-center {
-  position: absolute;
-  display: block;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  margin: auto;
-}
-.speciality-item {
-  margin-top: 90px;
-  animation-delay: 1s;
-  animation: .2s ease-in both fadeIn;
-
-  @for $i from 1 through 7 {
-    &:nth-child(#{$i}){
-      animation-delay: $i * .2s;
-    }
-  }
-
-  &:hover {
-    span, i, small {
-      color: $color-primary;
-    }
-  }
-
-  span {
-    display: block;
-    transition: .5s;
-    cursor: pointer;
-    width: 80px;
-    height: 40px;
-    border-bottom-left-radius: 75px;
-    border-bottom-right-radius: 75px;
-    border-top: 0;
-    text-align: center;
-    box-sizing: border-box;
-
-    small {
-      font-size: 9px;
-      text-align: center;
-      color: $color-info;
-      display: block;
-      width: inherit;
-      height: inherit;
-      cursor: pointer;
-    }
-
-    i {
-      font-size: 45px;
-      color: $color-info;
-      top: -20px;
-      position: relative;
-    }
-  }
-}
-
-.speciality-item-specialiste {
-  @extend .speciality-item;
-  top: -20px !important;
-  left: -20px !important;
-
-  span {
-    height: 80px;
-    background-color: $color-primary;
-    border-radius: 75px;
-  }
-
-  i {
-    line-height: 80px;
-    top: inherit !important;
-  }
-
-  span {
-    border: 1px solid $color-primary;
-  }
-
-  &:hover {
-    span, i, small {
-      color: $color-secondary !important;
-      opacity: 0.8;
-    }
-
-    span {
-      border: 1px solid $color-secondary;
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .h-menu {
-    height: 450px;
-    display: block !important;
-  }
-
-  .speciality-menu {
-    @include absolute-center;
-    @include size(150px);
-    z-index: 2;
-    cursor: pointer;
-
-    .speciality {
-      margin: 10px auto 10px;
-    }
-  }
-
-  .speciality-item {
-    margin-top: 0;
-    @include absolute-center;
-    width: 100px;
-    height: 100px;
-  }
-
-  @for $i from 0 through 7 - 1 {
-    .speciality-item:nth-child(#{$i + 1}) span {
-      transform: rotate(-360deg / 7 * $i);
-    }
-  }
-
-  @for $i from 0 through 7 - 1 {
-    .speciality-item:nth-child(#{$i + 1}) {
-      opacity: 1;
-      transform: rotate(360deg / 7 * $i) translateX(- 40px * 2 - 80px);
-    }
-  }
-}
-
-.spe-med-gen {
-  .speciality {
-    @include size(110px);
-    @include border-radius(70px);
-
-    i {
-      line-height: 110px;}
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .spe-med-gen {
-    .speciality {
-      @include size(80px);
-      border-radius: 75px;
-
-      i {
-        font-size: 55px;
-        line-height: 80px;
-      }
-    }
-  }
-}
+//@mixin absolute-center {
+//  position: absolute;
+//  display: block;
+//  top: 0;
+//  bottom: 0;
+//  right: 0;
+//  left: 0;
+//  margin: auto;
+//}
+//.speciality-item {
+//  margin-top: 90px;
+//  animation-delay: 1s;
+//  animation: .2s ease-in both fadeIn;
+//
+//  @for $i from 1 through 7 {
+//    &:nth-child(#{$i}){
+//      animation-delay: $i * .2s;
+//    }
+//  }
+//
+//  &:hover {
+//    span, i, small {
+//      color: $color-primary;
+//    }
+//  }
+//
+//  span {
+//    display: block;
+//    transition: .5s;
+//    cursor: pointer;
+//    width: 80px;
+//    height: 40px;
+//    border-bottom-left-radius: 75px;
+//    border-bottom-right-radius: 75px;
+//    border-top: 0;
+//    text-align: center;
+//    box-sizing: border-box;
+//
+//    small {
+//      font-size: 9px;
+//      text-align: center;
+//      color: $color-info;
+//      display: block;
+//      width: inherit;
+//      height: inherit;
+//      cursor: pointer;
+//    }
+//
+//    i {
+//      font-size: 45px;
+//      color: $color-info;
+//      top: -20px;
+//      position: relative;
+//    }
+//  }
+//}
+//
+//.speciality-item-specialiste {
+//  @extend .speciality-item;
+//  top: -20px !important;
+//  left: -20px !important;
+//
+//  span {
+//    height: 80px;
+//    background-color: $color-primary;
+//    border-radius: 75px;
+//  }
+//
+//  i {
+//    line-height: 80px;
+//    top: inherit !important;
+//  }
+//
+//  span {
+//    border: 1px solid $color-primary;
+//  }
+//
+//  &:hover {
+//    span, i, small {
+//      color: $color-secondary !important;
+//      opacity: 0.8;
+//    }
+//
+//    span {
+//      border: 1px solid $color-secondary;
+//    }
+//  }
+//}
+//
+//@include media-breakpoint-up(md) {
+//  .h-menu {
+//    height: 450px;
+//    display: block !important;
+//  }
+//
+//  .speciality-menu {
+//    @include absolute-center;
+//    @include size(150px);
+//    z-index: 2;
+//    cursor: pointer;
+//
+//    .speciality {
+//      margin: 10px auto 10px;
+//    }
+//  }
+//
+//  .speciality-item {
+//    margin-top: 0;
+//    @include absolute-center;
+//    width: 100px;
+//    height: 100px;
+//  }
+//
+//  @for $i from 0 through 7 - 1 {
+//    .speciality-item:nth-child(#{$i + 1}) span {
+//      transform: rotate(-360deg / 7 * $i);
+//    }
+//  }
+//
+//  @for $i from 0 through 7 - 1 {
+//    .speciality-item:nth-child(#{$i + 1}) {
+//      opacity: 1;
+//      transform: rotate(360deg / 7 * $i) translateX(- 40px * 2 - 80px);
+//    }
+//  }
+//}
+//
+//.spe-med-gen {
+//  .speciality {
+//    @include size(110px);
+//    @include border-radius(70px);
+//
+//    i {
+//      line-height: 110px;}
+//  }
+//}
+//
+//@include media-breakpoint-down(md) {
+//  .spe-med-gen {
+//    .speciality {
+//      @include size(80px);
+//      border-radius: 75px;
+//
+//      i {
+//        font-size: 55px;
+//        line-height: 80px;
+//      }
+//    }
+//  }
+//}

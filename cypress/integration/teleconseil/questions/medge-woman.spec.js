@@ -21,11 +21,6 @@ describe('Médecine générale for a woman over 15 years old', () => {
     cy.get('#answer-selectOffer').should('have.text', 'Vous avez choisi l\'offre Question à 6,00€ la question');
   });
 
-  it('should ask to select a thematique', () => {
-    cy.get('#question-specialityMedGen').contains('Sachez que les médecins généralistes sont parfaitement ' +
-      'à-même de prendre en charge la très grande majorité des problèmatiques qui se posent à vous.');
-  });
-
   it('should be possible to select speciality medecine generale', () => {
     cy.get('.icon-2-medecine-generale').eq(0).click();
   });

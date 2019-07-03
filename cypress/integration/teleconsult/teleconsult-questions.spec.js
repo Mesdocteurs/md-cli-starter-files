@@ -2,7 +2,7 @@ describe('Médecine générale for a man', () => {
 
   it('should be possible to go to the page by auth', () => {
     cy.cookieConsent();
-    cy.visit('https://0.0.0.0:3001/test/PARTNER_NAMESPACE');
+    cy.visit('https://0.0.0.0:3001/test/harmonie');
     cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
   });
 
@@ -22,11 +22,6 @@ describe('Médecine générale for a man', () => {
 
   it('should display offer selected', () => {
     cy.get('#answer-selectOffer').should('have.text', 'Vous avez choisi l\'offre Chat écrit offerte');
-  });
-
-  it('should ask to select a thematique', () => {
-    cy.get('#question-specialityMedGen').contains('Sachez que les médecins généralistes sont parfaitement ' +
-      'à-même de prendre en charge la très grande majorité des problèmatiques qui se posent à vous.');
   });
 
   it('should be possible to select speciality medecine generale', () => {

@@ -13,15 +13,11 @@ describe('Should be possible to ask a chat pediatry', () => {
   });
 
   it ('should be possible to select speciality other', () => {
-    cy.get('.speciality-item-specialiste').click();
+    cy.get('.icon-2-specialiste').click();
   });
 
   it ('should display other speciality chosen', () => {
     cy.get('#answer-specialityMedGen').contains('Vous avez choisi de consulter un spécialiste');
-  });
-
-  it ('should ask for speciality', () => {
-    cy.get('#question-specialitySpecialist').contains('José, choisissez ci-dessous le thème de votre question');
   });
 
   it ('should be possible to set speciality', () => {
