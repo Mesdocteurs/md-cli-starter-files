@@ -13,9 +13,9 @@ blocks:
       jobs:
         - name: 'Build & cache project'
           commands:
-#             Building the project for recette
+#             Building the project for preprod
             - checkout
-            - npm i -g @angular/cli
+            - npm i -g @angular/cli@7.3.9
             - cache restore node-modules-$(checksum package.json)
             - ng build --configuration=${ENVIRONMENT}
 #            Restoring the project name from cache
@@ -33,7 +33,7 @@ blocks:
           value: 'preprod'
       secrets:
         - name: ip
-        - name: preprod-rsa
+        - name: staging-keys
       jobs:
         - name: 'Copy files'
           commands:
@@ -44,23 +44,21 @@ blocks:
             - cache restore project-name
             - export PROJECT_NAME=`cat project-name`
             - cache restore ${PROJECT_NAME}-${ENVIRONMENT}
-#             Replace private key
+#             Replace p rivate key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Create PROJECT_VERSION var
             - cd dist/
             - export PROJECT_VERSION=`ls`
-#             Connection attempt to the gateway (preprod)
-            - ssh mdc@${IPADDR_PREPROD} "ls;"
-#             Copying the project to the gateway (preprod)
+#             Copying the project to the gateway (staging)
             - tar zcf ${PROJECT_VERSION}.tar.gz ${PROJECT_VERSION}/
-            - scp -r ${PROJECT_VERSION}.tar.gz mdc@${IPADDR_PREPROD}:${TMP_DIR}/${PROJECT_VERSION}.tar.gz
+            - scp -r ${PROJECT_VERSION}.tar.gz mdc@${IPADDR_STAGING}:${STAGING_TMP_DIR}/${PROJECT_VERSION}.tar.gz
   - name: 'Deploy to preprod'
     task:
       secrets:
         - name: ip
-        - name: preprod-rsa
+        - name: staging-keys
       env_vars:
         - name: ENVIRONMENT
           value: 'preprod'
@@ -77,8 +75,8 @@ blocks:
 #             Replace private key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Start deploy script
-            - ssh mdc@${IPADDR_PREPROD} "cd deployment-scripts && git pull"
-            - ssh mdc@${IPADDR_PREPROD} "bash deployment-scripts/mesDocteurs/${ENVIRONMENT}/deploy.sh ${PROJECT_VERSION}"
-            - ssh mdc@${IPADDR_PREPROD} "rm -f ${TMP_DIR}/${PROJECT_VERSION}.tar.gz"
+            - ssh mdc@${IPADDR_STAGING} "cd deployment-scripts && git pull"
+            - ssh mdc@${IPADDR_STAGING} "bash deployment-scripts/mesDocteurs/staging/deploy.sh ${PROJECT_VERSION} ${IPADDR_PREPROD_PRIVATE}"
+            - ssh mdc@${IPADDR_STAGING} "rm -f ${STAGING_TMP_DIR}/${PROJECT_VERSION}.tar.gz"

@@ -43,6 +43,7 @@
   .speciality-filter {
     @extend .speciality;
     filter: grayscale(100%) !important;
+    opacity: 0.5;
 
     &:hover {
       filter: grayscale(0%) !important;

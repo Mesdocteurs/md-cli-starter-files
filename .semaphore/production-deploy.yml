@@ -13,9 +13,9 @@ blocks:
       jobs:
         - name: 'Build & cache project'
           commands:
-#             Building the project for recette
+#             Building the project for production
             - checkout
-            - npm i -g @angular/cli
+            - npm i -g @angular/cli@7.3.9
             - cache restore node-modules-$(checksum package.json)
             - ng build --configuration=${ENVIRONMENT}
 #            Restoring the project name from cache
@@ -33,7 +33,7 @@ blocks:
           value: 'production'
       secrets:
         - name: ip
-        - name: preprod-rsa
+        - name: staging-keys
       jobs:
         - name: 'Copy files'
           commands:
@@ -47,26 +47,24 @@ blocks:
 #             Replace private key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Create PROJECT_VERSION var
             - cd dist/
             - export PROJECT_VERSION=`ls`
-#             Connection attempt to the gateway (preprod)
-            - ssh mdc@${IPADDR_PREPROD} "ls;"
-#             Copying the project to the gateway (preprod)
+#             Copying the project to the gateway (staging)
             - tar zcf ${PROJECT_VERSION}.tar.gz ${PROJECT_VERSION}/
-            - scp -r ${PROJECT_VERSION}.tar.gz mdc@${IPADDR_PREPROD}:${TMP_DIR}/${PROJECT_VERSION}.tar.gz
+            - scp -r ${PROJECT_VERSION}.tar.gz mdc@${IPADDR_STAGING}:${STAGING_TMP_DIR}/${PROJECT_VERSION}.tar.gz
         - name: 'Open VPN'
           commands:
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
-            - ssh mdc@${IPADDR_PREPROD} "sudo /usr/local/bin/vpn start"
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
+            - ssh mdc@${IPADDR_STAGING} "sudo /usr/local/bin/vpn start"
   - name: 'Deploy to production'
     task:
       secrets:
         - name: ip
-        - name: preprod-rsa
+        - name: staging-keys
       env_vars:
         - name: ENVIRONMENT
           value: 'production'
@@ -83,10 +81,10 @@ blocks:
 #             Replace private key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Start deploy script
-            - ssh mdc@${IPADDR_PREPROD} "cd deployment-scripts && git pull"
-            - ssh mdc@${IPADDR_PREPROD} "bash deployment-scripts/mesDocteurs/${ENVIRONMENT}/deploy.sh ${PROJECT_VERSION} ${IPADDR_PROD1}"
+            - ssh mdc@${IPADDR_STAGING} "cd deployment-scripts && git pull"
+            - ssh mdc@${IPADDR_STAGING} "bash deployment-scripts/mesDocteurs/staging/deploy.sh ${PROJECT_VERSION} ${IPADDR_PROD1}"
         - name: 'Deploy to second server'
           commands:
 #             Restore project name and built project from cache
@@ -99,10 +97,10 @@ blocks:
 #             Replace private key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Start deploy script
-            - ssh mdc@${IPADDR_PREPROD} "cd deployment-scripts && git pull"
-            - ssh mdc@${IPADDR_PREPROD} "bash deployment-scripts/mesDocteurs/${ENVIRONMENT}/deploy.sh ${PROJECT_VERSION} ${IPADDR_PROD2}"
+            - ssh mdc@${IPADDR_STAGING} "cd deployment-scripts && git pull"
+            - ssh mdc@${IPADDR_STAGING} "bash deployment-scripts/mesDocteurs/staging/deploy.sh ${PROJECT_VERSION} ${IPADDR_PROD2}"
   - name: 'Remove tmp files from gateway and close VPN'
     task:
       env_vars:
@@ -110,7 +108,7 @@ blocks:
           value: 'production'
       secrets:
         - name: ip
-        - name: preprod-rsa
+        - name: staging-keys
       jobs:
         - name: 'Remove files'
           commands:
@@ -124,12 +122,12 @@ blocks:
 #             Replace private key
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
 #             Remove tmp files and close VPN
-            - ssh mdc@${IPADDR_PREPROD} "rm -f ${TMP_DIR}/${PROJECT_VERSION}.tar.gz"
+            - ssh mdc@${IPADDR_STAGING} "rm -f ${STAGING_TMP_DIR}/${PROJECT_VERSION}.tar.gz"
         - name: 'Close VPN'
           commands:
             - chmod 600 /home/semaphore/.ssh/id_rsa.preprod
             - mv -f /home/semaphore/.ssh/id_rsa.preprod /home/semaphore/.ssh/id_rsa
-            - ssh-keyscan -H -p 22 ${IPADDR_PREPROD} >> /home/semaphore/.ssh/known_hosts
-            - ssh mdc@${IPADDR_PREPROD} "sudo /usr/local/bin/vpn stop"
+            - ssh-keyscan -H -p 22 ${IPADDR_STAGING} >> /home/semaphore/.ssh/known_hosts
+            - ssh mdc@${IPADDR_STAGING} "sudo /usr/local/bin/vpn stop"

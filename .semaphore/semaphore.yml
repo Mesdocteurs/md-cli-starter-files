@@ -9,7 +9,7 @@ blocks:
   - name: 'Install'
     task:
       secrets:
-        - name: preprod-rsa
+        - name: staging-keys
         - name: tokens
       jobs:
         - name: 'Install & cache dependencies'
@@ -37,7 +37,7 @@ blocks:
       prologue:
         commands:
           - checkout
-          - npm i -g @angular/cli
+          - npm i -g @angular/cli@7.3.9
           - cache restore node-modules-$(checksum package.json)
       jobs:
         - name: 'Lint'
@@ -49,15 +49,15 @@ blocks:
   - name: 'E2E tests'
     task:
       secrets:
-        - name: preprod-rsa
-        - name: debug-keys
+        - name: staging-keys
         - name: tokens
       prologue:
         commands:
           - chmod 600 /home/semaphore/.ssh/id_rsa
-          - cat lucas.pub >> /home/semaphore/.ssh/authorized_keys
           - sem-service start redis
           - sem-service start postgres
+          - npm i -g @angular/cli@7.3.9
+          - sudo apt-get -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 # install missing libs for cypress
           - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
           - cd md-api
           - cache restore node-modules-api-$(checksum package.json)
@@ -69,10 +69,8 @@ blocks:
           commands:
             - cd ..
             - checkout
-            - npm i -g @angular/cli
             - cache restore node-modules-$(checksum package.json)
             - npx cypress install # install cypress binary that is not cached
-            - sudo apt-get -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 # install missing libs for cypress
             - npm run cy:test
 promotions:
   - name: '1 - Recette deployment'
