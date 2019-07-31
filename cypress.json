@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://localhost:4200",
-  "integrationFolder": "TEST_FOLDER"
+  "integrationFolder": "TEST_FOLDER",
+  "chromeWebSecurity": false
 }
