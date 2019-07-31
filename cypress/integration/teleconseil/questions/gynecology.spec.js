@@ -124,14 +124,6 @@ describe('Gynecology', () => {
     cy.get('#answer-setPregnancy').contains('Vous n\'êtes pas enceinte');
   });
 
-  it('should be possible to set profession', () => {
-    cy.get('#btn-goToNext').click();
-  });
-
-  it('should be possible to select card', () => {
-    cy.get('#btn-goToNext').click();
-  });
-
   it('should ask to confirm and send question', () => {
     cy.get('#question-confirm').contains('Confirmer et poser votre question ?');
   });

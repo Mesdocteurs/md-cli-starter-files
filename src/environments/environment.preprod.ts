@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   name: 'preprod',
   domain: 'mesdocteurs.com',
-  partnerToken: 'YOUR_PREPROD_TOKEN_HERE'
+  partnerToken: 'YOUR_PREPROD_TOKEN_HERE',
+  stripeApiKey: 'pk_test_NEZuVN3uCMvwLzkHc0FZJ60n009za1cbnO'
 };
 
 /*

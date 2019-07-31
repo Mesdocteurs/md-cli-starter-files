@@ -134,32 +134,6 @@ describe('Médecine générale for a woman under 15 years old', () => {
     cy.get('#answer-setMedicalHistory').should('have.text', 'Vous n\'indiquez aucun antécédent médical');
   });
 
-  it('should ask for profession', () => {
-    cy.get('#question-setProfession').should('have.text', 'Quelle est votre profession ?');
-  });
-
-  it('should be possible to set profession', () => {
-    cy.get('[formcontrolname="profession"]').clear();
-    cy.get('[formcontrolname="profession"]').type('Footballeur');
-    cy.get('#btn-goToNext').click();
-  });
-
-  it('should display setted profession', () => {
-    cy.get('#answer-setProfession').should('have.text', 'Votre profession est Footballeur');
-  });
-
-  it('should ask to use recorded card', () => {
-    cy.get('#question-cardRecorded').should('have.text', 'Utiliser la carte suivante ?');
-  });
-
-  it('should be possible to select card', () => {
-    cy.get('#btn-goToNext').click();
-  });
-
-  it('should display selected card', () => {
-    cy.get('#answer-cardRecorded').contains('Vous souhaitez utiliser la carte 004040******4');
-  });
-
   it('should ask to confirm and send question', () => {
     cy.get('#question-confirm').should('have.text', 'Confirmer et poser votre question ?');
   });

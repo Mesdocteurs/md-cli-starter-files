@@ -126,18 +126,6 @@ describe('Should be possible to ask a chat pediatry', () => {
     cy.get('#answer-setMedicalHistory').contains('L\'enfant n\'a aucun antécédent médical');
   });
 
-  it ('should ask to use recorded card', () => {
-    cy.get('#question-cardRecorded').contains('Utiliser la carte suivante ?');
-  });
-
-  it ('should be possible to select card', () => {
-    cy.get('#btn-goToNext').click();
-  });
-
-  it ('should display selected card', () => {
-    cy.get('#answer-cardRecorded').contains('Vous souhaitez utiliser la carte 004040******4');
-  });
-
   it ('should ask to confirm and send question', () => {
     cy.get('#question-confirm').contains('Confirmer et poser votre question ?');
   });
