@@ -7,7 +7,7 @@ export const environment = {
   name: 'local',
   domain: 'localhost',
   partnerToken: 'YOUR_LOCAL_TOKEN_HERE',
-  stripeApiKey: 'pk_test_NEZuVN3uCMvwLzkHc0FZJ60n009za1cbnO'
+  stripeApiKey: 'pk_test_JysutRfQCgCXFoDOwRjuAzXj00wUK4zPSg'
 };
 
 /*

@@ -7,7 +7,7 @@ export const environment = {
   name: 'recette',
   domain: 'mesdocteurs.com',
   partnerToken: 'YOUR_RECETTE_TOKEN_HERE',
-  stripeApiKey: 'pk_test_NEZuVN3uCMvwLzkHc0FZJ60n009za1cbnO'
+  stripeApiKey: 'pk_test_ASLbGLvXQ6N0QeM8qVo5sQCd00axz4E3G1'
 };
 
 /*
