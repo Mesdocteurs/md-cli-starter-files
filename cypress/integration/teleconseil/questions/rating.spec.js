@@ -3,6 +3,8 @@ describe('Rating more than 2', () => {
   it('should be possible to go to the page question 2', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
+    // cy.visit('/question');
+    // cy.get('.pqli-buttonShow').eq(4).click(); // question 2
     cy.visit('/question/2/detail');
     cy.wait(2000);
     cy.url().should('contain', '/question/2/detail');
@@ -28,6 +30,8 @@ describe('Rating less than 3 with thumbs up tests suite', () => {
   it('should be possible to go to the page question 12', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
+    // cy.visit('/question');
+    // cy.get('.pqli-buttonShow').eq(3).click(); // question 12
     cy.visit('/question/12/detail');
     cy.wait(2000);
     cy.url().should('contain', '/question/12/detail');
@@ -58,6 +62,8 @@ describe('Rating less than 3 with thumbs down tests suite', () => {
   it('should be possible to go to the page question 12', () => {
     cy.cookieConsent();
     cy.login('dev+jp@mesdocteurs.com', 'tototoO0');
+    // cy.visit('/question');
+    // cy.get('.pqli-buttonShow').eq(2).click(); // question 13
     cy.visit('/question/13/detail');
     cy.wait(2000);
     cy.url().should('contain', '/question/13/detail');

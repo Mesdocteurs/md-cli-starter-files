@@ -1,3 +1,4 @@
+// file starts with z to be sure it will be executed in last
 describe('Payment', () => {
 
   it('should be possible to go to the page', () => {
@@ -13,32 +14,30 @@ describe('Payment', () => {
     cy.get('.icon-2-medecine-generale').eq(0).click();
     cy.get('[formcontrolname="questionText"]').type('ma question que j\'ai très mal a mon bobo, aie ' +
       'aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
-    cy.get('#btn-goToNext').click();
-    cy.get('label[for="genderM"]').click();
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.get('[name="dateOfBirth"]').click();
     cy.get('[name="dateOfBirth"]').type('07/12/1980');
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.wait(500);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 450, clientY: 0})
       .trigger('mouseup');
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.wait(500);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 300, clientY: 0})
       .trigger('mouseup');
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.get('label[for="isCurrentTreatmentN"]').click();
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.get('label[for="isAllergiesN"]').click();
-    cy.get('#btn-goToNext').click();
+    cy.get('#btnNext').click();
     cy.get('label[for="isMedicalHistoryN"]').click();
-    cy.get('#btn-goToNext').click();
-    cy.get('#question-confirm').should('have.text', 'Confirmer et poser votre question ?');
-    cy.get('#btn-submit').click();
+    cy.get('#btnNext').click();
+    cy.get('#btnSubmit').should('exist');
+    cy.get('#btnSubmit').click();
     cy.get('[name="phone"]').type('0606060606');
     cy.get('#pptf-submit').click();
   });
@@ -66,7 +65,6 @@ describe('Payment', () => {
   });
 
   it('should submit the payment form', () => {
-    // Enter test card data into Stripe Elements:
     cy.get('.__PrivateStripeElement > iframe').then($element => {
 
       const $body = $element.contents().find('body');
