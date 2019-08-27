@@ -36,6 +36,10 @@ describe('Payment', () => {
     cy.get('#btnNext').click();
     cy.get('label[for="isMedicalHistoryN"]').click();
     cy.get('#btnNext').click();
+    cy.get('ng-select').click();
+    cy.get('#country').type('Fran');
+    cy.get('span').contains('France').click();
+    cy.get('#btnNext').click();
     cy.get('#btnSubmit').should('exist');
     cy.get('#btnSubmit').click();
     cy.get('[name="phone"]').type('0606060606');

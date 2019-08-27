@@ -2,7 +2,7 @@ describe('Médecine générale for a man', () => {
 
   it('should be possible to go to the page by auth', () => {
     cy.cookieConsent();
-    cy.visit('https://0.0.0.0:3001/test/PARTNER_NAMESPACE');
+    cy.visit('https://0.0.0.0:3001/test/argedis');
     cy.url({timeout: 10000}).should('contain', '/question/nouvelle');
   });
 
@@ -62,6 +62,13 @@ describe('Médecine générale for a man', () => {
 
   it('should be possible to set no medical history', () => {
     cy.get('label[for="isMedicalHistoryN"]').click();
+    cy.get('#btnNext').click();
+  });
+
+  it('should be possible to set the current country', () => {
+    cy.get('ng-select').click();
+    cy.get('#country').type('Fran');
+    cy.get('span').contains('France').click();
     cy.get('#btnNext').click();
   });
 

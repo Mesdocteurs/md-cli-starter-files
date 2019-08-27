@@ -62,6 +62,13 @@ describe('Médecine générale for a woman under 15 years old', () => {
     cy.get('#btnNext').click();
   });
 
+  it('should be possible to set the current country', () => {
+    cy.get('ng-select').click();
+    cy.get('#country').type('Fran');
+    cy.get('span').contains('France').click();
+    cy.get('#btnNext').click();
+  });
+
   it('should display the confirm question button', () => {
     cy.get('#btnSubmit').should('exist');
   });
