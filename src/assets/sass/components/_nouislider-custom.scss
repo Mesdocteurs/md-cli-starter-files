@@ -8,6 +8,10 @@
   top: -12px;
   background: theme-color("primary");
   box-shadow: none;
+  border-color: $color-secondary;
+  &:after, &:before {
+    background: none;
+  }
 
   &:after, &:before {
     top: 8px;
@@ -15,21 +19,34 @@
 }
 
 .noUi-horizontal .noUi-tooltip {
-  @include box_shadow(2);
+  @extend .shadow;
   transform: translate(-50%,0);
   left: -75%;
-  bottom: 0;
+  bottom: -2px;
 }
 
 .noUi-tooltip {
-  border: 1px solid $color-grey-dark;
+  border: 1px solid $color-secondary;
   color: theme-color("secondary");
-  padding: 3px 5px;
-  font-weight: 600;
+  padding: 5px;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .noUi-horizontal {
   height: 12px;
 }
+
+.noUi-target {
+  background: $color-white;
+  border-color: $color-text-grey;
+}
+
+.noUi-horizontal .noUi-handle {
+  &:focus {
+    outline: none;
+  }
+}
+
 
 

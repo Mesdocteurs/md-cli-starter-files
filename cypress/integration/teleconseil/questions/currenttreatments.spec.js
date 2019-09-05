@@ -15,7 +15,7 @@ describe('Current treatments and medical history tests', () => {
       'aie, allo maman bobo pourquoi tu m\'a fait je suis pas beau');
     cy.get('#btnNext').click();
     cy.get('[name="dateOfBirth"]').click();
-    cy.get('[name="dateOfBirth"]').type('07/12/1980');
+    cy.get('[name="dateOfBirth"]').type('07121980');
     cy.get('#btnNext').click();
     cy.wait(500);
     cy.get('.noUi-handle')

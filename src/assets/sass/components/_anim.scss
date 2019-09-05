@@ -87,6 +87,10 @@
   animation: pulse 3s infinite;
 }
 
+.bounceInUp {
+  animation: bounceInUp .8s infinite ease-in;
+}
+
 // +--------------------+
 // | HOVER boder-bottom |
 // +--------------------+
@@ -212,3 +216,69 @@ $bezier: cubic-bezier(0.35, 0, 0.35, 1);
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s cubic-bezier(0.7,0,0.3,1) both 0.15s;
+  animation-delay: 0.5s;
+}
+
+.fadeOutDown {
+  animation: fadeOutDown .8s;
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@-webkit-keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  animation: fadeOutUp .8s;
+}

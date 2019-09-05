@@ -23,7 +23,7 @@ describe('Médecine générale for a woman over 15 years old', () => {
   });
 
   it('should be possible to set a date of birth', () => {
-    cy.get('[name="dateOfBirth"]').type('07/12/1980');
+    cy.get('[name="dateOfBirth"]').type('07121980');
     cy.get('#btnNext').click();
   });
 

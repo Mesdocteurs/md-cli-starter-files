@@ -2,11 +2,263 @@
 // | CHAT BOT |
 // +----------+
 
-// +--------+
-// | BUBBLE |
-// +--------+
+/* radio switch */
 
-/* bubble chat */
+.btn-switch {
+  .switch {
+    @include size(240px, 40px);
+    text-align: center;
+    transition: all 0.2s ease;
+    border-radius: 40px;
+    border: 1px solid $color-grey-lighter;
+    box-sizing: content-box;
+    background-color: $color-white;
+  }
+  input[type=radio] {
+    display: none;
+  }
+  .switch label {
+    font-size: 14px;
+    cursor: pointer;
+    color: $color-text-grey;
+    width: 120px;
+    line-height: 40px;
+    transition: all 800ms;
+  }
+  label:first-of-type {
+    border-radius: 40px;
+    border-right: none;
+  }
+  label:last-of-type {
+    border-radius: 40px;
+  }
+  label.yes {
+    left: 0;
+  }
+  label.no {
+    right: 0;
+  }
+  .yes:checked ~ .switch label.yes {
+    background: $color-success;
+    color: $color-white;
+    box-shadow: 0 2px 15px rgba(0,0,0,.15);
+  }
+  .no:checked ~ .switch label.no {
+    background: $color-danger;
+    color: $color-white;
+    box-shadow: 0 2px 15px rgba(0,0,0,.15);
+  }
+}
+
+.btn-switch-1 {
+  @extend .btn-switch;
+  .yes:checked ~ .switch label.yes {
+    background: $color-success;
+    color: $color-white;
+    box-shadow: none;
+  }
+  .no:checked ~ .switch label.no {
+    background: $color-success;
+    color: $color-white;
+    box-shadow: none;
+  }
+
+  .switch label {
+    width: 85px;
+  }
+}
+
+// +------------+
+// | CHATBOT V2 |
+// +------------+
+
+.form-full-screen {
+
+  .fs-field-label {
+    font-size: 30px;
+    display: inline-block;
+    padding: 0 5px 1em 0;
+    font-weight: 500;
+    letter-spacing: .14rem;
+    pointer-events: none;
+  }
+
+  .invalid-feedback, .valid-feedback {
+    font-weight: 700;
+    font-size: .9em;
+  }
+
+  /* Continue button and submit button */
+  .fs-button {
+    &:focus { outline: none; }
+    padding: 0.6em 1.5em;
+    border: 3px solid $color-secondary;
+    border-radius: 40px;
+    font-weight: 700;
+    color: $color-secondary;
+    transition: all 0.3s ease-out;
+    overflow: hidden;
+  }
+
+  .fs-button {
+    font-size: 1em;
+
+    &:hover {
+      background: $color-secondary;
+      color: #fff;
+    }
+
+    &:disabled {
+      filter: grayscale(100%);
+
+      &:hover {
+        background: $color-white !important;
+        color: $color-secondary;
+      }
+    }
+  }
+
+  .fs-back {
+    @extend .fs-button;
+
+    &:hover {
+      i {
+        @extend .bounceInUp;
+        @extend .f-i;
+      }
+    }
+  }
+
+  .fs-finish {
+    @extend .fs-button;
+    border: 3px solid $color-danger;
+    color: $color-danger;
+
+    &:after {
+      color: $color-danger;
+      background: transparent;
+    }
+
+    button:hover,
+    button:focus,
+    &:hover {
+      background: $color-danger !important;
+      color: #fff;
+    }
+
+    &:disabled {
+      &:hover {
+        color: $color-danger;
+      }
+    }
+  }
+
+  .fs-valided {
+    @extend .fs-button;
+    border: 3px solid $color-success;
+    color: $color-success;
+
+    &:after {
+      color: $color-success;
+      background: transparent;
+    }
+
+    button:hover,
+    button:focus,
+    &:hover {
+      background: $color-success !important;
+      color: #fff;
+    }
+
+    &:disabled {
+      &:hover {
+        color: $color-success;
+      }
+    }
+  }
+
+  /* Inputs */
+  .fs-fields .field-input input {
+    display: block;
+    margin: 0;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+    background-color: transparent;
+    color: $color-secondary;
+    text-overflow: ellipsis;
+    font-size: 1.2em;
+    transition: all 0.3s ease-out;
+  }
+
+  .fs-fields .field-input input:focus {
+    background-color: $color-secondary;
+    color: $color-white;
+    border-bottom: 2px solid $color-primary;
+    box-shadow: none;
+  }
+
+  .fs-fields textarea {
+    width: 100%;
+    height: 200px;
+    padding: 18px;
+    border: 2px solid rgba(0,0,0,0.2);
+    color: $color-secondary;
+    font-size: 1em;
+    resize: none;
+    transition: all 0.3s ease-out;
+  }
+
+  .fs-fields textarea:focus {
+    outline: none;
+    background-color: $color-blue-normal;
+    color: $color-white;
+    border-width: 4px;
+    box-shadow: none;
+
+    &::placeholder {
+      color: $color-white;
+    }
+  }
+
+  nouislider {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
+
+    .noUi-tooltip {
+      left: 15px;
+      bottom: 38px;
+      }
+    }
+  }
+
+  /* Show new li when navigating to next question */
+.fs-display-next {
+  animation: animShowNext 0.5s cubic-bezier(0.7,0,0.3,1) both 0.15s;
+  animation-delay: 0.25s;
+
+  .fs-anim-upper {
+    animation: animShowNext 0.5s cubic-bezier(0.7,0,0.3,1) both 0.15s;
+    animation-delay: .5s;
+  }
+}
+
+@keyframes animShowNext {
+  from { opacity: 0; -webkit-transform: translate3d(0,500px,0); transform: translate3d(0,500px,0); }
+}
+
+/* Show new li when navigating to previous question */
+.fs-display-prev {
+  animation: animShowPrev 0.5s cubic-bezier(0.7,0,0.3,1) both 0.15s;
+  animation-delay: 0.5s;
+}
+
+@keyframes animShowPrev {
+  from { opacity: 0; -webkit-transform: translate3d(0,-500px,0); transform: translate3d(0,-500px,0); }
+}
+
+/* bubble mascotte */
 
 .bubble {
   max-width: 100%;
@@ -15,213 +267,159 @@
   border-radius: 15px;
   padding: 10px 15px;
 
-  p {
-    margin-bottom: inherit;
-  }
-
   &:after {
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
   }
 }
 
-@include media-breakpoint-up(sm) { .bubble {  max-width: 70%;} }
-
-/* bubble doctor */
-
 .bubble-doctor {
-  background: theme-color-level("color-doctor-bubble");
+  background: #00b1b5;
   float: left;
-  color: $color-white;
+  color: #fff;
 
   &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 13px;
     left: -25px;
     border-left: 10px solid transparent;
-    border-right: 20px solid theme-color("color-doctor-bubble");
-  }
-
-  .text-muted {
-    color: $color-white !important;
+    border-right: 20px solid #00b1b5;
   }
 }
 
-/*  bubble customer  */
-
-.bubble-customer-2 {
-  background: $color-grey-lighter;
-  float: right;
-  font-size: 14px;
-}
-
-.bubble-customer {
-  background: $color-grey-lighter;
-  float: right;
-
-  &:after {
-    right: -25px;
-    border-right: 10px solid transparent;
-    border-left: 20px solid $color-grey-lighter;
+@include media-breakpoint-down(sm) {
+  .bubble {
+    max-width: 70%;
   }
 }
 
-.bubble-doctor:after, .bubble-customer:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  top: 13px;
+/* background waves */
+
+.wave {
+  animation: wave 3s linear;
+  animation-iteration-count:infinite;
+  fill: #00bfb6;
 }
 
-/*  thumbnail  */
-
-.thumbnail {
-  @include border-radius(50%);
-  display: inline-block;
-  width: 50px;
-  line-height: 50px;
-  text-align: center;
-  font-weight: 700;
+#wave2 {
+  animation-duration: 4s;
+  animation-direction: reverse;
+  opacity: .1;
 }
 
-@include media-breakpoint-down(md) {
-  .thumbnail {
-    width: 35px;
-    line-height: 35px;
-  }
+#wave3 {
+  animation-duration: 6s;
+  animation-direction: reverse;
+  opacity: .2;
 }
 
-.thumbnail-doctor {
-  background: theme-color("color-doctor-bubble");
-  float: left;
-  color: $color-white;
+#wave4 {
+  animation-duration: 8s;
+  opacity: .4;
 }
 
-.thumbnail-customer {
-  background: $color-grey-lighter;
-  float: right;
+
+@keyframes wave {
+  to {transform: translateX(-100%);}
 }
 
-.bubble-answer {
-  border-bottom: 1px solid theme-color("secondary");
-  padding: 0 10px;
-  z-index: 0;
-  transition: all .2s ease-in-out;
+/*  test  */
 
-  .btn {
-    transition: all .7s ease;
-  }
+//.app {
+//  input[type=radio] {
+//    display: none;
+//  }
+//  .btn-switch {
+//    display: flex;
+//    flex-direction: column;
+//    margin: auto;
+//    text-align: center;
+//    width: 70%;
+//    transform: translateY(5%);
+//
+//    .toggle {
+//      height: 2.8rem;
+//      border-radius: 100px;
+//    }
+//
+//    .switch {
+//      width: 100%;
+//      height: 45px;
+//      background-color: rgba(0,0,0,.1);
+//      border-radius: 100px;
+//      position: relative;
+//      margin: 1.8rem 0 4rem 0;
+//      cursor: pointer;
+//    }
+//
+//    .toggle {
+//      order: 1;
+//      position: absolute;
+//      width: 50%;
+//      height: 45px;
+//      background-color: #fff;
+//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
+//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//    }
+//
+//    .names {
+//      font-size: 90%;
+//      font-weight: bolder;
+//      width: 65%;
+//      margin-left: 17.5%;
+//      position: absolute;
+//      display: flex;
+//      justify-content: space-between;
+//      user-select: none;
+//
+//      label {
+//        line-height: 45px;
+//      }
+//    }
+//
+//
+//    /* -------- Switch Styles ------------*/
+//
+//    /* Toggle */
+//    input[type=radio]:checked + .app .toggle {
+//      transform: translateX(100%);
+//      background-color: #34323D;
+//    }
+//    input[type=radio]:checked + .app .dark{
+//      opacity: 1;
+//    }
+//    input[type=radio]:checked .app .light{
+//      opacity: .5;
+//    }
+//
+//    .yes:checked ~ label.yes {
+//      width: 50%;
+//      height: 45px;
+//      background-color: #fff;
+//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
+//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//      background: $color-success;
+//      color: $color-white;
+//    }
+//    .no:checked ~ label.no {
+//      width: 50%;
+//      height: 45px;
+//      background-color: #fff;
+//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
+//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+//      background: $color-danger;
+//      color: $color-white;
+//    }
+//
+//    .yes:checked + .toggle {
+//      transform: translateX(100%);
+//      background-color: #34323D;
+//    }
+//  }
+//}
 
-  &:hover {
-    @include box_shadow(1);
-    border-radius: 10px;
-    background-color: theme-color("secondary");
-    z-index: 100;
-    border-bottom: 1px solid theme-color("secondary");
-    color: $color-white;
-
-    .btn {
-      animation: rubberBand .8s infinite;
-      @include box_shadow(2);
-    }
-  }
-}
-
-.bubble-warning {
-  border: 1px solid theme-color("primary");
-  box-shadow: inset 0 0 0 theme-color("primary"), 0 0 1.5em theme-color("primary");
-}
-
-// +---------------------+
-// | CHATBOT REPONSE BOX |
-// +---------------------+
-
-.chat-reply {
-  position: absolute;
-  right: 0; bottom: 0; left: 0;
-  z-index: 200;
-
-  /* radio switch */
-
-  .btn-switch {
-    .switch {
-      @include size(150px, 40px);
-      text-align: center;
-      transition: all 0.2s ease;
-      border-radius: 5px;
-    }
-    input[type=radio] {
-      display: none;
-    }
-    .switch label {
-      cursor: pointer;
-      color: $color-secondary;
-      width: 75px;
-      line-height: 40px;
-      transition: all 0.2s ease;
-      background-color: #e4e4e4;
-    }
-    label:first-of-type {
-      border-radius: 4px 0 0 4px;
-    }
-    label:last-of-type {
-      border-radius: 0 4px 4px 0;
-    }
-    label.yes {
-      left: 0;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-    }
-    label.no {
-      right: 0;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
-    }
-    .yes:checked ~ .switch label.yes {
-      background: $color-success;
-      color: $color-white;
-      box-shadow: none;
-    }
-    .no:checked ~ .switch label.no {
-      background: $color-danger;
-      color: $color-white;
-      box-shadow: none;
-    }
-  }
-
-  .btn-switch-1 {
-    @extend .btn-switch;
-    .yes:checked ~ .switch label.yes {
-      background: $color-success;
-      color: $color-white;
-      box-shadow: none;
-    }
-    .no:checked ~ .switch label.no {
-      background: $color-success;
-      color: $color-white;
-      box-shadow: none;
-    }
-
-    .switch label {
-      width: 85px;
-    }
-  }
-
-  textarea {
-    min-height: 80px;
-    font-size: 0.9rem;
-  }
-
-  nouislider {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
-  }
-
-  .noUi-target {
-    background: $color-grey-dark;
-  }
-}
-
-.chat-reply-1 {
-  @extend .chat-reply;
-  position: relative;
-}
 
 

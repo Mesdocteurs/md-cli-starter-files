@@ -26,11 +26,12 @@
     line-height: 100px;
     text-decoration: none;
     cursor: pointer;
+    opacity: 0.5;
 
     &:hover {
-      @include box_shadow(2);
+      @extend .card-s;
       animation: pulse .4s forwards;
-      opacity: 0.8;
+      opacity: 1;
     }
 
     i {
@@ -51,6 +52,11 @@
     }
   }
 
+  .speciality-chosen {
+    @extend .card-s;
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+  }
 }
 
 @include media-breakpoint-down(md) {
