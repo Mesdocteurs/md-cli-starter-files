@@ -32,7 +32,7 @@ describe('Gynecology', () => {
   });
 
   it('should be possible to set height', () => {
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 450, clientY: 0})
@@ -42,7 +42,7 @@ describe('Gynecology', () => {
   });
 
   it('should be possible to set weight', () => {
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 300, clientY: 0})
@@ -72,9 +72,8 @@ describe('Gynecology', () => {
   });
 
   it('should be possible to set the current country', () => {
-    cy.get('ng-select').click();
-    cy.get('#country').type('Fran');
-    cy.get('span').contains('France').click();
+    // france is prefilled
+    cy.wait(600);
     cy.get('#btnNext').click();
   });
 

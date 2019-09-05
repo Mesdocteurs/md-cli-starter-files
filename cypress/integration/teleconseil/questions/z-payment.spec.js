@@ -18,13 +18,13 @@ describe('Payment', () => {
     cy.get('[name="dateOfBirth"]').click();
     cy.get('[name="dateOfBirth"]').type('07121980');
     cy.get('#btnNext').click();
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 450, clientY: 0})
       .trigger('mouseup');
     cy.get('#btnNext').click();
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 300, clientY: 0})
@@ -36,9 +36,7 @@ describe('Payment', () => {
     cy.get('#btnNext').click();
     cy.get('label[for="isMedicalHistoryN"]').click();
     cy.get('#btnNext').click();
-    cy.get('ng-select').click();
-    cy.get('#country').type('Fran');
-    cy.get('span').contains('France').click();
+    cy.wait(600);
     cy.get('#btnNext').click();
     cy.get('#btnSubmit').should('exist');
     cy.get('#btnSubmit').click();

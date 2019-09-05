@@ -17,13 +17,13 @@ describe('Current treatments and medical history tests', () => {
     cy.get('[name="dateOfBirth"]').click();
     cy.get('[name="dateOfBirth"]').type('07121980');
     cy.get('#btnNext').click();
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 450, clientY: 0})
       .trigger('mouseup');
     cy.get('#btnNext').click();
-    cy.wait(500);
+    cy.wait(1000);
     cy.get('.noUi-handle')
       .trigger('mousedown', {which: 1})
       .trigger('mousemove', {clientX: 300, clientY: 0})
@@ -50,9 +50,8 @@ describe('Current treatments and medical history tests', () => {
   });
 
   it('should be possible to set the current country', () => {
-    cy.get('ng-select').click();
-    cy.get('#country').type('Fran');
-    cy.get('span').contains('France').click();
+    // france is prefilled
+    cy.wait(600);
     cy.get('#btnNext').click();
   });
 
