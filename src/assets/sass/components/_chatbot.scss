@@ -34,9 +34,17 @@
   }
   label.yes {
     left: 0;
+
+    &:hover {
+      color: $color-success;
+    }
   }
   label.no {
     right: 0;
+
+    &:hover {
+      color: $color-danger;
+    }
   }
   .yes:checked ~ .switch label.yes {
     background: $color-success;
@@ -120,6 +128,7 @@
 
   .fs-back {
     @extend .fs-button;
+    background: $color-white;
 
     &:hover {
       i {
@@ -143,7 +152,7 @@
     button:focus,
     &:hover {
       background: $color-danger !important;
-      color: #fff;
+      color: $color-white;
     }
 
     &:disabled {
@@ -167,7 +176,7 @@
     button:focus,
     &:hover {
       background: $color-success !important;
-      color: #fff;
+      color: $color-white;
     }
 
     &:disabled {
@@ -229,11 +238,18 @@
     .noUi-tooltip {
       left: 15px;
       bottom: 38px;
-      }
     }
   }
 
-  /* Show new li when navigating to next question */
+  @include media-breakpoint-down(sm) {
+
+    .fs-field-label {
+      font-size: 20px;
+    }
+  }
+}
+
+/* Show new li when navigating to next question */
 .fs-display-next {
   animation: animShowNext 0.5s cubic-bezier(0.7,0,0.3,1) both 0.15s;
   animation-delay: 0.25s;
@@ -326,100 +342,6 @@
   to {transform: translateX(-100%);}
 }
 
-/*  test  */
-
-//.app {
-//  input[type=radio] {
-//    display: none;
-//  }
-//  .btn-switch {
-//    display: flex;
-//    flex-direction: column;
-//    margin: auto;
-//    text-align: center;
-//    width: 70%;
-//    transform: translateY(5%);
-//
-//    .toggle {
-//      height: 2.8rem;
-//      border-radius: 100px;
-//    }
-//
-//    .switch {
-//      width: 100%;
-//      height: 45px;
-//      background-color: rgba(0,0,0,.1);
-//      border-radius: 100px;
-//      position: relative;
-//      margin: 1.8rem 0 4rem 0;
-//      cursor: pointer;
-//    }
-//
-//    .toggle {
-//      order: 1;
-//      position: absolute;
-//      width: 50%;
-//      height: 45px;
-//      background-color: #fff;
-//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
-//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//    }
-//
-//    .names {
-//      font-size: 90%;
-//      font-weight: bolder;
-//      width: 65%;
-//      margin-left: 17.5%;
-//      position: absolute;
-//      display: flex;
-//      justify-content: space-between;
-//      user-select: none;
-//
-//      label {
-//        line-height: 45px;
-//      }
-//    }
-//
-//
-//    /* -------- Switch Styles ------------*/
-//
-//    /* Toggle */
-//    input[type=radio]:checked + .app .toggle {
-//      transform: translateX(100%);
-//      background-color: #34323D;
-//    }
-//    input[type=radio]:checked + .app .dark{
-//      opacity: 1;
-//    }
-//    input[type=radio]:checked .app .light{
-//      opacity: .5;
-//    }
-//
-//    .yes:checked ~ label.yes {
-//      width: 50%;
-//      height: 45px;
-//      background-color: #fff;
-//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
-//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//      background: $color-success;
-//      color: $color-white;
-//    }
-//    .no:checked ~ label.no {
-//      width: 50%;
-//      height: 45px;
-//      background-color: #fff;
-//      box-shadow: 0 2px 15px rgba(0,0,0,.15);
-//      transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-//      background: $color-danger;
-//      color: $color-white;
-//    }
-//
-//    .yes:checked + .toggle {
-//      transform: translateX(100%);
-//      background-color: #34323D;
-//    }
-//  }
-//}
 
 
 
