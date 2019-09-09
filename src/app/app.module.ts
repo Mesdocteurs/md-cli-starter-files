@@ -88,7 +88,7 @@ const cookieConfig: NgcCookieConsentConfig = {
       useClass: MdHttpInterceptorService,
       multi: true,
     },
-    {provide: ErrorHandler, useClass: environment.name === 'local' ? ErrorHandler : SentryErrorHandler}
+    {provide: ErrorHandler, useClass: environment.name === 'local' || environment.name === 'production' ? ErrorHandler : SentryErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
