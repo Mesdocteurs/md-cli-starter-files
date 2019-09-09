@@ -29,7 +29,7 @@
     opacity: 0.5;
 
     &:hover {
-      @extend .card-s;
+      box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
       animation: pulse .4s forwards;
       opacity: 1;
     }
@@ -53,7 +53,7 @@
   }
 
   .speciality-chosen {
-    @extend .card-s;
+    box-shadow: 5px 20px 30px rgba(0,0,0,0.2);
     filter: grayscale(0%) !important;
     opacity: 1 !important;
   }

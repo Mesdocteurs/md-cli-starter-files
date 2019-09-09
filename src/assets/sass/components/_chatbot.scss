@@ -99,6 +99,7 @@
   /* Continue button and submit button */
   .fs-button {
     &:focus { outline: none; }
+    background: $color-white;
     padding: 0.6em 1.5em;
     border: 3px solid $color-secondary;
     border-radius: 40px;
@@ -128,7 +129,6 @@
 
   .fs-back {
     @extend .fs-button;
-    background: $color-white;
 
     &:hover {
       i {
