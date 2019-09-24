@@ -38,6 +38,10 @@
   word-wrap: break-word !important;
 }
 
+.btn-secondary:disabled {
+  cursor: inherit;
+  opacity: 0.45;
+}
 // +-------------------+
 // | BTN RATING THUMBS |
 // +-------------------+
