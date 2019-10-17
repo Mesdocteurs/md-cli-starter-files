@@ -8,7 +8,7 @@ export const environment = {
   domain: 'mesdocteurs.com',
   partnerToken: 'YOUR_PREPROD_TOKEN_HERE',
   stripeApiKey: 'YOUR_PREPROD_STRIPE_TOKEN_HERE',
-  oauthUrl: 'https://preprod-api.mesdocteurs.com/oauth/md-accounts/PARTNER_NAME'
+  oauthUrl: 'https://preprod-api.mesdocteurs.com/oauth/md-accounts/PARTNER_NAMESPACE'
 };
 
 /*

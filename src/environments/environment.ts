@@ -8,7 +8,7 @@ export const environment = {
   domain: 'localhost',
   partnerToken: 'YOUR_LOCAL_TOKEN_HERE',
   stripeApiKey: 'YOUR_LOCAL_STRIPE_TOKEN_HERE',
-  oauthUrl: 'http://0.0.0.0:3001/oauth/md-accounts/PARTNER_NAME'
+  oauthUrl: 'http://0.0.0.0:3001/oauth/md-accounts/PARTNER_NAMESPACE'
 };
 
 /*
