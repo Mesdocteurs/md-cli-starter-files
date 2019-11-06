@@ -36,8 +36,9 @@ blocks:
     task:
       prologue:
         commands:
+          - sem-version node 12.13.0
           - checkout
-          - npm i -g @angular/cli@7.3.9
+          - npm i -g @angular/cli
           - cache restore node-modules-$(checksum package.json)
       jobs:
         - name: 'Lint'
@@ -53,10 +54,11 @@ blocks:
         - name: tokens
       prologue:
         commands:
+          - sem-version node 12.13.0
           - chmod 600 /home/semaphore/.ssh/id_rsa
           - sem-service start redis
           - sem-service start postgres
-          - npm i -g @angular/cli@7.3.9
+          - npm i -g @angular/cli
           - sudo apt-get -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 # install missing libs for cypress
           - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
           - cd md-api

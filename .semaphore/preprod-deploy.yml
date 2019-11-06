@@ -13,9 +13,10 @@ blocks:
       jobs:
         - name: 'Build & cache project'
           commands:
+            - sem-version node 12.13.0
 #             Building the project for preprod
             - checkout
-            - npm i -g @angular/cli@7.3.9
+            - npm i -g @angular/cli
             - cache restore node-modules-$(checksum package.json)
             - ng build --configuration=${ENVIRONMENT}
 #            Restoring the project name from cache

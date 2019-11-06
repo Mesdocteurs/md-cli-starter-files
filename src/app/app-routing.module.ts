@@ -3,22 +3,62 @@ import { Routes, RouterModule } from '@angular/router';
 import {MdPatientAuthGuard, MdPatientTeleconseilGuard} from '@md-app/md-core';
 
 const routes: Routes = [
-  { path: 'auth', loadChildren: './lazy/router-auth.module#RouterAuthModule'},
-  { path: 'connexion', loadChildren: './lazy/router-signin.module#RouterSigninModule'},
-  { path: 'deconnexion', loadChildren: './lazy/router-signout.module#RouterSignoutModule'},
-  { path: 'inscription', loadChildren: './lazy/router-register.module#RouterRegisterModule'},
-  { path: 'mot-de-passe-perdu', loadChildren: './lazy/router-password-lost.module#RouterPasswordLostModule'},
-  { path: 'profil', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-profile.module#RouterProfileModule'},
-  { path: 'question', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-question.module#RouterQuestionModule'},
-  { path: 'contact', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-contact.module#RouterContactModule'},
-  { path: 'mes-coupons', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-coupons.module#RouterCouponsModule'},
-  { path: 'mes-factures', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-invoices.module#RouterInvoicesModule'},
-  { path: 'changer-mot-de-passe', canActivate: [MdPatientAuthGuard],
-    loadChildren: './lazy/router-password-change.module#RouterPasswordChangeModule'},
-  { path: 'mon-compte', canActivate: [MdPatientAuthGuard, MdPatientTeleconseilGuard],
-    loadChildren: './lazy/router-account.module#RouterAccountModule'},
-  { path: 'informations-bancaires', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-bank.module#RouterBankModule'},
-  { path: 'documents-medicaux', canActivate: [MdPatientAuthGuard], loadChildren: './lazy/router-documents.module#RouterDocumentsModule'},
+  {
+    path: 'auth',
+    loadChildren: () => import('src/app/lazy/router-auth.module').then(m => m.RouterAuthModule)
+  },
+  {
+    path: 'connexion',
+    loadChildren: () => import('src/app/lazy/router-signin.module').then(m => m.RouterSigninModule)
+  },
+  {
+    path: 'deconnexion',
+    loadChildren: () => import('src/app/lazy/router-signout.module').then(m => m.RouterSignoutModule)
+  },
+  {
+    path: 'inscription',
+    loadChildren: () => import('src/app/lazy/router-register.module').then(m => m.RouterRegisterModule)
+  },
+  {
+    path: 'mot-de-passe-perdu',
+    loadChildren: () => import('src/app/lazy/router-password-lost.module').then(m => m.RouterPasswordLostModule)
+  },
+  {
+    path: 'profil', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-profile.module').then(m => m.RouterProfileModule)
+  },
+  {
+    path: 'question', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-question.module').then(m => m.RouterQuestionModule)
+  },
+  {
+    path: 'contact', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-contact.module').then(m => m.RouterContactModule)
+  },
+  {
+    path: 'mes-coupons', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-coupons.module').then(m => m.RouterCouponsModule)
+  },
+  {
+    path: 'mes-factures', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-invoices.module').then(m => m.RouterInvoicesModule)
+  },
+  {
+    path: 'changer-mot-de-passe', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-password-change.module').then(m => m.RouterPasswordChangeModule)
+  },
+  {
+    path: 'mon-compte', canActivate: [MdPatientAuthGuard, MdPatientTeleconseilGuard],
+    loadChildren: () => import('src/app/lazy/router-account.module').then(m => m.RouterAccountModule)
+  },
+  {
+    path: 'informations-bancaires', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-bank.module').then(m => m.RouterBankModule)
+  },
+  {
+    path: 'documents-medicaux', canActivate: [MdPatientAuthGuard],
+    loadChildren: () => import('src/app/lazy/router-documents.module').then(m => m.RouterDocumentsModule)
+  },
   {
     path: '',
     redirectTo: '/connexion',
