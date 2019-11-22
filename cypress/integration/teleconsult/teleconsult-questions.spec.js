@@ -9,8 +9,8 @@ describe('Médecine générale for a man', () => {
   it('should display 2 consentments to accept', () => {
     cy.get('h1.display-4').contains('Conditions d\'utilisation');
     cy.get('[type="submit"]').should('have.attr', 'disabled');
-    cy.get('.form-check-label').eq(0).click();
-    cy.get('.form-check-label').eq(1).click();
+    cy.get('.custom-control-label').eq(0).click();
+    cy.get('.custom-control-label').eq(1).click();
     cy.get('[type="submit"]').should('not.have.attr', 'disabled');
 
     cy.get('[type="submit"]').click();
