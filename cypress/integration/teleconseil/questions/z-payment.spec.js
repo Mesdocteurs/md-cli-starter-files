@@ -40,7 +40,7 @@ describe('Payment', () => {
     cy.get('#btnNext').click();
     cy.get('#btnSubmit').should('exist');
     cy.get('#btnSubmit').click();
-    cy.get('[name="phone"]').type('0606060606');
+    cy.get('input[placeholder="Numéro de téléphone"]').type('606060606');
     cy.get('#pptf-submit').click();
   });
 
