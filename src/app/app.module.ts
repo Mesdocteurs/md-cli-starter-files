@@ -53,7 +53,8 @@ const cookieConfig: NgcCookieConsentConfig = {
     MdPatientCoreModule.forRoot({
       environment: environment.name,
       token: environment.partnerToken,
-      version: versionPackage
+      version: versionPackage,
+      oAuthUrl: environment.oauthUrl
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: 'production' === environment.name || 'preprod' === environment.name || 'recette' === environment.name
