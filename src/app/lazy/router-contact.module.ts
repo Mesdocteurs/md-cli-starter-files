@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router';
 import {
   MdPatientUiComponentsModule,
   MdPatientUiNavbarComponent,
-  MdPatientUiFooterComponent,
   MdPatientUiLayoutComponent
 } from '@md-app/md-patient-ui-components';
 import {MdPatientContactPageCreateComponent, MdPatientContactPagesModule} from '@md-app/md-patient-contact-pages';
@@ -23,11 +22,6 @@ import {MdPatientContactPageCreateComponent, MdPatientContactPagesModule} from '
             path: '',
             component: MdPatientUiNavbarComponent,
             outlet: 'navbar'
-          },
-          {
-            path: '',
-            component: MdPatientUiFooterComponent,
-            outlet: 'footer'
           },
           {
             path: '',

@@ -284,3 +284,20 @@ ul {
 .z-100 {
   z-index: 100;
 }
+
+// Padding sidebar menu
+
+.p-sidebar {
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 66px 15px 0 75px;
+  width: 100%;
+
+  @include media-breakpoint-down(md) {
+      padding-left: 60px;
+  }
+
+  @include media-breakpoint-down(sm) {
+      padding-left: 15px;
+  }
+}

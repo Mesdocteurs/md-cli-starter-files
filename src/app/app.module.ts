@@ -54,7 +54,7 @@ const cookieConfig: NgcCookieConsentConfig = {
       environment: environment.name,
       token: environment.partnerToken,
       version: versionPackage,
-      oAuthUrl: environment.oauthUrl
+      // oAuthUrl: environment.oauthUrl
     }),
     ServiceWorkerModule.register('/ngsw-worker.js', {
       enabled: 'production' === environment.name || 'preprod' === environment.name || 'recette' === environment.name

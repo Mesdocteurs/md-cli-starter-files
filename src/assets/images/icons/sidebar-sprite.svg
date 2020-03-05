@@ -1,0 +1,56 @@
+<svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 18 21" xmlns="http://www.w3.org/2000/svg" id="deconnexion">
+    <title>Deconnexion</title>
+    <path d="M12.382 3.512c3.646 1.528 5.715 5.432 4.947 9.331-.769 3.9-4.162 6.712-8.112 6.723-3.95.011-7.358-2.782-8.148-6.677-.79-3.895 1.257-7.81 4.895-9.359M9.018.91v8.243" fill="none" fill-rule="evenodd" stroke-linecap="round"
+      stroke-linejoin="round"></path>
+  </symbol>
+  <symbol viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg" id="help">
+    <title>Picto/SideBar/Help</title>
+    <g transform="translate(1 1)" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="10" cy="10.001" r="9.583"></circle>
+      <circle cx="10" cy="10.001" r="5"></circle>
+      <path d="M17.852 4.505l-3.34 3.34m-2.356-2.358l3.35-3.349M4.504 17.853l3.34-3.34m-2.357-2.356l-3.34 3.34m13.355 2.352l-3.34-3.339m2.354-2.36l3.341 3.341M2.152 4.499L5.49 7.838m2.361-2.354L4.51 2.143"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="moncompte">
+    <title>Picto/SideBar/moncompte</title>
+    <path d="M18.875 14.292V2.375a.917.917 0 0 0-.917-.917H6.042a.917.917 0 0 0-.917.917v11.917m17.417 7.333c0 .506-.41.917-.917.917H2.375a.917.917 0 0 1-.917-.917v-5.5h6.417v.917a1.839 1.839 0 0 0 1.833 1.833h4.584a1.839 1.839 0 0 0 1.833-1.833v-.917h6.417v5.5zm-21.084-5.5l3.667-5.5m13.75 0l3.667 5.5M8.792 4.208h1.83m.003 2.75h4.583m-6.416 2.75h6.416m-6.416 2.75h6.416"
+    fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
+  </symbol>
+  <symbol viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg" id="contact">
+    <title>Picto/SideBar/NousContacter</title>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 3.154V13.42c0 .872-.689 1.579-1.538 1.579H2.538C1.688 15 1 14.293 1 13.42V3.155"></path>
+      <path d="M21 3.27v-.757C21 1.678 20.311 1 19.462 1H2.538C1.688 1 1 1.678 1 2.513v.757l8.777 4.923a2.34 2.34 0 0 0 2.446 0L21 3.27z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 18 22" xmlns="http://www.w3.org/2000/svg" id="profil">
+    <title>Picto/SideBar/Profil</title>
+    <g transform="translate(1 1)" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 19.773c0-4.519 3.582-8.182 8-8.182s8 3.663 8 8.182H0z"></path>
+      <ellipse cx="8" cy="5.227" rx="4.889" ry="5"></ellipse>
+      <path d="M3.788 2.69a8.024 8.024 0 0 0 5.841 2.537c1.106 0 2.2-.23 3.215-.676"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 22 21" xmlns="http://www.w3.org/2000/svg" id="questions">
+    <title>Picto/SideBar/Questions</title>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M7.883 16.83L5.13 18.895v-4.13H2.377C1.617 14.765 1 14.15 1 13.39V2.377C1 1.617 1.617 1 2.377 1h15.141c.76 0 1.377.617 1.377 1.377v4.13"></path>
+      <path d="M21 16.79h-2.632V21l-3.947-4.21h-3.947V8.367H21zM5.211 4.684h8.421M5.211 8.368h3.157m10 3.158h-5.263m5.263 2.632h-5.263"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" id="tableau">
+    <title>PIcto/Sidebar/tableau</title>
+    <g fill="none" fill-rule="evenodd">
+      <rect x=".5" y=".5" width="19" height="19" rx="2"></rect>
+      <path d="M2.853 4.25h6.059v11.5H2.853zm8.235 0h6.059v11.5h-6.059z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 20 25" xmlns="http://www.w3.org/2000/svg" id="documents">
+    <title>Picto/SideBar/moncompte</title>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19.444 23.438c0 .575-.497 1.041-1.11 1.041H1.666c-.614 0-1.111-.466-1.111-1.041V1.563C.556.987 1.053.52 1.666.52h10.652c.294 0 .577.11.785.305l6.016 5.64c.208.195.325.46.325.736v16.235z"></path>
+      <path d="M12.778.615v5.114c0 .575.497 1.042 1.11 1.042h5.456m-15.455 12.5h12.222M3.889 21.354h12.222m-2.222-9.896c0-.287-.249-.52-.556-.52h-1.666V9.374c0-.288-.25-.52-.556-.52H8.89c-.307 0-.556.232-.556.52v1.563H6.667c-.307 0-.556.233-.556.52v2.084c0 .287.249.52.556.52h1.666v1.563c0 .288.25.52.556.52h2.222c.307 0 .556-.232.556-.52v-1.563h1.666c.307 0 .556-.233.556-.52v-2.084z"></path>
+    </g>
+  </symbol>
+</svg>

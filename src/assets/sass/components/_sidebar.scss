@@ -1,0 +1,127 @@
+.sidebar {
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  transition: all 0.2s ease-out;
+  width: 60px;
+  z-index: 1020;
+
+  &.active,
+  &:hover {
+    border-right: 1px solid #dee2e6;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+    overflow-y: auto;
+    transition: all 0.6s cubic-bezier(0.945, 0.02, 0.27, 0.665);
+    width: 280px;
+
+    &.sidebar__text {
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .sidebar-footer {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    width: 45px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    width: 0px;
+    border-right: inherit;
+  }
+
+  &__list-container {
+    margin-top: 3rem;
+    padding: 0;
+  }
+
+  &__item {
+    display: block;
+    width: 280px;
+
+    &:hover,
+    &:focus {
+      .sidebar__icon {
+        animation: bounceIn 1.5s infinite;
+      }
+    }
+  }
+
+  &__link {
+    align-items: center;
+    border-spacing: 0;
+    color: $color-secondary;
+    display: flex;
+    font-size: 14px;
+    padding: 16px 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: translateZ(0) scale(1, 1);
+    transition: all 0.3s ease;
+    width: 100%;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: $color-info;
+    }
+  }
+
+  &__icon-container {
+    display: inline-flex;
+    justify-content: center;
+    margin-right: 0.5rem;
+    position: relative;
+    width: 60px;
+
+    @include media-breakpoint-down(md) {
+      width: 45px;
+    }
+  }
+
+  &__icon {
+    stroke: currentColor;
+    height: 18px;
+    width: 18px;
+  }
+
+  &__notif {
+    bottom: -6px;
+    position: absolute;
+    right: 15px;
+
+    @include media-breakpoint-down(md) {
+      right: 3px;
+    }
+  }
+}
+
+.sidebar-footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  opacity: 0;
+  transition: all 0.3s ease;
+  visibility: hidden;
+  width: 280px;
+
+  &__link {
+    color: $color-secondary;
+    font-size: 13px;
+  }
+
+  &__version {
+    background: #dedede;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 7px;
+  }
+}
