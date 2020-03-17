@@ -5,7 +5,6 @@
 // +-------------+
 
 .card {
-  border: none;
   transition: all .4s ease-in, cubic-bezier(0.4, 0.0, 0.2, 1), background-color .25s ease-in-out, box-shadow 0.5s ease-in-out;
 
   .card-header, .card-footer {
@@ -17,6 +16,11 @@
 
 .card-s {
   box-shadow: 0 1.7em 5.5em -.94em rgba(black, .3), 0 2em 3em .5em rgba(black, .1), 0 1.8em 2em -1.5em rgba(black, .2);
+}
+
+.s-neum {
+  box-shadow: inset 0 0 15px rgba(55, 84, 170,0), inset 0 0 20px rgba(255, 255, 255,0), 7px 7px 15px
+  rgba(55, 84, 170,.15), -7px -7px 20px rgba(255, 255, 255,1), inset 0px 0px 4px rgba(255, 255, 255,.2);
 }
 
 // responsive card deck
@@ -44,7 +48,7 @@
 // card visio support
 
 .card-visio-support {
-  opacity: .6;
+  opacity: .8;
   pointer-events: none;
   cursor: none;
 
@@ -58,16 +62,20 @@
     right: 0 !important;
     top: 0 !important;
     border-radius: 0 !important;
-    height: 140px !important;
+    height: 160px !important;
 
-    .icon {
+    .icon-svg {
       opacity: 0 !important;
     }
 
     .contents {
       opacity: 1;
-      transform: scale(1);
-      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .inside {
+      height: 220px !important;
     }
   }
 }
@@ -102,10 +110,6 @@
       button {
         background: $color-info;
         border-color: $color-info;
-
-        &:after {
-          content:'Sélectionné !' !important;
-        }
       }
     }
   }
@@ -139,19 +143,18 @@
 .hover-card {
   &:hover {
     .card {
-      filter: grayscale(0%) !important;
-      opacity: 1 !important;
       transform: scale(1);
       transition: box-shadow 0.5s, transform 0.5s;
-      border: 1px solid $color-primary;
 
       .header-img img {
         transform: scale(1.3);
         transition: all 1.5s linear;
       }
 
-      .cta {
-        transform: scale(1.04);
+      .btn {
+        transition: 0.4s ease-in-out;
+        transform: scale(1.06);
+        box-shadow: 0 10px 15px rgba(55, 84, 170,.25);
       }
     }
   }
@@ -162,36 +165,31 @@
 // +--------------+
 
 .card-service {
-  //@include media-breakpoint-up(md) { img { width: 130% !important;} }
-  //@include media-breakpoint-up(lg) { img { width: 120% !important;} }
-  //@media (min-width: 1600px) { .card { max-width: 20em} }
 
   .card {
-    filter: grayscale(5%);
-    opacity: .8;
-    background: $color-secondary;
-    color: $color-white;
+    background: $color-white;
+    color: $color-secondary;
     border-radius: 10px;
-    border: 1px solid $color-secondary;
-    line-height: 1;
+    line-height: 1.2;
     transform: scale(0.95);
-    transition: all 1s;
+    transition: all .5s;
     overflow: hidden;
+    max-width: 280px;
 
     .img-gradient:after {
       content:'';
       position:absolute;
       left:0; top:0;
-      width:100%; height:140px;
+      width:100%; height:160px;
       display:inline-block;
-      background: linear-gradient(to bottom, rgba(200,242,240,0.1) 0%,rgba(0, 191, 182, 0.3) 100%);
+      background: linear-gradient(to bottom, rgba(200,242,240,0.1) 0%,rgba(0, 191, 182, 0.2) 100%);
     }
-    .img-gradient img{
+    .img-gradient img {
       display:block;
     }
 
     .header-img {
-      @include size(100%, 140px);
+      @include size(100%, 160px);
       background-image: $color-primary;
       transition: transform .4s;
       border-radius: 10px 10px 0 0;
@@ -203,29 +201,17 @@
     }
 
     .card-title {
-      font-weight: 600;
-      text-transform: uppercase;
-      hyphens: auto;
-      font-size: 19px !important;
-      line-height: 26px;
+      font-weight: 700;
+      font-size: 15px !important;
+      line-height: 22px;
       letter-spacing: 1px;
     }
 
     .cta {
       transition: 0.4s ease-in-out;
 
-      &:hover {
-        transform: scale(1.06);
-      }
-
       .btn {
         font-size: 16px;
-      }
-
-      button {
-        &:after {
-          content:'Sélectionner';
-        }
       }
     }
 
@@ -238,7 +224,7 @@
       }
     }
 
-    .text-muted {
+    .text-muted-primary {
       color: $color-primary !important;
     }
   }
@@ -254,27 +240,41 @@
     border-radius: 0 0 200px 200px;
     transition: all 0.5s, border-radius .2s, top .4s;
 
-    .icon {
+    img {
+      position:absolute;
+      right:80px;
+      top:80px;
+      opacity: 1;
+      height: 32px;
+    }
+
+    .icon-svg {
       position:absolute;
       right:80px;
       top:80px;
       color:white;
       opacity: 1;
-
-      i {
-        font-size: 35px;
-      }
-    }
-
-    .contents {
-      //padding: 5%;
-      //opacity: 0;
-      //transform: scale(0.5);
-      //transform: translateY(-200%);
-      //transition: opacity 0.2s, transform 0.8s;
+      height: 35px;
+      width: 35px;
     }
   }
 
+  @media (min-width: 1800px) {
+    .card {max-width: 380px;
+
+      .header-img {
+        @include size(100%, 220px);
+      }
+
+      .img-gradient:after {
+        width:100%; height:220px;
+      }
+
+      .card-title {
+        font-size: 20px !important;
+      }
+    }
+  }
 }
 
 // +--------------+

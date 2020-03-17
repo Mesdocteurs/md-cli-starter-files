@@ -93,6 +93,10 @@ ul {
 
 // logo
 
+.logo-nav-h {
+  max-height: 45px;
+}
+
 .logo-nav {
   width: 140px;
 }
@@ -300,4 +304,22 @@ ul {
   @include media-breakpoint-down(sm) {
       padding-left: 15px;
   }
+}
+
+
+.phoneInput .form-control, .phoneInput .input-group-addon {
+  border:none;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #ced4da;
+  transition: border 1s ease-in-out;
+}
+
+.phoneInput .form-control:focus, .phoneInput .input-group-addon:focus {
+  box-shadow: none;
+  border-bottom: 3px solid #fdd97f;
+}
+
+.phoneInput .arrow-down {
+  margin-top: 8px !important;
+  margin-left: 8px !important;
 }
