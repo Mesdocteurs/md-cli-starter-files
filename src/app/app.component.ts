@@ -16,6 +16,7 @@ import {
 import {Subscription} from 'rxjs';
 import {SwUpdate} from '@angular/service-worker';
 import {LoopBackConfig, MdConfig} from '@md-app/md-core';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'md-root',
@@ -33,7 +34,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private ccService: NgcCookieConsentService,
-    private swUpdate: SwUpdate
+    private swUpdate: SwUpdate,
+    private cookieService: CookieService
   ) {
   }
 
@@ -68,13 +70,16 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     }
 
-
     this.popupCloseSubscription = this.ccService.popupClose$.subscribe();
 
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
       (event: NgcStatusChangeEvent) => {
-        // you can use this.ccService.getConfig() to do stuff...
+        this._initScriptGTM();
       });
+
+    if (this.cookieService.get('cookieconsent_status') === 'dismiss') {
+      this._initScriptGTM();
+    }
   }
 
   ngOnDestroy() {
@@ -83,4 +88,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.statusChangeSubscription.unsubscribe();
   }
 
+  private _initScriptGTM() {
+    const script = document.createElement('script');
+    script.innerHTML = `
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl+'&gtm_auth=CHyi_tm3HjTxZmw_1duiAg&gtm_preview=env-126&gtm_cookies_win=x';
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-TJL4LWV');
+    `;
+    document.head.appendChild(script);
+  }
 }
