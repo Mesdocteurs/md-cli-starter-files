@@ -5,4 +5,37 @@
       <path d="M20 1.25c10.355 0 18.75 8.395 18.75 18.75S30.355 38.75 20 38.75 1.25 30.355 1.25 20 9.645 1.25 20 1.25z"></path>
     </g>
   </symbol>
+  <symbol viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" id="bubble">
+    <title>Picto/Bulles</title>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14.421 32.66l-5.368 4.13v-8.26H3.684C2.203 28.53 1 27.297 1 25.777V3.753C1 2.233 2.203 1 3.684 1h29.527c1.481 0 2.684 1.233 2.684 2.753v8.26"></path>
+      <path d="M40 32.579h-5.132V41l-7.697-8.421h-7.697V15.737H40zM9.211 8.368h16.421M9.211 15.737h6.157m19.5 6.316H24.605m10.263 5.263H24.605"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg" id="confidentiality">
+    <title>Picto/EspacedeConfidentialité</title>
+    <g fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <g transform="translate(12.667 13.238)">
+        <circle stroke-width="2" cx="8.333" cy="5.679" r="5.417"></circle>
+        <path d="M16.76 19.429a8.868 8.868 0 0 0-16.667 0" stroke-width="1.989"></path>
+      </g>
+      <path d="M3.5 40.167c-.92 0-1.667-.747-1.667-1.667V15.667c0-.546.267-1.057.715-1.369l17.5-12.166a1.667 1.667 0 0 1 1.904 0l17.5 12.166c.448.312.715.823.715 1.369V38.5c0 .92-.747 1.667-1.667 1.667h-35z" stroke-width="2"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 42 28" xmlns="http://www.w3.org/2000/svg" id="mail">
+    <title>Picto/Mail</title>
+    <g stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M41 5v19.067C41 25.687 39.622 27 37.923 27H4.077C2.377 27 1 25.687 1 24.067V5"></path>
+      <path d="M41 5.216V3.811C41 2.258 39.622 1 37.923 1H4.077C2.377 1 1 2.258 1 3.81v1.406l17.554 9.143a4.989 4.989 0 0 0 4.892 0L41 5.216z"></path>
+    </g>
+  </symbol>
+  <symbol viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg" id="wifi">
+    <title>Wifi</title>
+    <g transform="translate(1.8 1.8)" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.253 11.867a14.908 14.908 0 0 1 21.089 0" stroke="#000"></path>
+      <path d="M29.56 6.15C21.406-2.003 8.187-2.003.033 6.15m25.309 5.717a14.908 14.908 0 0 0-21.089 0m15.539 4.601a8.953 8.953 0 0 0-11.324 1.1m6.329 10.799a2.983 2.983 0 0 1 0-5.965" stroke="#2B3B4F" stroke-width="2"></path>
+      <circle stroke="#2B3B4F" stroke-width="2" cx="28.367" cy="28.367" r="10"></circle>
+      <path d="M32.823 25.46l-4.841 6.455a1.253 1.253 0 0 1-1.885.135l-2.5-2.5" stroke="#2B3B4F" stroke-width="2"></path>
+    </g>
+  </symbol>
 </svg>

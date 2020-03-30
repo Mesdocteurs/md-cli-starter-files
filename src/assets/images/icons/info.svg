@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>Information</title>
+    <desc>Created with Sketch.</desc>
+    <g id="-Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Toaster/InfoEchange" transform="translate(-8.000000, -11.000000)" stroke="#2C3C4F">
+            <g id="Picto/Information" transform="translate(9.000000, 12.000000)">
+                <g id="Group">
+                    <g id="information-circle">
+                        <ellipse id="Oval" cx="11" cy="10.8985062" rx="11" ry="10.8975155"></ellipse>
+                        <path d="M13.5,15.8558851 L12,15.8558851 C11.4477153,15.8558851 11,15.4123411 11,14.8652019 L11,8.42576087 C11,8.15219125 10.7761424,7.93041925 10.5,7.93041925 L9,7.93041925" id="Shape"></path>
+                        <path d="M10.745,5.44875776 C10.6069288,5.44875776 10.495,5.55964376 10.495,5.69642857 C10.495,5.83321338 10.6069288,5.94409938 10.745,5.94409938 C10.8830712,5.94409938 10.995,5.83321338 10.995,5.69642857 C10.995,5.55964376 10.8830712,5.44875776 10.745,5.44875776" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

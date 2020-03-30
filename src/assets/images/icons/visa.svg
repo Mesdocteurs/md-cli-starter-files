@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="21px" viewBox="0 0 27 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>Picto/Visa</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Paiement-SF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="PaiementSF-2" transform="translate(-939.000000, -424.000000)" stroke="#282641">
+            <g id="Picto/Visa" transform="translate(939.000000, 424.000000)">
+                <g id="Group">
+                    <g id="credit-card-visa" stroke-width="0.7">
+                        <rect id="Rectangle-path" x="0.560329412" y="0.565384615" width="25.5705882" height="19.2230769" rx="1.4"></rect>
+                        <path d="M5.51101765,7.91538462 L6.93518824,7.91538462 L7.33764706,11.9861538 C7.36010606,12.2121553 7.52773048,12.3953215 7.74775539,12.4342866 C7.96778029,12.4732517 8.18640766,12.3584884 8.28264706,12.1535077 L10.3394118,7.79213077" id="Shape"></path>
+                        <line x1="12.3550412" y1="7.88033077" x2="11.4522882" y2="12.4735154" id="Shape"></line>
+                        <path d="M16.4896941,7.82718462 C16.4896941,7.82718462 14.9610176,7.42010769 14.4396,8.30436923 C13.9181824,9.18863077 14.7353294,9.75288462 15.2734235,10.0887231 C15.8115176,10.4245615 16.4029765,10.9368 16.2462176,11.5372385 C16.0894588,12.1376769 15.4301824,13.0219385 13.6891588,12.4034077" id="Shape"></path>
+                        <path d="M17.7882353,12.4735154 L19.8783529,8.18903077 C19.9751489,7.99081998 20.1899454,7.8825025 20.4036562,7.924131 C20.6173671,7.96575951 20.777616,8.14713166 20.7955588,8.36769231 L21.1290882,12.4034077" id="Shape"></path>
+                        <line x1="18.4530706" y1="11.1132" x2="21.0412588" y2="11.1132" id="Shape"></line>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

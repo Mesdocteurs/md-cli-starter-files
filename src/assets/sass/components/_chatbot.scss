@@ -15,7 +15,8 @@
     background-color: $color-white;
   }
   input[type=radio] {
-    display: none;
+    opacity: 0;
+    position: absolute;
   }
   .switch label {
     font-size: 14px;
@@ -60,6 +61,11 @@
 
 .btn-switch-1 {
   @extend .btn-switch;
+
+  label.no:hover {
+    color: $color-success;
+  }
+
   .yes:checked ~ .switch label.yes {
     background: $color-success;
     color: $color-white;
@@ -69,6 +75,10 @@
     background: $color-success;
     color: $color-white;
     box-shadow: none;
+  }
+
+  .switch {
+    width: 170px;
   }
 
   .switch label {
@@ -86,10 +96,23 @@
     font-size: 30px;
     display: inline-block;
     margin: 0;
-    padding: 1em 0 1em 0;
+    padding: 0 0 1em 0;
     font-weight: 500;
     letter-spacing: .14rem;
     pointer-events: none;
+  }
+
+  .fs-img {
+    max-width: 75px;
+    left: -90px;
+    position: absolute;
+    top: 0;
+
+    @include media-breakpoint-up(lg) {
+      left: -130px;
+      max-width: 100px;
+      top: -20px;
+    }
   }
 
   .invalid-feedback, .valid-feedback {
@@ -99,7 +122,6 @@
 
   /* Continue button and submit button */
   .fs-button {
-    &:focus { outline: none; }
     background: $color-white;
     padding: 0.6em 1.5em;
     border: 3px solid $color-secondary;
@@ -141,19 +163,20 @@
 
   .fs-finish {
     @extend .fs-button;
-    border: 3px solid $color-danger;
-    color: $color-danger;
+    background: $color-success;
+    border: 3px solid $color-success;
+    color: #fff;
 
     &:after {
-      color: $color-danger;
+      color: $color-success;
       background: transparent;
     }
 
     button:hover,
     button:focus,
     &:hover {
-      background: $color-danger !important;
-      color: $color-white;
+      background: #fff !important;
+      color: $color-success;
     }
 
     &:disabled {
@@ -220,7 +243,6 @@
   }
 
   .fs-fields textarea:focus {
-    outline: none;
     background-color: $color-blue-normal;
     color: $color-white;
     border-width: 4px;
@@ -343,6 +365,32 @@
   to {transform: translateX(-100%);}
 }
 
+.uploads {
+  align-items: flex-start;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: 3rem 0 0;
+  padding: 0;
 
+  &__item {
+    align-items: center;
+    background: $color-secondary;
+    display: flex;
+    margin: 0,25rem 0;
+    padding-right: 1rem;
+  }
 
+  &__btn {
+    background: none;
+    border: 0;
+    color: #fff;
+    margin-right: 1rem;
 
+    &:hover,
+    &:focus {
+      background: #fff;
+      color: $color-secondary;
+    }
+  }
+}

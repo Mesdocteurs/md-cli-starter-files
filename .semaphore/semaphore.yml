@@ -47,33 +47,33 @@ blocks:
         - name: 'Unit tests'
           commands:
             - ng test --watch=false --progress=false
-  - name: 'E2E tests'
-    task:
-      secrets:
-        - name: staging-keys
-        - name: tokens
-      prologue:
-        commands:
-          - sem-version node 12.13.0
-          - chmod 600 /home/semaphore/.ssh/id_rsa
-          - sem-service start redis
-          - sem-service start postgres
-          - npm i -g @angular/cli
-          - sudo apt-get -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 # install missing libs for cypress
-          - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
-          - cd md-api
-          - cache restore node-modules-api-$(checksum package.json)
-          - createdb -U postgres -h 0.0.0.0 mesdocteurs
-          - node server/server.js &
-          - sleep 15
-      jobs:
-        - name: 'Integration tests'
-          commands:
-            - cd ..
-            - checkout
-            - cache restore node-modules-$(checksum package.json)
-            - npx cypress install # install cypress binary that is not cached
-            - npm run cy:test
+#  - name: 'E2E tests'
+#    task:
+#      secrets:
+#        - name: staging-keys
+#        - name: tokens
+#      prologue:
+#        commands:
+#          - sem-version node 12.13.0
+#          - chmod 600 /home/semaphore/.ssh/id_rsa
+#          - sem-service start redis
+#          - sem-service start postgres
+#          - npm i -g @angular/cli
+#          - sudo apt-get -y install xvfb libgtk2.0-0 libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 # install missing libs for cypress
+#          - git clone -b develop --single-branch git@github.com:Mesdocteurs/md-api.git
+#          - cd md-api
+#          - cache restore node-modules-api-$(checksum package.json)
+#          - createdb -U postgres -h 0.0.0.0 mesdocteurs
+#          - node server/server.js &
+#          - sleep 15
+#      jobs:
+#        - name: 'Integration tests'
+#          commands:
+#            - cd ..
+#            - checkout
+#            - cache restore node-modules-$(checksum package.json)
+#            - npx cypress install # install cypress binary that is not cached
+#            - npm run cy:test
 promotions:
   - name: '1 - Recette deployment'
     pipeline_file: recette-deploy.yml

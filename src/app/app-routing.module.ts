@@ -61,7 +61,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/connexion',
+    redirectTo: '/deconnexion',
     pathMatch: 'full'
   }
 ];

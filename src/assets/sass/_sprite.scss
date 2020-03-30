@@ -1,6 +1,15 @@
+:root {
+  --size: 30px;
+  --color: currentColor;
+}
+
 .md-picto {
-  fill: currentColor;
-  height: 35px;
-  stroke: currentColor;
-  width: 35px;
+  fill: var(--color);
+  height: var(--size);
+  stroke: var(--color);
+  width: var(--size);
+
+  &--l {
+    --size: 45px;
+  }
 }

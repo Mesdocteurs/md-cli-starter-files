@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="23px" viewBox="0 0 24 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Paiement-SF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="PaiementRefusé" transform="translate(-468.000000, -485.000000)" stroke="#263444">
+            <g id="Toaster/AlerteNavigateur" transform="translate(450.000000, 465.000000)">
+                <g id="Group" transform="translate(19.000000, 21.000000)">
+                    <g id="alert-triangle">
+                        <path d="M21.553,20.581 C21.6873769,20.7677378 21.6960804,21.0170213 21.5750544,21.2126763 C21.4540284,21.4083313 21.2270901,21.5118542 21,21.475 L1,21.475 C0.772909873,21.5118542 0.545971559,21.4083313 0.424945601,21.2126763 C0.303919643,21.0170213 0.312623147,20.7677378 0.447,20.581 L10.553,0.37 C10.799,-0.122 11.201,-0.122 11.447,0.37 L21.553,20.581 Z" id="Shape"></path>
+                        <line x1="11" y1="14.979" x2="11" y2="7.979" id="Shape"></line>
+                        <path d="M10.991,16.979 C10.9250388,16.9802963 10.8623625,17.0080331 10.8170467,17.0559814 C10.7717308,17.1039297 10.7475736,17.1680707 10.75,17.234 C10.7553574,17.3705261 10.8673695,17.4785693 11.004,17.479 L11.009,17.479 C11.0749612,17.4777037 11.1376375,17.4499669 11.1829533,17.4020186 C11.2282692,17.3540703 11.2524264,17.2899293 11.25,17.224 C11.2447259,17.0890018 11.1350772,16.9815461 11,16.979 L10.995,16.979" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

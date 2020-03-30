@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="25px" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59 (86127) - https://sketch.com -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Paiement-SF" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="PaiementSF-2" transform="translate(-602.000000, -506.000000)" stroke="#2A3848">
+            <g id="Group" transform="translate(602.000000, 506.000000)">
+                <g id="calendar-check">
+                    <rect id="Rectangle-path" x="0.5" y="2.501" width="23" height="21" rx="1"></rect>
+                    <line x1="5.5" y1="0.501" x2="5.5" y2="5.501" id="Shape"></line>
+                    <line x1="18.5" y1="0.501" x2="18.5" y2="5.501" id="Shape"></line>
+                    <line x1="0.5" y1="7.501" x2="23.5" y2="7.501" id="Shape"></line>
+                    <path d="M17,15.5 C17,18.2614237 14.7614237,20.5 12,20.5 C9.23857625,20.5 7,18.2614237 7,15.5 C7,12.7385763 9.23857625,10.5 12,10.5" id="Shape"></path>
+                    <path d="M10,15 L11.62,16.215 C11.8329557,16.3746208 12.1336262,16.3394547 12.304,16.135 L17,10.5" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
